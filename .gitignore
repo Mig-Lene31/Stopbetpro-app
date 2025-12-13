@@ -1,9 +1,8 @@
 node_modules/
 android/.gradle/
-android/build/
 android/app/build/
-
-*.zip
-*.tar.gz
-*.b64
-*.txt
+android/build/
+.gradle/
+*.keystore
+*.jks
+.env

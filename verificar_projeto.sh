@@ -1,35 +1,20 @@
 #!/usr/bin/env bash
+set -e
 
-echo "🔍 Verificando estrutura do projeto..."
-tree -L 4
+echo "Verificando estrutura do projeto..."
 
-echo "📦 Verificando dependências quebradas..."
-npm ls --depth=2 || true
+[ -f package.json ] || { echo "package.json não encontrado"; exit 1; }
+[ -f index.js ] || { echo "index.js não encontrado"; exit 1; }
+[ -d android ] || { echo "pasta android não encontrada"; exit 1; }
 
-echo "🔍 Verificando erros de Javascript..."
-npx eslint . || true
+[ -f android/app/src/main/AndroidManifest.xml ] || { echo "AndroidManifest.xml não encontrado"; exit 1; }
+[ -f android/app/src/main/java/com/stopbet/app/MainApplication.java ] || { echo "MainApplication.java não encontrado"; exit 1; }
 
-echo "📜 Verificando erros do Metro bundler..."
-npx react-native bundle --entry-file index.js --platform android --dev false --bundle-output /tmp/bundle.js --assets-dest /tmp/assets || true
+[ -f android/app/src/main/java/com/stopbet/app/androidnative/StopBetModule.kt ] || { echo "StopBetModule.kt não encontrado"; exit 1; }
+[ -f android/app/src/main/java/com/stopbet/app/androidnative/StopBetPackage.kt ] || { echo "StopBetPackage.kt não encontrado"; exit 1; }
 
-echo "⚙️ Testando build nativo (sem gerar APK)..."
-cd android
-./gradlew assembleDebug --stacktrace || true
-cd ..
+[ -f src/services/stopEngine.js ] || { echo "stopEngine.js não encontrado"; exit 1; }
+[ -f src/services/block.js ] || { echo "block.js não encontrado"; exit 1; }
+[ -f src/services/proBlocker.js ] || { echo "proBlocker.js não encontrado"; exit 1; }
 
-echo "📁 Verificando módulos nativos..."
-grep -R \"Blocker\" android/app/src/main/java
-
-echo "📄 Verificando AndroidManifest..."
-grep -n \"MainApplication\" android/app/src/main/AndroidManifest.xml
-grep -n \"AccessibilityService\" android/app/src/main/AndroidManifest.xml
-
-echo \"🔐 Verificando permissões importantes...\"
-grep -n \"android.permission\" android/app/src/main/AndroidManifest.xml
-
-echo \"🧠 Verificando lógica do Stop Win / Stop Loss / Timer...\"
-grep -R \"stop\" -n ./src || true
-grep -R \"timer\" -n ./src || true
-grep -R \"limit\" -n ./src || true
-
-echo \"🎯 Verificação concluída.\"
+echo "Estrutura OK para Codemagic"
