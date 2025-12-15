@@ -1,0 +1,47 @@
+name: Build Android APK (Release)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout do código
+        uses: actions/checkout@v4
+
+      - name: 🟢 Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: 📦 Instalar dependências
+        run: npm install
+
+      - name: ☕ Configurar Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: gradle
+
+      - name: 🔐 Permissão no Gradle
+        run: |
+          cd android
+          chmod +x gradlew
+
+      - name: 🏗️ Build APK Release
+        run: |
+          cd android
+          ./gradlew assembleRelease
+
+      - name: 📤 Upload do APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: StopBetPro-APK-Release
+          path: android/app/build/outputs/apk/release/*.apk
