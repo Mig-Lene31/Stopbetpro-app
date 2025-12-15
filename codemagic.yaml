@@ -13,10 +13,19 @@ workflows:
         script: |
           npm install
 
+      - name: Generate React Native config
+        script: |
+          npx react-native config
+
       - name: Grant gradlew permission
         script: |
           cd android
           chmod +x gradlew
+
+      - name: Clean Android build
+        script: |
+          cd android
+          ./gradlew clean
 
       - name: Build Android APK (Release)
         script: |
