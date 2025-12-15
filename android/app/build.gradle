@@ -1,15 +1,15 @@
-apply plugin: "com.android.application"
-
-apply from: file("../../node_modules/react-native/react.gradle")
+plugins {
+    id "com.android.application"
+}
 
 android {
     namespace "com.stopbet.app"
-    compileSdkVersion 34
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.stopbet.app"
-        minSdkVersion 23
-        targetSdkVersion 34
+        minSdk 23
+        targetSdk 34
         versionCode 1
         versionName "1.0"
     }
