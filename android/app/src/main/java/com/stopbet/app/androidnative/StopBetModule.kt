@@ -1,26 +1,23 @@
 package com.stopbet.app.androidnative
 
-import com.facebook.react.bridge.*
-import com.facebook.react.modules.core.DeviceEventManagerModule
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.bridge.ReactContextBaseJavaModule
+import com.facebook.react.bridge.ReactMethod
 
-class StopBetModule(private val reactContext: ReactApplicationContext) :
-    ReactContextBaseJavaModule(reactContext) {
-
-    companion object {
-        lateinit var instance: StopBetModule
-    }
+class StopBetModule(
+    reactContext: ReactApplicationContext
+) : ReactContextBaseJavaModule(reactContext) {
 
     init {
-        instance = this
+        BalanceBridge.init(reactContext)
     }
 
     override fun getName(): String {
-        return "StopBetBridge"
+        return "StopBetModule"
     }
 
-    fun sendBalance(balance: Double) {
-        reactContext
-            .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
-            .emit("STOPBET_BALANCE", balance)
+    @ReactMethod
+    fun ping() {
+        // Apenas para garantir inicialização do módulo
     }
 }

@@ -1,33 +1,45 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-const KEY = 'stopbet_prefs_v1';
+import Storage from './storage';
+import { evaluateBalance, startStopEngine } from './stopEngine';
+import { activateBlock } from './block';
+import BalanceListener from './balanceListener';
 
-async function readPrefs(){ const r = await AsyncStorage.getItem(KEY); return r?JSON.parse(r):{}; }
-async function writePrefs(o){ await AsyncStorage.setItem(KEY, JSON.stringify(o||{})); }
+let systemRunning = false;
 
-export async function saveRules(rules){ const p = await readPrefs(); p.rules = {...p.rules, ...rules}; await writePrefs(p); }
-export async function getRules(){ const p = await readPrefs(); return p.rules || {}; }
+export async function startBlockSystem() {
+  if (systemRunning) {
+    console.log('[STOPBET] BlockSystem já está ativo');
+    return;
+  }
 
-export function sanitizeAndFilterText(text){
-  if(!text || typeof text !== 'string') return null;
-  const low = text.toLowerCase();
-  const ads = ['ganhou','winner','jackpot','ganhador','premio','promo','oferta'];
-  for(const a of ads) if(low.includes(a)) return null;
-  const m = low.replace(/[^\d.,]/g,' ').match(/(\d+[.,]?\d{0,2})/);
-  if(!m) return null;
-  const v = parseFloat(m[1].replace(',', '.'));
-  if(isNaN(v) || v >= 1e6) return null;
-  return v;
+  systemRunning = true;
+
+  console.log('[STOPBET] Sistema de bloqueio iniciado');
+
+  await startStopEngine();
+
+  BalanceListener.start(async (currentBalance) => {
+    console.log('[STOPBET] Saldo detectado:', currentBalance);
+
+    await evaluateBalance(currentBalance, 'LIVE');
+
+    const pending = await Storage.get('pendingBlock');
+
+    if (pending === true) {
+      console.log('[STOPBET] Bloqueio pendente detectado');
+      await handleConfirmation(currentBalance);
+    }
+  });
 }
 
-export async function triggerBlock(reason){
-  const p = await readPrefs();
-  const until = Date.now() + 12*60*60*1000;
-  p.block_until = until; p.block_reason = reason;
-  await writePrefs(p);
-  return until;
+async function handleConfirmation(currentBalance) {
+  console.log('[STOPBET] Confirmando valores antes do bloqueio');
+
+  await evaluateBalance(currentBalance, 'CONFIRMATION');
+
+  const pending = await Storage.get('pendingBlock');
+
+  if (pending === false) {
+    console.log('[STOPBET] Bloqueio confirmado');
+    await activateBlock();
+  }
 }
-export async function isBlocked(){
-  const p = await readPrefs();
-  return !!(p.block_until && p.block_until > Date.now());
-}
-export default { saveRules, getRules, sanitizeAndFilterText, triggerBlock, isBlocked };

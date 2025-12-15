@@ -10,8 +10,8 @@ import com.facebook.soloader.SoLoader;
 
 import java.util.List;
 
-// 🔴 IMPORT CORRETO DO STOPBET
-import com.stopbet.app.androidnative.StopBetPackage;
+// ✅ IMPORT CORRETO
+import com.stopbet.app.BlockerPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -28,8 +28,8 @@ public class MainApplication extends Application implements ReactApplication {
                 List<ReactPackage> packages =
                     new PackageList(this).getPackages();
 
-                // ✅ REGISTRA O STOPBET
-                packages.add(new StopBetPackage());
+                // ✅ REGISTRA O BLOQUEADOR
+                packages.add(new BlockerPackage());
 
                 return packages;
             }

@@ -10,7 +10,9 @@ class StopBetPackage : ReactPackage {
     override fun createNativeModules(
         reactContext: ReactApplicationContext
     ): List<NativeModule> {
-        return listOf(StopBetModule(reactContext))
+        return listOf(
+            StopBetModule(reactContext)
+        )
     }
 
     override fun createViewManagers(

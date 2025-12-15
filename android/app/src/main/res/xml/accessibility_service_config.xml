@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<accessibility-service
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:accessibilityEventTypes="typeWindowStateChanged"
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accessibilityEventTypes="
+        typeWindowStateChanged|
+        typeWindowContentChanged"
     android:accessibilityFeedbackType="feedbackGeneric"
-    android:canRetrieveWindowContent="true"
     android:notificationTimeout="100"
-    android:description="Serviço de bloqueio StopBet Pro"
-    android:packageNames="com.betfair,com.bet365,com.pinnacle,com.betano.app"
-/>
+    android:canRetrieveWindowContent="true"
+    android:accessibilityFlags="flagDefault"
+    android:description="@string/accessibility_service_description"/>

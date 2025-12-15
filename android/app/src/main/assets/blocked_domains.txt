@@ -1,0 +1,80 @@
+# ==========================================
+# STOPBET PRO - LISTA OFICIAL DE BLOQUEIO
+# Sites de apostas / cassinos online
+# ==========================================
+
+# --- BETS POPULARES (BRASIL) ---
+bet365.com
+www.bet365.com
+betano.com
+www.betano.com
+sportingbet.com
+www.sportingbet.com
+pixbet.com
+www.pixbet.com
+betfair.com
+www.betfair.com
+betnacional.com
+www.betnacional.com
+betway.com
+www.betway.com
+rivalry.com
+www.rivalry.com
+novibet.com
+www.novibet.com
+galera.bet
+www.galera.bet
+estrelabet.com
+www.estrelabet.com
+parimatch.com
+www.parimatch.com
+
+# --- CASSINOS ONLINE ---
+blaze.com
+www.blaze.com
+stake.com
+www.stake.com
+stake.bet
+casino.bet
+roobet.com
+www.roobet.com
+1xbet.com
+www.1xbet.com
+22bet.com
+www.22bet.com
+betsson.com
+www.betsson.com
+betmotion.com
+www.betmotion.com
+kto.com
+www.kto.com
+luckygames.com
+www.luckygames.com
+spinbet.com
+www.spinbet.com
+
+# --- BETS INTERNACIONAIS ---
+williamhill.com
+www.williamhill.com
+ladbrokes.com
+www.ladbrokes.com
+unibet.com
+www.unibet.com
+bwin.com
+www.bwin.com
+888casino.com
+www.888casino.com
+888sport.com
+www.888sport.com
+betvictor.com
+www.betvictor.com
+paddypower.com
+www.paddypower.com
+marathonbet.com
+www.marathonbet.com
+
+# --- ESPELHOS / SUBDOMÍNIOS ---
+mobile.bet365.com
+m.bet365.com
+m.blaze.com
+mobile.blaze.com

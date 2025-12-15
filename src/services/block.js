@@ -1,12 +1,15 @@
-import { NativeModules } from 'react-native';
+import Storage from './storage';
+import { startVpn } from './vpn';
 
-const { BlockerModule } = NativeModules;
-
-export function startBlock(hours) {
-  if (!BlockerModule) {
-    console.log('❌ BlockerModule não encontrado');
+export async function activateBlock() {
+  const alreadyBlocked = await Storage.get('blocked');
+  if (alreadyBlocked === true) {
+    console.log('[STOPBET] Bloqueio já ativo');
     return;
   }
 
-  BlockerModule.startBlock(hours);
+  console.log('[STOPBET] ATIVANDO BLOQUEIO TOTAL');
+
+  await Storage.set('blocked', true);
+  await startVpn();
 }
