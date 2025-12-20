@@ -1,122 +1,68 @@
 import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  Alert,
-  StyleSheet,
-  NativeModules,
-} from 'react-native';
-
-const { StopBetBlocker } = NativeModules;
+import { View, Text, Switch, Button, TextInput, StyleSheet } from 'react-native';
+import StopBetEngine from '../native/StopBetEngine';
 
 export default function StopBetConfigScreen() {
-  const [deposit, setDeposit] = useState('');
+  const [enabled, setEnabled] = useState(false);
   const [stopWin, setStopWin] = useState('');
   const [stopLoss, setStopLoss] = useState('');
-  const [enabled, setEnabled] = useState(false);
+  const [depositLimit, setDepositLimit] = useState('');
 
-  const saveRules = () => {
-    if (!deposit || !stopWin || !stopLoss) {
-      Alert.alert('Erro', 'Preencha todos os campos');
-      return;
+  const toggleEngine = async () => {
+    alert('Configure depósito, Stop Win e Stop Loss antes de ativar');
+    return;
+  }
+    if (enabled) {
+      StopBetEngine.disable();
+import('../core/AppActivationState').then(m => m.deactivateApp());
+      import("../native/stopAccessibilityListener").then(m => m.stopAccessibilityListener());
+    } else {
+      StopBetEngine.enable({ stopWin, stopLoss, depositLimit });
+import('../core/AppActivationState').then(m => m.activateApp());
+      import("../native/stopAccessibilityListener").then(m => m.startAccessibilityListener());
     }
-
-    StopBetBlocker.setDeposit(Number(deposit));
-    StopBetBlocker.setStopWin(Number(stopWin));
-    StopBetBlocker.setStopLoss(Number(stopLoss));
-    StopBetBlocker.enableBlock(true);
-
-    setEnabled(true);
-    Alert.alert('Ativado', 'Bloqueio configurado com sucesso');
-  };
-
-  const disableRules = () => {
-    StopBetBlocker.enableBlock(false);
-    setEnabled(false);
-    Alert.alert('Desativado', 'Bloqueio desativado');
+    setEnabled(!enabled);
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>StopBet Pro</Text>
+      <Text style={styles.title}>Configurações StopBet</Text>
 
-      <TextInput
-        placeholder="Valor do Depósito (R$)"
-        keyboardType="numeric"
-        value={deposit}
-        onChangeText={setDeposit}
-        style={styles.input}
-      />
+      <Text>Ativar Motor:</Text>
+      <Switch value={enabled} onValueChange={toggleEngine} />
 
+      <Text>Stop Win:</Text>
       <TextInput
-        placeholder="Stop Win (R$)"
-        keyboardType="numeric"
         value={stopWin}
         onChangeText={setStopWin}
+        placeholder="Valor Stop Win"
+        keyboardType="numeric"
         style={styles.input}
       />
 
+      <Text>Stop Loss:</Text>
       <TextInput
-        placeholder="Stop Loss (R$)"
-        keyboardType="numeric"
         value={stopLoss}
         onChangeText={setStopLoss}
+        placeholder="Valor Stop Loss"
+        keyboardType="numeric"
         style={styles.input}
       />
 
-      {!enabled ? (
-        <TouchableOpacity style={styles.btnOn} onPress={saveRules}>
-          <Text style={styles.btnText}>ATIVAR BLOQUEIO</Text>
-        </TouchableOpacity>
-      ) : (
-        <TouchableOpacity style={styles.btnOff} onPress={disableRules}>
-          <Text style={styles.btnText}>DESATIVAR BLOQUEIO</Text>
-        </TouchableOpacity>
-      )}
+      <Text>Valor de Depósito:</Text>
+      <TextInput
+        value={depositLimit}
+        onChangeText={setDepositLimit}
+        placeholder="Valor"
+        keyboardType="numeric"
+        style={styles.input}
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#0f172a',
-    padding: 24,
-    justifyContent: 'center',
-  },
-  title: {
-    color: '#22c55e',
-    fontSize: 28,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 32,
-  },
-  input: {
-    backgroundColor: '#1e293b',
-    color: '#fff',
-    padding: 14,
-    borderRadius: 8,
-    marginBottom: 16,
-    fontSize: 16,
-  },
-  btnOn: {
-    backgroundColor: '#22c55e',
-    padding: 16,
-    borderRadius: 8,
-    marginTop: 16,
-  },
-  btnOff: {
-    backgroundColor: '#ef4444',
-    padding: 16,
-    borderRadius: 8,
-    marginTop: 16,
-  },
-  btnText: {
-    color: '#000',
-    fontWeight: 'bold',
-    textAlign: 'center',
-    fontSize: 16,
-  },
+  container: { flex: 1, padding: 20 },
+  title: { fontSize: 24, marginBottom: 20 },
+  input: { borderWidth: 1, borderColor: '#ccc', padding: 10, marginBottom: 15 }
 });

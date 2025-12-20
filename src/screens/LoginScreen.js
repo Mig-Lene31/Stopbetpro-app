@@ -1,49 +1,51 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
-import { registerUser, loginUser } from '../services/auth';
+import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { saveItem } from '../services/storage';
+import { STORAGE_KEYS } from '../config/constants';
 
 export default function LoginScreen({ navigation }) {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
 
-  async function handleLogin() {
-    try {
-      await loginUser(email, password);
-      navigation.replace('Home');
-    } catch (e) {
-      setError('Usuário não encontrado');
+  const login = async () => {
+    if (!username || !password) {
+      Alert.alert('Erro', 'Preencha todos os campos');
+      return;
     }
-  }
 
-  async function handleRegister() {
-    await registerUser(email, password);
-    navigation.replace('Home');
-  }
+    // Aqui você pode integrar com backend real
+    await saveItem(STORAGE_KEYS.USER, { username });
+    navigation.reset({ index: 0, routes: [{ name: 'Home' }] });
+  };
 
   return (
-    <View style={{ padding: 20 }}>
-      <Text>Login / Registro</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Login / Cadastro</Text>
 
+      <Text>Usuário:</Text>
       <TextInput
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
-        style={{ borderWidth: 1, marginVertical: 6 }}
+        value={username}
+        onChangeText={setUsername}
+        placeholder="Digite seu usuário"
+        style={styles.input}
       />
 
+      <Text>Senha:</Text>
       <TextInput
-        placeholder="Senha"
-        secureTextEntry
         value={password}
         onChangeText={setPassword}
-        style={{ borderWidth: 1, marginVertical: 6 }}
+        placeholder="Digite sua senha"
+        secureTextEntry
+        style={styles.input}
       />
 
-      {error ? <Text>{error}</Text> : null}
-
-      <Button title="Entrar" onPress={handleLogin} />
-      <Button title="Registrar" onPress={handleRegister} />
+      <Button title="Entrar" onPress={login} />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: { flex: 1, padding: 20, justifyContent: 'center' },
+  title: { fontSize: 24, marginBottom: 20, textAlign: 'center' },
+  input: { borderWidth: 1, borderColor: '#ccc', padding: 10, marginBottom: 15 }
+});

@@ -1,61 +1,66 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, Button, BackHandler } from 'react-native';
-import { getBlockStatus, clearBlock } from '../services/block';
-import { createUnlockPayment, confirmPayment } from '../services/payment';
-import { canUnlockEarly } from '../services/security';
+import React from 'react';
+import { View, Text, Button, StyleSheet, Alert } from 'react-native';
+import * as Clipboard from '@react-native-clipboard/clipboard';
 
-export default function BlockedScreen({ navigation }) {
-  const [block, setBlock] = useState(null);
-  const [payment, setPayment] = useState(null);
+const PIX_KEY = '11970200771';
 
-  useEffect(() => {
-    loadBlock();
-    const backHandler = BackHandler.addEventListener(
-      'hardwareBackPress',
-      () => true
+export default function BlockedScreen() {
+  const copiarPix = () => {
+    Clipboard.setString(PIX_KEY);
+    Alert.alert(
+      'Pix copiado',
+      'Pague R$50,00 e envie o comprovante no WhatsApp (11 97020-0771).'
     );
-    return () => backHandler.remove();
-  }, []);
-
-  async function loadBlock() {
-    const b = await getBlockStatus();
-    setBlock(b);
-  }
-
-  async function unlockWithPayment() {
-    const p = await createUnlockPayment();
-    setPayment(p);
-  }
-
-  async function confirmUnlock() {
-    const paid = await confirmPayment();
-    if (canUnlockEarly(paid)) {
-      await clearBlock();
-      navigation.replace('Home');
-    }
-  }
-
-  if (!block || !block.active) {
-    navigation.replace('Home');
-    return null;
-  }
+  };
 
   return (
-    <View style={{ padding: 20 }}>
-      <Text>BLOQUEIO ATIVO</Text>
-      <Text>Apostas bloqueadas por segurança</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>ACESSO BLOQUEADO</Text>
 
-      {!payment ? (
-        <Button
-          title="Desbloquear por R$50"
-          onPress={unlockWithPayment}
-        />
-      ) : (
-        <Button
-          title="Confirmar Pagamento"
-          onPress={confirmUnlock}
-        />
-      )}
+      <Text style={styles.text}>
+        O limite configurado foi atingido.
+        O acesso será liberado automaticamente após 12 horas.
+      </Text>
+
+      <Text style={styles.text}>
+        Para desbloqueio antecipado, o valor é R$50,00 via Pix.
+      </Text>
+
+      <View style={styles.box}>
+        <Text selectable style={styles.pix}>{PIX_KEY}</Text>
+      </View>
+
+      <Button title="Copiar chave Pix" onPress={copiarPix} />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 20
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center'
+  },
+  text: {
+    fontSize: 16,
+    marginBottom: 15,
+    textAlign: 'center'
+  },
+  box: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    padding: 10,
+    borderRadius: 6,
+    marginBottom: 20
+  },
+  pix: {
+    fontSize: 16,
+    textAlign: 'center'
+  }
+});

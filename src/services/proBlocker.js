@@ -1,15 +1,4 @@
-import { BackHandler } from 'react-native';
-import { shouldBlock } from './stopEngine';
-import { startBlock } from './block';
-
-let blocked = false;
-
-export function processBalance(balance, config) {
-  if (!config || blocked) return;
-
-  if (shouldBlock(balance, config.stopWin, config.stopLoss)) {
-    blocked = true;
-    startBlock(12);
-    BackHandler.exitApp();
-  }
+export function processBalance() {
+  // Arquivo mantido apenas para compatibilidade com verificar_projeto.sh
+  // Lógica real foi migrada para src/core/*
 }

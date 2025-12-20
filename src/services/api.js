@@ -1,37 +1,29 @@
-import { SERVER_CONFIG } from '../config/server';
+import { API_URL } from "../config";
 
-export async function apiRequest(
-  endpoint,
-  method = 'GET',
-  body = null
-) {
-  const controller = new AbortController();
-  const timeout = setTimeout(
-    () => controller.abort(),
-    SERVER_CONFIG.TIMEOUT
-  );
+export async function getStatus(uid) {
+  return fetch(`${API_URL}/user/status/${uid}`).then(r => r.json());
+}
 
-  try {
-    const response = await fetch(
-      SERVER_CONFIG.BASE_URL + endpoint,
-      {
-        method,
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: body ? JSON.stringify(body) : null,
-        signal: controller.signal
-      }
-    );
+export async function updateControls(uid, stopWin, stopLoss, blockMinutes) {
+  return fetch(`${API_URL}/user/update-controls`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ uid, stopWin, stopLoss, blockMinutes })
+  }).then(r => r.json());
+}
 
-    return await response.json();
-  } catch (e) {
-    return {
-      success: true,
-      mock: true,
-      data: body
-    };
-  } finally {
-    clearTimeout(timeout);
-  }
+export async function blockUser(uid, minutes) {
+  return fetch(`${API_URL}/user/block`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ uid, minutes })
+  }).then(r => r.json());
+}
+
+export async function unlockPaid(uid) {
+  return fetch(`${API_URL}/user/unlock-paid`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ uid })
+  }).then(r => r.json());
 }

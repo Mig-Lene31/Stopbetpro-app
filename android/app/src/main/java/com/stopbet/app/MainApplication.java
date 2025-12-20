@@ -6,12 +6,12 @@ import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
+import com.stopbet.app.bridge.StopBetPackage;
 import com.facebook.soloader.SoLoader;
 
 import java.util.List;
 
 // ✅ IMPORT CORRETO
-import com.stopbet.app.BlockerPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -29,7 +29,8 @@ public class MainApplication extends Application implements ReactApplication {
                     new PackageList(this).getPackages();
 
                 // ✅ REGISTRA O BLOQUEADOR
-                packages.add(new BlockerPackage());
+
+        packages.add(new StopBetPackage());
 
                 return packages;
             }
@@ -49,5 +50,6 @@ public class MainApplication extends Application implements ReactApplication {
     public void onCreate() {
         super.onCreate();
         SoLoader.init(this, false);
+        com.stopbet.app.blocker.BlockController.init(this);
     }
 }

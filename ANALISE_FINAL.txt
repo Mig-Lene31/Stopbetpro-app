@@ -1,0 +1,511 @@
+=== APP.JS ===
+$(cat App.js)
+=== INDEX.JS ===
+import { AppRegistry } from 'react-native';
+import App from './App';
+import { name as appName } from './app.json';
+
+AppRegistry.registerComponent(appName, () => App);
+=== APP NAVIGATOR ===
+import React, { useEffect, useState } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import LoginScreen from '../screens/LoginScreen';
+import HomeScreen from '../screens/HomeScreen';
+import BlockedScreen from '../screens/BlockedScreen';
+import TestScreen from '../screens/TestScreen';
+
+import { getItem } from '../services/storage';
+import { STORAGE_KEYS } from '../config/constants';
+
+const Stack = createNativeStackNavigator();
+
+export default function AppNavigator() {
+  const [loading, setLoading] = useState(true);
+  const [logged, setLogged] = useState(false);
+
+  useEffect(() => {
+    async function checkSession() {
+      const user = await getItem(STORAGE_KEYS.USER);
+      setLogged(!!user);
+      setLoading(false);
+    }
+    checkSession();
+  }, []);
+
+  if (loading) return null;
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+          gestureEnabled: false,
+        }}
+      >
+        <Stack.Screen name="Test" component={TestScreen} />
+        {!logged ? (
+          <Stack.Screen name="Login" component={LoginScreen} />
+        ) : (
+          <>
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Blocked" component={BlockedScreen} />
+          </>
+        )}
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+=== LOGIN SCREEN ===
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { saveItem } from '../services/storage';
+import { STORAGE_KEYS } from '../config/constants';
+
+export default function LoginScreen({ navigation }) {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const login = async () => {
+    if (!username || !password) {
+      Alert.alert('Erro', 'Preencha todos os campos');
+      return;
+    }
+
+    // Aqui você pode integrar com backend real
+    await saveItem(STORAGE_KEYS.USER, { username });
+    navigation.reset({ index: 0, routes: [{ name: 'Home' }] });
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Login / Cadastro</Text>
+
+      <Text>Usuário:</Text>
+      <TextInput
+        value={username}
+        onChangeText={setUsername}
+        placeholder="Digite seu usuário"
+        style={styles.input}
+      />
+
+      <Text>Senha:</Text>
+      <TextInput
+        value={password}
+        onChangeText={setPassword}
+        placeholder="Digite sua senha"
+        secureTextEntry
+        style={styles.input}
+      />
+
+      <Button title="Entrar" onPress={login} />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, padding: 20, justifyContent: 'center' },
+  title: { fontSize: 24, marginBottom: 20, textAlign: 'center' },
+  input: { borderWidth: 1, borderColor: '#ccc', padding: 10, marginBottom: 15 }
+});
+=== HOME SCREEN ===
+import React from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+
+export default function HomeScreen({ navigation }) {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Bem-vindo ao StopBet Pro</Text>
+
+      <Button
+        title="Configurações StopBet"
+        onPress={() => navigation.navigate('StopBetConfig')}
+      />
+
+      <Button
+        title="Pagamento Mensal"
+        onPress={() => navigation.navigate('Payment')}
+      />
+
+      <Button
+        title="Pagamento Pix"
+        onPress={() => navigation.navigate('PixPayment')}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 },
+  title: { fontSize: 24, marginBottom: 20, textAlign: 'center' }
+});
+=== STOP CONFIG SCREEN ===
+import React, { useState } from 'react';
+import { View, Text, Switch, Button, TextInput, StyleSheet } from 'react-native';
+import StopBetEngine from '../native/StopBetEngine';
+
+export default function StopBetConfigScreen() {
+  const [enabled, setEnabled] = useState(false);
+  const [stopWin, setStopWin] = useState('');
+  const [stopLoss, setStopLoss] = useState('');
+  const [depositLimit, setDepositLimit] = useState('');
+
+  const toggleEngine = () => {
+    if (enabled) {
+      StopBetEngine.disable();
+    } else {
+      StopBetEngine.enable({ stopWin, stopLoss, depositLimit });
+    }
+    setEnabled(!enabled);
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Configurações StopBet</Text>
+
+      <Text>Ativar Motor:</Text>
+      <Switch value={enabled} onValueChange={toggleEngine} />
+
+      <Text>Stop Win:</Text>
+      <TextInput
+        value={stopWin}
+        onChangeText={setStopWin}
+        placeholder="Valor Stop Win"
+        keyboardType="numeric"
+        style={styles.input}
+      />
+
+      <Text>Stop Loss:</Text>
+      <TextInput
+        value={stopLoss}
+        onChangeText={setStopLoss}
+        placeholder="Valor Stop Loss"
+        keyboardType="numeric"
+        style={styles.input}
+      />
+
+      <Text>Valor de Depósito:</Text>
+      <TextInput
+        value={depositLimit}
+        onChangeText={setDepositLimit}
+        placeholder="Valor"
+        keyboardType="numeric"
+        style={styles.input}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, padding: 20 },
+  title: { fontSize: 24, marginBottom: 20 },
+  input: { borderWidth: 1, borderColor: '#ccc', padding: 10, marginBottom: 15 }
+});
+=== BLOCKED SCREEN ===
+import React, { useState } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+import { createUnlockPayment, confirmPayment } from '../services/payment';
+
+export default function BlockedScreen() {
+  const [payment, setPayment] = useState(null);
+
+  const unlockEarly = async () => {
+    const p = await createUnlockPayment(50); // desbloqueio por 50 reais
+    setPayment(p);
+    const confirmed = await confirmPayment(p.id);
+    if (confirmed) {
+      alert('App desbloqueado!');
+      setPayment(null);
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>⚠️ BLOQUEADO ⚠️</Text>
+      {!payment ? (
+        <Button title="Desbloquear agora (R$50)" onPress={unlockEarly} />
+      ) : (
+        <Text>Processando pagamento...</Text>
+      )}
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 },
+  title: { fontSize: 24, marginBottom: 20, textAlign: 'center' }
+});
+=== PAYMENT SERVICE ===
+import auth from '@react-native-firebase/auth';
+
+const API_URL = 'http://192.168.1.127:3000';
+
+export async function createPixPayment(value) {
+  const user = auth().currentUser;
+  if (!user) throw new Error('Usuário não autenticado');
+
+  const res = await fetch(\`\${API_URL}/pix/create\`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      uid: user.uid,
+      value,
+    }),
+  });
+
+  return await res.json();
+}
+=== BLOCK ENGINE ===
+import Storage from './storage';
+import { evaluateBalance, startStopEngine } from './stopEngine';
+import { activateBlock } from './block';
+import BalanceListener from './balanceListener';
+
+let systemRunning = false;
+
+export async function startBlockSystem() {
+  if (systemRunning) {
+    console.log('[STOPBET] BlockSystem já está ativo');
+    return;
+  }
+
+  systemRunning = true;
+
+  console.log('[STOPBET] Sistema de bloqueio iniciado');
+
+  await startStopEngine();
+
+  BalanceListener.start(async (currentBalance) => {
+    console.log('[STOPBET] Saldo detectado:', currentBalance);
+
+    await evaluateBalance(currentBalance, 'LIVE');
+
+    const pending = await Storage.get('pendingBlock');
+
+    if (pending === true) {
+      console.log('[STOPBET] Bloqueio pendente detectado');
+      await handleConfirmation(currentBalance);
+    }
+  });
+}
+
+async function handleConfirmation(currentBalance) {
+  console.log('[STOPBET] Confirmando valores antes do bloqueio');
+
+  await evaluateBalance(currentBalance, 'CONFIRMATION');
+
+  const pending = await Storage.get('pendingBlock');
+
+  if (pending === false) {
+    console.log('[STOPBET] Bloqueio confirmado');
+    await activateBlock();
+  }
+}
+=== STOP ENGINE ===
+import Storage from './storage';
+
+let engineRunning = false;
+
+export async function startStopEngine() {
+  if (engineRunning) return;
+  engineRunning = true;
+  console.log('[STOPBET] StopEngine iniciado');
+}
+
+export async function evaluateBalance(currentBalance) {
+  const deposit = await Storage.get('depositAmount');
+  const stopWin = await Storage.get('stopWin');
+  const stopLoss = await Storage.get('stopLoss');
+
+  if (deposit == null || stopWin == null || stopLoss == null) {
+    console.warn('[STOPBET] Configuração incompleta');
+    return;
+  }
+
+  const stopWinTarget = deposit + stopWin;
+  const stopLossTarget = deposit - stopLoss;
+
+  console.log('[STOPBET] Saldo:', currentBalance);
+  console.log('[STOPBET] StopWin alvo:', stopWinTarget);
+  console.log('[STOPBET] StopLoss alvo:', stopLossTarget);
+
+  if (currentBalance >= stopWinTarget) {
+    await markPendingBlock('STOP_WIN', currentBalance);
+  }
+
+  if (currentBalance <= stopLossTarget) {
+    await markPendingBlock('STOP_LOSS', currentBalance);
+  }
+}
+
+async function markPendingBlock(reason, balance) {
+  await Storage.set('pendingBlock', true);
+  await Storage.set('blockReason', reason);
+  await Storage.set('lastDetectedBalance', balance);
+  await Storage.set('navigateToConfirm', true);
+
+  console.log('[STOPBET] Bloqueio pendente:', reason);
+}
+=== BALANCE LISTENER ===
+import Storage from './storage';
+
+let running = false;
+let lastBalance = null;
+let callbackFn = null;
+
+/**
+ * BalanceListener.start(cb)
+ * cb(balance:number)
+ */
+const BalanceListener = {
+  start: async (callback) => {
+    if (running) {
+      console.log('[STOPBET] BalanceListener já ativo');
+      return;
+    }
+
+    running = true;
+    callbackFn = callback;
+
+    console.log('[STOPBET] BalanceListener iniciado');
+
+    const deposit = await Storage.get('depositAmount');
+
+    if (deposit == null) {
+      console.warn('[STOPBET] Depósito não definido');
+      return;
+    }
+
+    lastBalance = deposit;
+
+    // Simulação de escuta contínua
+    startPolling();
+  },
+
+  stop: () => {
+    running = false;
+    callbackFn = null;
+    console.log('[STOPBET] BalanceListener parado');
+  },
+};
+
+async function startPolling() {
+  while (running) {
+    try {
+      const detectedBalance = await detectBalance();
+
+      if (detectedBalance != null && detectedBalance !== lastBalance) {
+        lastBalance = detectedBalance;
+
+        if (callbackFn) {
+          callbackFn(detectedBalance);
+        }
+      }
+    } catch (e) {
+      console.warn('[STOPBET] Erro ao detectar saldo', e);
+    }
+
+    await sleep(3000); // a cada 3s
+  }
+}
+
+/**
+ * Aqui entra a inteligência real depois:
+ * - Acessibilidade
+ * - VPN
+ * - WebView
+ *
+ * Por agora: ancora no depósito + variação simulada
+ */
+async function detectBalance() {
+  const base = await Storage.get('depositAmount');
+  const delta = await Storage.get('balanceDelta');
+
+  if (base == null) return null;
+
+  const balance = base + (delta || 0);
+  return Number(balance);
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+export default BalanceListener;
+=== STORAGE ===
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+const STORAGE_KEY = 'StopBetProStorage';
+
+const getStorage = async () => {
+  const data = await AsyncStorage.getItem(STORAGE_KEY);
+  return data ? JSON.parse(data) : {};
+};
+
+const saveStorage = async (data) => {
+  await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+};
+
+export const set = async (key, value) => {
+  const storage = await getStorage();
+  storage[key] = value;
+  await saveStorage(storage);
+};
+
+export const get = async (key) => {
+  const storage = await getStorage();
+  return storage[key];
+};
+
+export const remove = async (key) => {
+  const storage = await getStorage();
+  delete storage[key];
+  await saveStorage(storage);
+};
+
+export const setDepositAmount = async (amount) => {
+  await set('depositAmount', amount);
+};
+
+export const getDepositAmount = async () => {
+  return await get('depositAmount');
+};
+=== ANDROID MANIFEST ===
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.stopbetpro">
+
+    <!-- Permissão para overlay (bloqueio de tela) -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+    <application
+        android:allowBackup="false"
+        android:label="StopBetPro"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+
+        <!-- Accessibility Service -->
+        <service
+            android:name=".StopAccessibilityService"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service"/>
+        </service>
+
+        <!-- Overlay de bloqueio -->
+        <service
+            android:name=".BlockOverlayService"
+            android:exported="false"/>
+
+    </application>
+
+</manifest>

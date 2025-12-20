@@ -1,27 +1,23 @@
-import { saveItem, getItem } from './storage';
-import { STORAGE_KEYS } from '../config/constants';
+import auth from '@react-native-firebase/auth';
 
-export async function registerUser(email, password) {
-  const user = {
-    id: Date.now().toString(),
-    email,
-    createdAt: new Date().toISOString()
-  };
-
-  await saveItem(STORAGE_KEYS.USER, user);
-  return user;
+export async function register(email, password) {
+  const res = await auth().createUserWithEmailAndPassword(email, password);
+  return res.user;
 }
 
-export async function loginUser(email, password) {
-  const user = await getItem(STORAGE_KEYS.USER);
-
-  if (!user || user.email !== email) {
-    throw new Error('Usuário não encontrado');
-  }
-
-  return user;
+export async function login(email, password) {
+  const res = await auth().signInWithEmailAndPassword(email, password);
+  return res.user;
 }
 
-export async function logoutUser() {
-  await saveItem(STORAGE_KEYS.USER, null);
+export function logout() {
+  return auth().signOut();
+}
+
+export function onAuthChange(callback) {
+  return auth().onAuthStateChanged(callback);
+}
+
+export function currentUser() {
+  return auth().currentUser;
 }

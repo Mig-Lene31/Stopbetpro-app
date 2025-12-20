@@ -1,6 +1,13 @@
-import React from 'react';
-import StopBetConfigScreen from './src/screens/StopBetConfigScreen';
+import React, { useEffect } from 'react';
+import AppNavigator from './src/navigation/AppNavigator';
+import { startBlockWatchdog } from './src/core/BlockWatchdog';
+import { runBootGuard } from './src/core/BootGuard';
 
 export default function App() {
-  return <StopBetConfigScreen />;
+  useEffect(() => {
+    runBootGuard();
+    startBlockWatchdog();
+  }, []);
+
+  return <AppNavigator />;
 }

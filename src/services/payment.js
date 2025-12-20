@@ -1,21 +1,19 @@
-import { apiRequest } from './api';
-import { BLOCK_UNLOCK_PRICE } from '../config/constants';
+import auth from '@react-native-firebase/auth';
 
-export async function createUnlockPayment() {
-  return await apiRequest(
-    '/payments/create',
-    'POST',
-    {
-      amount: BLOCK_UNLOCK_PRICE,
-      currency: 'BRL',
-      type: 'unlock'
-    }
-  );
-}
+const API_URL = 'http://192.168.1.127:3000';
 
-export async function confirmPayment() {
-  return await apiRequest(
-    '/payments/confirm',
-    'POST'
-  );
+export async function createPixPayment(value) {
+  const user = auth().currentUser;
+  if (!user) throw new Error('Usuário não autenticado');
+
+  const res = await fetch(\`\${API_URL}/pix/create\`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      uid: user.uid,
+      value,
+    }),
+  });
+
+  return await res.json();
 }
