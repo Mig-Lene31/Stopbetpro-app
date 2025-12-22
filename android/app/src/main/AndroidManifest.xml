@@ -6,7 +6,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -14,8 +14,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".PaymentActivity"/>
+        <activity android:name=".Unlock12hActivity"/>
+        <activity android:name=".MainActivity"/>
         <activity android:name=".TimeActivity"/>
         <activity android:name=".LimitsActivity"/>
+        <activity android:name=".DepositActivity"/>
+        <activity android:name=".RulesActivity"/>
 
     </application>
 
