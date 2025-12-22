@@ -13,8 +13,11 @@ public class Unlock12hActivity extends Activity {
         setContentView(R.layout.activity_unlock_12h);
 
         Button btn = findViewById(R.id.btnUnlock);
+
         btn.setOnClickListener(v -> {
-            AppStorage.activateTemporary(this);
+            // Ativa acesso temporário por 12 horas
+            AppStorage.activate12h(this);
+
             startActivity(new Intent(this, MainActivity.class));
             finish();
         });
