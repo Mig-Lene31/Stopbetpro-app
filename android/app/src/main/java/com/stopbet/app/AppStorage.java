@@ -7,8 +7,9 @@ public class AppStorage {
 
     private static final String PREFS = "stopbet_prefs";
 
-    /* ===== USER ID ===== */
-
+    // =========================
+    // USER ID
+    // =========================
     public static String getUserId(Context c) {
         SharedPreferences p = c.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
         String id = p.getString("user_id", null);
@@ -20,8 +21,9 @@ public class AppStorage {
         return id;
     }
 
-    /* ===== ATIVAÇÃO ===== */
-
+    // =========================
+    // ATIVAÇÃO
+    // =========================
     public static void activateMonthly(Context c) {
         c.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
                 .edit()
@@ -52,5 +54,56 @@ public class AppStorage {
         if (until == 0) return false;
 
         return System.currentTimeMillis() < until;
+    }
+
+    // =========================
+    // DEPÓSITO
+    // =========================
+    public static void saveDeposit(Context c, float value) {
+        c.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+                .edit()
+                .putFloat("deposit", value)
+                .apply();
+    }
+
+    public static float getDeposit(Context c) {
+        return c.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+                .getFloat("deposit", 0f);
+    }
+
+    // =========================
+    // TEMPO
+    // =========================
+    public static void saveTime(Context c, int minutes) {
+        c.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+                .edit()
+                .putInt("time_minutes", minutes)
+                .apply();
+    }
+
+    public static int getTime(Context c) {
+        return c.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+                .getInt("time_minutes", 0);
+    }
+
+    // =========================
+    // LIMITES
+    // =========================
+    public static void saveLimits(Context c, float win, float loss) {
+        c.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+                .edit()
+                .putFloat("stop_win", win)
+                .putFloat("stop_loss", loss)
+                .apply();
+    }
+
+    public static float getWin(Context c) {
+        return c.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+                .getFloat("stop_win", 0f);
+    }
+
+    public static float getLoss(Context c) {
+        return c.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+                .getFloat("stop_loss", 0f);
     }
 }
