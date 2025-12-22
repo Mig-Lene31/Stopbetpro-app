@@ -14,6 +14,9 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".TimeActivity"/>
+        <activity android:name=".LimitsActivity"/>
+
     </application>
 
 </manifest>

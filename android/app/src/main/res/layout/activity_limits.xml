@@ -6,30 +6,30 @@
     android:padding="24dp">
 
     <TextView
-        android:id="@+id/title"
-        android:text="StopBet Pro"
-        android:textSize="22sp"
+        android:text="Stop Win / Stop Loss"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/btnTime"
-        android:text="Configurar Tempo"
+    <EditText
+        android:id="@+id/inputWin"
+        android:hint="Valor Stop Win"
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/inputLoss"
+        android:hint="Valor Stop Loss"
+        android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <Button
-        android:id="@+id/btnLimits"
-        android:text="Configurar Stop Win / Loss"
+        android:id="@+id/btnSaveLimits"
+        android:text="Salvar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/status"
-        android:text="Status: DESATIVADO"
-        android:textSize="16sp"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
 </LinearLayout>
