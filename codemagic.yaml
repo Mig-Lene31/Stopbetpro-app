@@ -1,20 +1,22 @@
 workflows:
-  android-build:
-    name: StopBetPro Android APK
+  android-release:
+    name: Android Release
     max_build_duration: 60
+    instance_type: mac_mini_m1
+
     environment:
-      vars:
-        NODE_VERSION: 18
       node: 18
       java: 17
+
     scripts:
       - name: Install dependencies
         script: |
           npm install
+
       - name: Build Android APK
         script: |
-          npx expo prebuild
           cd android
           ./gradlew assembleRelease
+
     artifacts:
-      - android/app/build/outputs/**/*.apk
+      - android/app/build/outputs/apk/release/app-release.apk
