@@ -14,14 +14,21 @@
         android:layout_marginBottom="24dp"/>
 
     <TextView
-        android:text="StopBet Pro - Estrutura OK"
-        android:textSize="18sp"
+        android:id="@+id/txtTitle"
+        android:text="StopBet Pro"
+        android:textSize="20sp"
         android:textStyle="bold"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/txtId"
+        android:text="ID: ---"
+        android:textSize="14sp"
         android:layout_marginBottom="24dp"/>
 
     <Button
         android:id="@+id/btnEnter"
-        android:text="ENTRAR NO STOPBET PRO"
+        android:text="ENTRAR (AGUARDANDO LIBERAÇÃO)"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 </LinearLayout>
