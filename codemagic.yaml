@@ -8,9 +8,6 @@ workflows:
       node: 18
       java: 17
 
-    android_signing:
-      - keystore_reference: android_keystore
-
     scripts:
       - name: Install dependencies
         script: |
