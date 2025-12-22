@@ -1,6 +1,3 @@
 <resources>
     <string name="app_name">StopBet Pro</string>
-    <string name="accessibility_description">
-        Serviço de acessibilidade do StopBet Pro para bloquear sites de apostas conforme limites definidos.
-    </string>
 </resources>
