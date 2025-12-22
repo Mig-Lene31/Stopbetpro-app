@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Painel ADM"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/inputSenha"
+        android:hint="Senha do dia"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/btnEntrar"
+        android:text="Entrar"/>
+</LinearLayout>

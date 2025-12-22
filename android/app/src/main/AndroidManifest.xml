@@ -5,8 +5,9 @@
         android:allowBackup="true"
         android:theme="@style/AppTheme">
 
+        <!-- TELA INICIAL -->
         <activity
-            android:name=".LoginActivity"
+            android:name=".PaymentActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -14,14 +15,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".PaymentActivity"/>
-        <activity android:name=".Unlock12hActivity"/>
+        <activity android:name=".AdminActivity"/>
         <activity android:name=".MainActivity"/>
+        <activity android:name=".Unlock12hActivity"/>
         <activity android:name=".TimeActivity"/>
         <activity android:name=".LimitsActivity"/>
         <activity android:name=".DepositActivity"/>
         <activity android:name=".RulesActivity"/>
 
     </application>
-
 </manifest>
