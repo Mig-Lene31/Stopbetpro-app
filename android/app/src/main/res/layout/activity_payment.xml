@@ -2,30 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="24dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:src="@mipmap/ic_launcher"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginBottom="16dp"/>
-
-    <TextView
-        android:text="Acesso bloqueado"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
-
-    <TextView
-        android:id="@+id/txtId"
-        android:layout_marginTop="8dp"
-        android:textSize="14sp"/>
-
-    <TextView
-        android:layout_marginTop="16dp"
-        android:text="PIX: 11 97020-0771\nMensal: R$100\n12h: R$50\n\nEnvie o comprovante no WhatsApp"
-        android:textAlignment="center"/>
-
+    <Button
+        android:id="@+id/btnEnter"
+        android:text="Entrar no StopBet Pro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 </LinearLayout>
