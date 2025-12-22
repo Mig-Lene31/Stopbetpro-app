@@ -3,7 +3,6 @@ package com.stopbet.app;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 
 public class MainActivity extends Activity {
 
@@ -12,25 +11,16 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnDeposit = findViewById(R.id.btnDeposit);
-        Button btnLimits = findViewById(R.id.btnLimits);
-        Button btnTime = findViewById(R.id.btnTime);
-        Button btnUnlock = findViewById(R.id.btnUnlock12h);
-        Button btnRules = findViewById(R.id.btnRules);
+        findViewById(R.id.btnDeposit)
+                .setOnClickListener(v -> startActivity(new Intent(this, DepositActivity.class)));
 
-        btnDeposit.setOnClickListener(v ->
-                startActivity(new Intent(this, DepositActivity.class)));
+        findViewById(R.id.btnLimits)
+                .setOnClickListener(v -> startActivity(new Intent(this, LimitsActivity.class)));
 
-        btnLimits.setOnClickListener(v ->
-                startActivity(new Intent(this, LimitsActivity.class)));
+        findViewById(R.id.btnTime)
+                .setOnClickListener(v -> startActivity(new Intent(this, TimeActivity.class)));
 
-        btnTime.setOnClickListener(v ->
-                startActivity(new Intent(this, TimeActivity.class)));
-
-        btnUnlock.setOnClickListener(v ->
-                startActivity(new Intent(this, Unlock12hActivity.class)));
-
-        btnRules.setOnClickListener(v ->
-                startActivity(new Intent(this, RulesActivity.class)));
+        findViewById(R.id.btnRules)
+                .setOnClickListener(v -> startActivity(new Intent(this, RulesActivity.class)));
     }
 }
