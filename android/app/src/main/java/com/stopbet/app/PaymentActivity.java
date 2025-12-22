@@ -14,7 +14,9 @@ public class PaymentActivity extends Activity {
 
         Button btn = findViewById(R.id.btnPaid);
         btn.setOnClickListener(v -> {
-            AppStorage.setPaid(this, true);
+            // Ativação mensal (sem limite de tempo)
+            AppStorage.activateMonthly(this);
+
             startActivity(new Intent(this, MainActivity.class));
             finish();
         });
