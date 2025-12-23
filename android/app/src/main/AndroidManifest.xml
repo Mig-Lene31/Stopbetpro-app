@@ -1,5 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.stopbet.app">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
@@ -20,6 +19,9 @@
         <activity android:name=".PaymentActivity"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".DepositActivity"/>
+        <activity android:name=".LimitsActivity"/>
+        <activity android:name=".TimeActivity"/>
+        <activity android:name=".RulesActivity"/>
 
     </application>
 </manifest>
