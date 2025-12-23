@@ -4,16 +4,23 @@ import android.content.Context;
 
 public class EngineExecutor {
 
-    public static void handleDecision(Context ctx, boolean shouldBlock) {
+    public static void process(Context ctx, float saldoAtual) {
 
-        if (!shouldBlock) return;
+        if (!MotorState.isEnabled(ctx)) return;
 
-        if (EngineConfig.ENGINE_TEST_MODE) {
-            // MODO TESTE
-            AppState.block12h(ctx);
-        } else {
-            // MODO FINAL (VPN / Accessibility)
-            AppState.block12h(ctx);
+        float deposito = AppPrefs.getDepositValue(ctx);
+        float stopWin  = AppPrefs.getWinValue(ctx);
+        float stopLoss = AppPrefs.getLossValue(ctx);
+
+        boolean bloquear = EngineCore.shouldBlock(
+                deposito,
+                saldoAtual,
+                stopWin,
+                stopLoss
+        );
+
+        if (bloquear) {
+            EngineState.setPendingBlock(ctx, true);
         }
     }
 }
