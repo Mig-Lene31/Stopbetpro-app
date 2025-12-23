@@ -14,10 +14,14 @@ public class MainActivity extends Activity {
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(40,40,40,40);
+        layout.setPadding(40, 40, 40, 40);
+
+        TextView title = new TextView(this);
+        title.setText("Motor do StopBet");
+        title.setTextSize(20);
 
         TextView status = new TextView(this);
-        status.setText("Motor desligado");
+        status.setText("Nenhum bloqueio");
 
         Button ativar = new Button(this);
         ativar.setText("Ativar motor");
@@ -25,26 +29,15 @@ public class MainActivity extends Activity {
         Button simular = new Button(this);
         simular.setText("Simular saldo 150");
 
-        ativar.setOnClickListener(v -> {
-            AppState.setEngineEnabled(this, true);
-            status.setText("Motor ATIVO");
-        });
+        Button voltar = new Button(this);
+        voltar.setText("⬅ Voltar");
+        voltar.setOnClickListener(v -> finish());
 
-        simular.setOnClickListener(v -> {
-            // saldo simulado
-            float saldoAtual = 150f;
-            EngineRunner.run(this, saldoAtual);
-
-            if (AppState.isBlocked(this)) {
-                status.setText("BLOQUEADO AUTOMATICAMENTE (12h)");
-            } else {
-                status.setText("Nenhum bloqueio");
-            }
-        });
-
+        layout.addView(title);
         layout.addView(status);
         layout.addView(ativar);
         layout.addView(simular);
+        layout.addView(voltar);
 
         setContentView(layout);
     }
