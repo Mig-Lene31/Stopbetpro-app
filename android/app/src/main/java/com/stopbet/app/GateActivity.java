@@ -64,11 +64,10 @@ public class GateActivity extends Activity {
 
         avancar = new Button(this);
         avancar.setText("Avançar");
+        avancar.setEnabled(false);
         avancar.setOnClickListener(v -> {
-            if (AppStateAdmin.isReleased(this)) {
-                startActivity(new Intent(this, MainActivity.class));
-                finish();
-            }
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
         });
 
         layout.addView(title);
@@ -87,10 +86,10 @@ public class GateActivity extends Activity {
         boolean liberado = AppStateAdmin.isReleased(this);
 
         if (liberado) {
-            statusView.setText("STATUS: LIBERADO");
+            statusView.setText("STATUS: LIBERADO ✅");
             avancar.setEnabled(true);
         } else {
-            statusView.setText("STATUS: AGUARDANDO PAGAMENTO");
+            statusView.setText("STATUS: AGUARDANDO PAGAMENTO ⏳");
             avancar.setEnabled(false);
         }
     }
