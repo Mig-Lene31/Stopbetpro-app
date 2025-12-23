@@ -2,6 +2,7 @@ package com.stopbet.app;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class LimitsActivity extends Activity {
@@ -10,11 +11,22 @@ public class LimitsActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        TextView tv = new TextView(this);
-        tv.setText("Stop Win / Stop Loss\n\nConfiguração futura");
-        tv.setTextSize(20);
-        tv.setPadding(40,40,40,40);
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.setPadding(40,40,40,40);
 
-        setContentView(tv);
+        AppState.setStopWin(this, 100f);
+        AppState.setStopLoss(this, 50f);
+
+        TextView tv = new TextView(this);
+        tv.setText(
+                "STOP CONFIGURADO\n\n" +
+                "Stop Win: " + AppState.getStopWin(this) + "\n" +
+                "Stop Loss: " + AppState.getStopLoss(this)
+        );
+        tv.setTextSize(18);
+
+        layout.addView(tv);
+        setContentView(layout);
     }
 }
