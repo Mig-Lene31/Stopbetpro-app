@@ -13,7 +13,7 @@ public class LimitsActivity extends Activity {
         TextView tv = new TextView(this);
         tv.setText("Stop Win / Stop Loss\n\nTela estável");
         tv.setTextSize(20);
-        tv.setPadding(40,40,40,40);
+        tv.setPadding(40, 40, 40, 40);
 
         setContentView(tv);
     }
