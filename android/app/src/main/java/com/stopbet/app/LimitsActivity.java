@@ -11,9 +11,9 @@ public class LimitsActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         TextView tv = new TextView(this);
-        tv.setText("Stop Win / Stop Loss\n\nTela estável");
+        tv.setText("Stop Win / Stop Loss\n\nConfiguração futura");
         tv.setTextSize(20);
-        tv.setPadding(40, 40, 40, 40);
+        tv.setPadding(40,40,40,40);
 
         setContentView(tv);
     }

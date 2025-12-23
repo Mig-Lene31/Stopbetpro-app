@@ -11,7 +11,7 @@ public class TimeActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         TextView tv = new TextView(this);
-        tv.setText("Tempo de Uso\n\nTela estável");
+        tv.setText("Tempo de Uso\n\nConfiguração futura");
         tv.setTextSize(20);
         tv.setPadding(40,40,40,40);
 
