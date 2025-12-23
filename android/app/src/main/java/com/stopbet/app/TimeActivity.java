@@ -18,31 +18,40 @@ public class TimeActivity extends Activity {
         layout.setPadding(40,40,40,40);
 
         TextView title = new TextView(this);
-        title.setText("Tempo de Uso (minutos)");
+        title.setText("Tempo de Uso (min)");
         title.setTextSize(20);
 
         EditText input = new EditText(this);
         input.setHint("Ex: 60");
 
-        Button salvar = new Button(this);
-        salvar.setText("Salvar Tempo");
+        int saved = AppState.getTimeLimit(this);
+        if (saved > 0) {
+            input.setText(String.valueOf(saved));
+        }
 
         TextView status = new TextView(this);
 
+        Button salvar = new Button(this);
+        salvar.setText("Salvar");
         salvar.setOnClickListener(v -> {
             try {
-                int minutos = Integer.parseInt(input.getText().toString());
-                AppState.setTimeLimit(this, minutos);
-                status.setText("Tempo salvo: " + minutos + " min");
+                int min = Integer.parseInt(input.getText().toString());
+                AppState.setTimeLimit(this, min);
+                status.setText("Tempo salvo: " + min + " min");
             } catch (Exception e) {
-                status.setText("Digite um número válido");
+                status.setText("Número inválido");
             }
         });
+
+        Button voltar = new Button(this);
+        voltar.setText("Voltar");
+        voltar.setOnClickListener(v -> finish());
 
         layout.addView(title);
         layout.addView(input);
         layout.addView(salvar);
         layout.addView(status);
+        layout.addView(voltar);
 
         setContentView(layout);
     }
