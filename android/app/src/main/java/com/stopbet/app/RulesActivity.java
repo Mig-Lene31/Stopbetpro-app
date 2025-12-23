@@ -11,14 +11,9 @@ public class RulesActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         TextView tv = new TextView(this);
-        tv.setText(
-                "Regras e Informações\n\n" +
-                "- O app não diferencia saldo real de bônus\n" +
-                "- Stops são baseados no valor exibido\n" +
-                "- Uso consciente é essencial"
-        );
-        tv.setTextSize(16);
-        tv.setPadding(40, 40, 40, 40);
+        tv.setText("Regras do App\n\nTela estável");
+        tv.setTextSize(20);
+        tv.setPadding(40,40,40,40);
 
         setContentView(tv);
     }

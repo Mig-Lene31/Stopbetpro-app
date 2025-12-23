@@ -5,12 +5,16 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class LimitsActivity extends Activity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         TextView tv = new TextView(this);
-        tv.setText("Stop Win / Stop Loss\n(em breve)");
+        tv.setText("Stop Win / Stop Loss\n\nTela estável");
+        tv.setTextSize(20);
         tv.setPadding(40,40,40,40);
+
         setContentView(tv);
     }
 }
