@@ -20,9 +20,6 @@
         <activity android:name=".PaymentActivity"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".DepositActivity"/>
-        <activity android:name=".LimitsActivity"/>
-        <activity android:name=".TimeActivity"/>
-        <activity android:name=".RulesActivity"/>
 
     </application>
 </manifest>

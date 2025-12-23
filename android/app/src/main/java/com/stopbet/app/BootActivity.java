@@ -3,6 +3,7 @@ package com.stopbet.app;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
 public class BootActivity extends Activity {
 
@@ -10,7 +11,16 @@ public class BootActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        startActivity(new Intent(this, PaymentActivity.class));
-        finish();
+        TextView tv = new TextView(this);
+        tv.setText("STOPBET PRO\nVERSÃO 2.0.3\nBOOT OK");
+        tv.setTextSize(22);
+        tv.setPadding(40,40,40,40);
+
+        setContentView(tv);
+
+        tv.postDelayed(() -> {
+            startActivity(new Intent(this, PaymentActivity.class));
+            finish();
+        }, 1200);
     }
 }
