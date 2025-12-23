@@ -23,10 +23,6 @@
 
         <activity
 
-
-            android:exported="false"/>
-        <activity
-
             android:name=".AdminActivity"
 
             android:exported="false"/>
