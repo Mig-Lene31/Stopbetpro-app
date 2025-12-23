@@ -11,7 +11,7 @@ public class DepositActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         TextView tv = new TextView(this);
-        tv.setText("Depósito\n\nTela estável");
+        tv.setText("DEPÓSITO OK\nActivity isolada");
         tv.setTextSize(20);
         tv.setPadding(40,40,40,40);
 
