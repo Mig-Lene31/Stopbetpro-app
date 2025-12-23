@@ -11,8 +11,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         TextView tv = new TextView(this);
-        tv.setText("Painel StopBet Pro\n\nFase 2 estável");
-        tv.setTextSize(20);
+        tv.setText("PAINEL STOPBET PRO\n\nFASE 2.1 OK");
+        tv.setTextSize(22);
         tv.setPadding(40, 40, 40, 40);
 
         setContentView(tv);
