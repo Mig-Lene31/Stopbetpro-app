@@ -1,10 +1,7 @@
 package com.stopbet.app;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -17,45 +14,38 @@ public class MainActivity extends Activity {
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setBackgroundColor(Color.parseColor("#F5F7F6"));
-        layout.setPadding(40, 60, 40, 40);
-        layout.setGravity(Gravity.CENTER_HORIZONTAL);
+        layout.setPadding(40,40,40,40);
 
-        TextView title = new TextView(this);
-        title.setText("Painel StopBet Pro");
-        title.setTextSize(22);
-        title.setTextColor(Color.parseColor("#1E3A5F"));
-        title.setPadding(0, 0, 0, 40);
+        TextView status = new TextView(this);
+        status.setText("Motor desligado");
 
-        layout.addView(title);
+        Button ativar = new Button(this);
+        ativar.setText("Ativar motor");
 
-        layout.addView(makeButton("Depósito", DepositActivity.class));
-        layout.addView(makeButton("Stop Win / Stop Loss", LimitsActivity.class));
-        layout.addView(makeButton("Tempo de Uso", TimeActivity.class));
-        layout.addView(makeButton("Regras", RulesActivity.class));
+        Button simular = new Button(this);
+        simular.setText("Simular saldo 150");
+
+        ativar.setOnClickListener(v -> {
+            AppState.setEngineEnabled(this, true);
+            status.setText("Motor ATIVO");
+        });
+
+        simular.setOnClickListener(v -> {
+            // saldo simulado
+            float saldoAtual = 150f;
+            EngineRunner.run(this, saldoAtual);
+
+            if (AppState.isBlocked(this)) {
+                status.setText("BLOQUEADO AUTOMATICAMENTE (12h)");
+            } else {
+                status.setText("Nenhum bloqueio");
+            }
+        });
+
+        layout.addView(status);
+        layout.addView(ativar);
+        layout.addView(simular);
 
         setContentView(layout);
-    }
-
-    private Button makeButton(String text, Class<?> target) {
-        Button b = new Button(this);
-        b.setText(text);
-        b.setBackgroundColor(Color.parseColor("#2F4F3E"));
-        b.setTextColor(Color.WHITE);
-        b.setTextSize(16);
-
-        LinearLayout.LayoutParams lp =
-                new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
-                );
-        lp.setMargins(0, 0, 0, 30);
-        b.setLayoutParams(lp);
-
-        b.setOnClickListener(v ->
-                startActivity(new Intent(this, target))
-        );
-
-        return b;
     }
 }
