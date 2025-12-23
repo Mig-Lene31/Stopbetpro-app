@@ -13,13 +13,16 @@ public class GateActivity extends Activity {
     private int tapCount = 0;
     private long lastTapTime = 0;
 
+    private TextView statusView;
+    private Button avancar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(40,40,40,40);
+        layout.setPadding(40, 40, 40, 40);
 
         TextView title = new TextView(this);
         title.setText("STOPBET PRO");
@@ -49,22 +52,17 @@ public class GateActivity extends Activity {
 
         TextView info = new TextView(this);
         info.setText(
-            "Para liberar o acesso:\n\n" +
-            "1️⃣ Envie o pagamento via PIX\n" +
-            "2️⃣ Tire um PRINT desta tela\n" +
-            "3️⃣ Envie o comprovante no WhatsApp\n\n" +
-            "📲 WhatsApp / PIX:\n(11) 97020-0771\n\n" +
-            "Após a confirmação, o acesso será liberado."
+                "Para liberar o acesso:\n\n" +
+                "1️⃣ Envie o pagamento via PIX\n" +
+                "2️⃣ Tire um PRINT desta tela\n" +
+                "3️⃣ Envie o comprovante no WhatsApp\n\n" +
+                "📲 WhatsApp / PIX:\n(11) 97020-0771\n\n" +
+                "Após a confirmação, o acesso será liberado."
         );
 
-        TextView status = new TextView(this);
-        status.setText(
-            AppStateAdmin.isReleased(this)
-                ? "STATUS: LIBERADO"
-                : "STATUS: AGUARDANDO PAGAMENTO"
-        );
+        statusView = new TextView(this);
 
-        Button avancar = new Button(this);
+        avancar = new Button(this);
         avancar.setText("Avançar");
         avancar.setOnClickListener(v -> {
             if (AppStateAdmin.isReleased(this)) {
@@ -76,9 +74,24 @@ public class GateActivity extends Activity {
         layout.addView(title);
         layout.addView(idView);
         layout.addView(info);
-        layout.addView(status);
+        layout.addView(statusView);
         layout.addView(avancar);
 
         setContentView(layout);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        boolean liberado = AppStateAdmin.isReleased(this);
+
+        if (liberado) {
+            statusView.setText("STATUS: LIBERADO");
+            avancar.setEnabled(true);
+        } else {
+            statusView.setText("STATUS: AGUARDANDO PAGAMENTO");
+            avancar.setEnabled(false);
+        }
     }
 }
