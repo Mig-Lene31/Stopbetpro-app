@@ -18,7 +18,7 @@ public class LimitsActivity extends Activity {
         layout.setPadding(40,40,40,40);
 
         TextView title = new TextView(this);
-        title.setText("Stop Win / Stop Loss");
+        title.setText("STOP WIN / LOSS - 2.0.6");
         title.setTextSize(20);
 
         EditText win = new EditText(this);
@@ -27,28 +27,38 @@ public class LimitsActivity extends Activity {
         EditText loss = new EditText(this);
         loss.setHint("Stop Loss");
 
-        Button salvar = new Button(this);
-        salvar.setText("Salvar Stops");
+        float sw = AppState.getStopWin(this);
+        float sl = AppState.getStopLoss(this);
+
+        if (sw > 0) win.setText(String.valueOf(sw));
+        if (sl > 0) loss.setText(String.valueOf(sl));
 
         TextView status = new TextView(this);
 
+        Button salvar = new Button(this);
+        salvar.setText("Salvar");
         salvar.setOnClickListener(v -> {
             try {
-                float sw = Float.parseFloat(win.getText().toString());
-                float sl = Float.parseFloat(loss.getText().toString());
-                AppState.setStopWin(this, sw);
-                AppState.setStopLoss(this, sl);
-                status.setText("Stops salvos\nWin: " + sw + " | Loss: " + sl);
+                float w = Float.parseFloat(win.getText().toString());
+                float l = Float.parseFloat(loss.getText().toString());
+                AppState.setStopWin(this, w);
+                AppState.setStopLoss(this, l);
+                status.setText("Salvo: Win " + w + " / Loss " + l);
             } catch (Exception e) {
-                status.setText("Valores inválidos");
+                status.setText("Erro nos valores");
             }
         });
+
+        Button voltar = new Button(this);
+        voltar.setText("Voltar");
+        voltar.setOnClickListener(v -> finish());
 
         layout.addView(title);
         layout.addView(win);
         layout.addView(loss);
         layout.addView(salvar);
         layout.addView(status);
+        layout.addView(voltar);
 
         setContentView(layout);
     }

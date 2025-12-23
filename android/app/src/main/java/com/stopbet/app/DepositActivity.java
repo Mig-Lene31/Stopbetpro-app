@@ -18,31 +18,40 @@ public class DepositActivity extends Activity {
         layout.setPadding(40,40,40,40);
 
         TextView title = new TextView(this);
-        title.setText("Configurar Depósito");
+        title.setText("DEPÓSITO - VERSÃO 2.0.6 [PROVA]");
         title.setTextSize(20);
 
         EditText input = new EditText(this);
         input.setHint("Valor do depósito");
 
-        Button salvar = new Button(this);
-        salvar.setText("Salvar Depósito");
+        float salvo = AppState.getDeposit(this);
+        if (salvo > 0) {
+            input.setText(String.valueOf(salvo));
+        }
 
         TextView status = new TextView(this);
 
+        Button salvar = new Button(this);
+        salvar.setText("Salvar");
         salvar.setOnClickListener(v -> {
             try {
                 float valor = Float.parseFloat(input.getText().toString());
                 AppState.setDeposit(this, valor);
-                status.setText("Depósito salvo: R$ " + valor);
+                status.setText("Salvo: R$ " + valor);
             } catch (Exception e) {
-                status.setText("Digite um valor válido");
+                status.setText("Valor inválido");
             }
         });
+
+        Button voltar = new Button(this);
+        voltar.setText("Voltar");
+        voltar.setOnClickListener(v -> finish());
 
         layout.addView(title);
         layout.addView(input);
         layout.addView(salvar);
         layout.addView(status);
+        layout.addView(voltar);
 
         setContentView(layout);
     }

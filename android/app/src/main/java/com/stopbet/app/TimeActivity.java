@@ -18,15 +18,15 @@ public class TimeActivity extends Activity {
         layout.setPadding(40,40,40,40);
 
         TextView title = new TextView(this);
-        title.setText("Tempo de Uso (min)");
+        title.setText("TEMPO DE USO - 2.0.6");
         title.setTextSize(20);
 
         EditText input = new EditText(this);
-        input.setHint("Ex: 60");
+        input.setHint("Minutos");
 
-        int saved = AppState.getTimeLimit(this);
-        if (saved > 0) {
-            input.setText(String.valueOf(saved));
+        int salvo = AppState.getTimeLimit(this);
+        if (salvo > 0) {
+            input.setText(String.valueOf(salvo));
         }
 
         TextView status = new TextView(this);
@@ -39,7 +39,7 @@ public class TimeActivity extends Activity {
                 AppState.setTimeLimit(this, min);
                 status.setText("Tempo salvo: " + min + " min");
             } catch (Exception e) {
-                status.setText("Número inválido");
+                status.setText("Valor inválido");
             }
         });
 
