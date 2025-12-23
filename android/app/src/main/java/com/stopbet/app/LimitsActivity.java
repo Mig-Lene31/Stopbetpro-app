@@ -18,46 +18,35 @@ public class LimitsActivity extends Activity {
         layout.setPadding(40,40,40,40);
 
         TextView title = new TextView(this);
-        title.setText("STOP WIN / LOSS - 2.0.6");
+        title.setText("Configurar Win / Loss");
         title.setTextSize(20);
 
         EditText win = new EditText(this);
-        win.setHint("Stop Win");
+        win.setHint("Stop Win (ex: 50)");
 
         EditText loss = new EditText(this);
-        loss.setHint("Stop Loss");
+        loss.setHint("Stop Loss (ex: -30)");
 
-        float sw = AppState.getStopWin(this);
-        float sl = AppState.getStopLoss(this);
-
-        if (sw > 0) win.setText(String.valueOf(sw));
-        if (sl > 0) loss.setText(String.valueOf(sl));
-
-        TextView status = new TextView(this);
+        // carregar valores salvos
+        win.setText(AppPrefs.getWin(this));
+        loss.setText(AppPrefs.getLoss(this));
 
         Button salvar = new Button(this);
         salvar.setText("Salvar");
         salvar.setOnClickListener(v -> {
-            try {
-                float w = Float.parseFloat(win.getText().toString());
-                float l = Float.parseFloat(loss.getText().toString());
-                AppState.setStopWin(this, w);
-                AppState.setStopLoss(this, l);
-                status.setText("Salvo: Win " + w + " / Loss " + l);
-            } catch (Exception e) {
-                status.setText("Erro nos valores");
-            }
+            AppPrefs.setWin(this, win.getText().toString());
+            AppPrefs.setLoss(this, loss.getText().toString());
+            finish();
         });
 
         Button voltar = new Button(this);
-        voltar.setText("Voltar");
+        voltar.setText("⬅ Voltar");
         voltar.setOnClickListener(v -> finish());
 
         layout.addView(title);
         layout.addView(win);
         layout.addView(loss);
         layout.addView(salvar);
-        layout.addView(status);
         layout.addView(voltar);
 
         setContentView(layout);

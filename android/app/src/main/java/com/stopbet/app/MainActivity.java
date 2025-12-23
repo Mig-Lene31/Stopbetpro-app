@@ -1,12 +1,15 @@
 package com.stopbet.app;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
+
+    private TextView status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,17 +20,30 @@ public class MainActivity extends Activity {
         layout.setPadding(40, 40, 40, 40);
 
         TextView title = new TextView(this);
-        title.setText("Motor do StopBet");
-        title.setTextSize(20);
+        title.setText("StopBet Pro");
+        title.setTextSize(22);
 
-        TextView status = new TextView(this);
-        status.setText("Nenhum bloqueio");
+        status = new TextView(this);
 
-        Button ativar = new Button(this);
-        ativar.setText("Ativar motor");
+        Button motor = new Button(this);
+        motor.setText("Ativar / Desativar motor");
+        motor.setOnClickListener(v -> {
+            boolean atual = MotorState.isEnabled(this);
+            MotorState.setEnabled(this, !atual);
+            atualizarStatus();
+        });
 
-        Button simular = new Button(this);
-        simular.setText("Simular saldo 150");
+        Button limites = new Button(this);
+        limites.setText("Configurar Win / Loss");
+        limites.setOnClickListener(v ->
+            startActivity(new Intent(this, LimitsActivity.class))
+        );
+
+        Button tempo = new Button(this);
+        tempo.setText("Configurar Tempo");
+        tempo.setOnClickListener(v ->
+            startActivity(new Intent(this, TimeActivity.class))
+        );
 
         Button voltar = new Button(this);
         voltar.setText("⬅ Voltar");
@@ -35,10 +51,25 @@ public class MainActivity extends Activity {
 
         layout.addView(title);
         layout.addView(status);
-        layout.addView(ativar);
-        layout.addView(simular);
+        layout.addView(motor);
+        layout.addView(limites);
+        layout.addView(tempo);
         layout.addView(voltar);
 
         setContentView(layout);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        atualizarStatus();
+    }
+
+    private void atualizarStatus() {
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO");
+        } else {
+            status.setText("🔴 Motor DESLIGADO");
+        }
     }
 }

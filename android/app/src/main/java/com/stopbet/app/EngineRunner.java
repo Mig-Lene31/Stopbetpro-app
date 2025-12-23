@@ -4,24 +4,15 @@ import android.content.Context;
 
 public class EngineRunner {
 
-    public static void run(Context ctx, float currentBalance) {
+    public static void run(Context ctx, float saldoAtual) {
 
-        if (!AppState.isEngineEnabled(ctx)) return;
-        if (AppState.isBlocked(ctx)) return;
+        if (!MotorState.isEnabled(ctx)) return;
 
-        float deposit  = AppState.getDeposit(ctx);
-        float stopWin  = AppState.getStopWin(ctx);
-        float stopLoss = AppState.getStopLoss(ctx);
+        float win = AppPrefs.getWinValue(ctx);
+        float loss = AppPrefs.getLossValue(ctx);
 
-        if (deposit <= 0 || stopWin <= 0 || stopLoss <= 0) return;
-
-        boolean shouldBlock = EngineCore.shouldBlock(
-                deposit,
-                currentBalance,
-                stopWin,
-                stopLoss
-        );
-
-        EngineExecutor.handleDecision(ctx, shouldBlock);
+        if (saldoAtual >= win || saldoAtual <= loss) {
+            // AQUI entra bloqueio na próxima fase
+        }
     }
 }
