@@ -10,6 +10,7 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 
     private TextView status;
+    private float saldoSimulado = 0f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +34,24 @@ public class MainActivity extends Activity {
             atualizarStatus();
         });
 
+        Button simular = new Button(this);
+        simular.setText("Simular saldo +10");
+        simular.setOnClickListener(v -> {
+            saldoSimulado += 10f;
+            EngineExecutor.process(this, saldoSimulado);
+            atualizarStatus();
+        });
+
         Button limites = new Button(this);
         limites.setText("Configurar Win / Loss");
         limites.setOnClickListener(v ->
-            startActivity(new Intent(this, LimitsActivity.class))
+                startActivity(new Intent(this, LimitsActivity.class))
         );
 
         Button tempo = new Button(this);
         tempo.setText("Configurar Tempo");
         tempo.setOnClickListener(v ->
-            startActivity(new Intent(this, TimeActivity.class))
+                startActivity(new Intent(this, TimeActivity.class))
         );
 
         Button voltar = new Button(this);
@@ -52,6 +61,7 @@ public class MainActivity extends Activity {
         layout.addView(title);
         layout.addView(status);
         layout.addView(motor);
+        layout.addView(simular);
         layout.addView(limites);
         layout.addView(tempo);
         layout.addView(voltar);
@@ -66,10 +76,16 @@ public class MainActivity extends Activity {
     }
 
     private void atualizarStatus() {
+
+        if (EngineState.isPendingBlock(this)) {
+            status.setText("⚠ LIMITE ATINGIDO — BLOQUEIO PENDENTE");
+            return;
+        }
+
         if (MotorState.isEnabled(this)) {
-            status.setText("🟢 Motor ATIVO");
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
         } else {
-            status.setText("🔴 Motor DESLIGADO");
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
         }
     }
 }
