@@ -20,7 +20,15 @@
         <activity android:name=".LimitsActivity"/>
         <activity android:name=".TimeActivity"/>
         <activity android:name=".RulesActivity"/>
-        <activity android:name=".AdminActivity"/>
 
+        <activity
+
+
+            android:exported="false"/>
+        <activity
+
+            android:name=".AdminActivity"
+
+            android:exported="false"/>
     </application>
 </manifest>
