@@ -8,19 +8,17 @@ public class EngineExecutor {
 
         if (!MotorState.isEnabled(ctx)) return;
 
-        float deposito = AppPrefs.getDepositValue(ctx);
         float stopWin  = AppPrefs.getWinValue(ctx);
         float stopLoss = AppPrefs.getLossValue(ctx);
 
-        boolean bloquear = EngineCore.shouldBlock(
-                deposito,
-                saldoAtual,
-                stopWin,
-                stopLoss
-        );
-
-        if (bloquear) {
+        if (stopWin > 0 && saldoAtual >= stopWin) {
             EngineState.setPendingBlock(ctx, true);
+            MotorState.setEnabled(ctx, false);
+        }
+
+        if (stopLoss > 0 && saldoAtual <= stopLoss) {
+            EngineState.setPendingBlock(ctx, true);
+            MotorState.setEnabled(ctx, false);
         }
     }
 }
