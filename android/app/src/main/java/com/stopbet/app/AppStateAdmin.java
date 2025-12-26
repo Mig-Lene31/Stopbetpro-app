@@ -1,25 +1,24 @@
 package com.stopbet.app;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
 public class AppStateAdmin {
 
-    private static final String PREFS = "stopbet_state";
-    private static final String KEY_RELEASED_ID = "released_id";
+    private static final String PREFS = "admin_state";
+    private static final String KEY_RELEASED = "released";
 
-    public static boolean isReleased(Context ctx) {
-        String myId = AppState.getUserId(ctx);
-        String releasedId = ctx
-                .getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-                .getString(KEY_RELEASED_ID, null);
-
-        return releasedId != null && releasedId.equals(myId);
+    private static SharedPreferences sp(Context ctx) {
+        return ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
     }
 
-    public static void releaseById(Context ctx, String id) {
-        ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-                .edit()
-                .putString(KEY_RELEASED_ID, id)
-                .apply();
+    // Libera ou bloqueia o acesso ao app (avançar)
+    public static void setReleased(Context ctx, boolean value) {
+        sp(ctx).edit().putBoolean(KEY_RELEASED, value).apply();
+    }
+
+    // Verifica se o acesso está liberado
+    public static boolean isReleased(Context ctx) {
+        return sp(ctx).getBoolean(KEY_RELEASED, false);
     }
 }
