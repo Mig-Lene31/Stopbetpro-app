@@ -18,7 +18,7 @@ public class MainActivity extends Activity {
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(40, 40, 40, 40);
+        layout.setPadding(40,40,40,40);
 
         TextView title = new TextView(this);
         title.setText("StopBet Pro");
@@ -29,6 +29,7 @@ public class MainActivity extends Activity {
         Button motor = new Button(this);
         motor.setText("Ativar / Desativar motor");
         motor.setOnClickListener(v -> {
+            if (EngineState.isBlocked(this)) return;
             boolean atual = MotorState.isEnabled(this);
             MotorState.setEnabled(this, !atual);
             atualizarStatus();
@@ -37,6 +38,7 @@ public class MainActivity extends Activity {
         Button simular = new Button(this);
         simular.setText("Simular saldo +10");
         simular.setOnClickListener(v -> {
+            if (EngineState.isBlocked(this)) return;
             saldoSimulado += 10f;
             EngineExecutor.process(this, saldoSimulado);
             atualizarStatus();
@@ -48,41 +50,31 @@ public class MainActivity extends Activity {
                 startActivity(new Intent(this, LimitsActivity.class))
         );
 
-        Button tempo = new Button(this);
-        tempo.setText("Configurar Tempo");
-        tempo.setOnClickListener(v ->
-                startActivity(new Intent(this, TimeActivity.class))
-        );
-
-        Button voltar = new Button(this);
-        voltar.setText("⬅ Voltar");
-        voltar.setOnClickListener(v -> finish());
-
         layout.addView(title);
         layout.addView(status);
         layout.addView(motor);
         layout.addView(simular);
         layout.addView(limites);
-        layout.addView(tempo);
-        layout.addView(voltar);
 
         setContentView(layout);
+        atualizarStatus();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+        }
+
         atualizarStatus();
     }
 
     private void atualizarStatus() {
-
-        if (EngineState.isPendingBlock(this)) {
-            status.setText("⚠ LIMITE ATINGIDO — BLOQUEIO PENDENTE");
-            return;
-        }
-
-        if (MotorState.isEnabled(this)) {
+        if (EngineState.isBlocked(this)) {
+            status.setText("⛔ BLOQUEADO");
+        } else if (MotorState.isEnabled(this)) {
             status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
         } else {
             status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
