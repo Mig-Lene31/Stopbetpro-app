@@ -89,6 +89,11 @@ public class MainActivity extends Activity {
 
         status = new TextView(this);
 
+        TextView userId = new TextView(this);
+        userId.setText("ID do usuário: " + UserIdentity.getId(this));
+        layout.addView(userId);
+
+
         Button motor = new Button(this);
         motor.setText("Ativar / Desativar motor");
         motor.setOnClickListener(v -> {

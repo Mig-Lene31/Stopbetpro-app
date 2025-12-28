@@ -52,17 +52,17 @@ public class AdminActivity extends Activity {
         layout.setPadding(40,40,40,40);
 
         TextView info = new TextView(this);
-        info.setText("ID do usuário:\n" + android.os.Build.SERIAL);
+        info.setText("ID do usuário:\n" + UserIdentity.getId(this));
 
         Button desbloquear12h = new Button(this);
-        desbloquear12h.setText("🔓 Desbloquear por 12h");
+        desbloquear12h.setText("🔓 Desbloquear bloqueio");
 
         Button liberar30d = new Button(this);
         liberar30d.setText("✅ Liberar por 30 dias");
 
         desbloquear12h.setOnClickListener(v -> {
             EngineState.unlock(this);
-            Toast.makeText(this, "Desbloqueado por 12h", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Bloqueio removido", Toast.LENGTH_SHORT).show();
         });
 
         liberar30d.setOnClickListener(v -> {
