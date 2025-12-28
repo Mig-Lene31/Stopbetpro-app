@@ -145,6 +145,14 @@ public class MainActivity extends Activity {
         layout.addView(limites);
         layout.addView(tempo);
 
+        Button info = new Button(this);
+        info.setText("📘 Informações e uso");
+        info.setOnClickListener(v ->
+                startActivity(new Intent(this, InfoActivity.class))
+        );
+        layout.addView(info);
+
+
         setContentView(layout);
         atualizarStatus();
     }
