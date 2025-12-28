@@ -18,7 +18,7 @@ public class MainActivity extends Activity {
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(40, 40, 40, 40);
+        layout.setPadding(40,40,40,40);
 
         TextView title = new TextView(this);
         title.setText("StopBet Pro");
@@ -29,6 +29,10 @@ public class MainActivity extends Activity {
         Button motor = new Button(this);
         motor.setText("Ativar / Desativar motor");
         motor.setOnClickListener(v -> {
+            if (!EngineGuard.canUseMotor(this)) {
+                atualizarStatus();
+                return;
+            }
             boolean atual = MotorState.isEnabled(this);
             MotorState.setEnabled(this, !atual);
             atualizarStatus();
@@ -37,6 +41,10 @@ public class MainActivity extends Activity {
         Button simular = new Button(this);
         simular.setText("Simular saldo +10");
         simular.setOnClickListener(v -> {
+            if (!EngineGuard.canUseMotor(this)) {
+                atualizarStatus();
+                return;
+            }
             saldoSimulado += 10f;
             EngineExecutor.process(this, saldoSimulado);
             atualizarStatus();
@@ -66,6 +74,27 @@ public class MainActivity extends Activity {
     }
 
     private void atualizarStatus() {
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (EngineState.isBlocked(this)) {
+            status.setText("⛔ Bloqueado por limite");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
         if (MotorState.isEnabled(this)) {
             status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
         } else {
