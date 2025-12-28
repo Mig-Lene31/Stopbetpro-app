@@ -14,105 +14,28 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (EngineState.isBlocked(this)) {
-            startActivity(new Intent(this, BlockedActivity.class));
-            finish();
-        }
-    }
-
         super.onCreate(savedInstanceState);
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(40,40,40,40);
-
-        final int[] taps = {0};
-        final long[] lastTap = {0};
+        layout.setPadding(40, 40, 40, 40);
 
         TextView title = new TextView(this);
         title.setText("StopBet Pro");
         title.setTextSize(22);
-
-        title.setOnClickListener(v -> {
-            long now = System.currentTimeMillis();
-
-            if (now - lastTap[0] > 3000) {
-                taps[0] = 0;
-            }
-
-            lastTap[0] = now;
-            taps[0]++;
-
-            if (taps[0] == 5) {
-                taps[0] = 0;
-                startActivity(new Intent(this, AdminActivity.class));
-            }
-        });
-        final int[] taps = {0};
-        final long[] lastTap = {0};
-
-        TextView title = new TextView(this);
-        title.setText("StopBet Pro");
-        title.setTextSize(22);
-
-        title.setOnClickListener(v -> {
-            long now = System.currentTimeMillis();
-
-            if (now - lastTap[0] > 3000) {
-                taps[0] = 0;
-            }
-
-            lastTap[0] = now;
-            taps[0]++;
-
-            if (taps[0] == 5) {
-                taps[0] = 0;
-                startActivity(new Intent(this, AdminActivity.class));
-            }
-        });
-        final int[] taps = {0};
-        final long[] lastTap = {0};
-
-        TextView title = new TextView(this);
-        title.setText("StopBet Pro");
-        title.setTextSize(22);
-
-        title.setOnClickListener(v -> {
-            long now = System.currentTimeMillis();
-
-            if (now - lastTap[0] > 3000) {
-                taps[0] = 0;
-            }
-
-            lastTap[0] = now;
-            taps[0]++;
-
-            if (taps[0] == 5) {
-                taps[0] = 0;
-                startActivity(new Intent(this, AdminActivity.class));
-            }
-        });
 
         status = new TextView(this);
 
         TextView userId = new TextView(this);
         userId.setText("ID do usuário: " + UserIdentity.getId(this));
-        layout.addView(userId);
-
 
         Button motor = new Button(this);
         motor.setText("Ativar / Desativar motor");
         motor.setOnClickListener(v -> {
-
             if (!AppStateAdmin.isReleased(this)
                     || !LicenseState.isValid(this)
                     || EngineState.isBlocked(this)
                     || DailyTimeEngine.exceeded(this)) {
-
                 atualizarStatus();
                 return;
             }
@@ -125,7 +48,6 @@ public class MainActivity extends Activity {
         Button simular = new Button(this);
         simular.setText("Simular saldo +10");
         simular.setOnClickListener(v -> {
-
             if (!EngineGuard.canUseMotor(this)) {
                 atualizarStatus();
                 return;
@@ -148,38 +70,44 @@ public class MainActivity extends Activity {
                 startActivity(new Intent(this, TimeActivity.class))
         );
 
-        layout.addView(title);
-        layout.addView(status);
-        layout.addView(motor);
-        layout.addView(simular);
-        layout.addView(limites);
-        layout.addView(tempo);
-
         Button unlock = new Button(this);
         unlock.setText("🔓 Desbloquear acesso");
         unlock.setOnClickListener(v ->
                 startActivity(new Intent(this, UnlockActivity.class))
         );
-        layout.addView(unlock);
-
 
         Button info = new Button(this);
         info.setText("📘 Informações e uso");
         info.setOnClickListener(v ->
                 startActivity(new Intent(this, InfoActivity.class))
         );
-        layout.addView(info);
 
+        layout.addView(title);
+        layout.addView(userId);
+        layout.addView(status);
+        layout.addView(motor);
+        layout.addView(simular);
+        layout.addView(limites);
+        layout.addView(tempo);
+        layout.addView(unlock);
+        layout.addView(info);
 
         setContentView(layout);
         atualizarStatus();
     }
 
-    private void atualizarStatus() {
-
+    @Override
+    protected void onResume() {
+        super.onResume();
         if (EngineState.isBlocked(this)) {
             startActivity(new Intent(this, BlockedActivity.class));
             finish();
+        }
+    }
+
+    private void atualizarStatus() {
+        if (EngineState.isBlocked(this)) {
+            status.setText("⛔ Acesso bloqueado");
             return;
         }
 
