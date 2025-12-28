@@ -84,6 +84,12 @@ public class MainActivity extends Activity {
 
     private void atualizarStatus() {
 
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
         if (!AppStateAdmin.isReleased(this)) {
             status.setText("🔒 Aguardando liberação do administrador");
             return;
@@ -94,8 +100,23522 @@ public class MainActivity extends Activity {
             return;
         }
 
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
         if (EngineState.isBlocked(this)) {
-            status.setText("⛔ Bloqueado por limite");
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
+            return;
+        }
+
+        if (DailyTimeEngine.exceeded(this)) {
+            status.setText("⏱️ Limite diário atingido");
+            return;
+        }
+
+        if (MotorState.isEnabled(this)) {
+            status.setText("🟢 Motor ATIVO | Saldo: " + saldoSimulado);
+        } else {
+            status.setText("🔴 Motor DESLIGADO | Saldo: " + saldoSimulado);
+        }
+    }
+    private void atualizarStatus() {
+
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
+        if (!AppStateAdmin.isReleased(this)) {
+            status.setText("🔒 Aguardando liberação do administrador");
+            return;
+        }
+
+        if (!LicenseState.isValid(this)) {
+            status.setText("⛔ Licença expirada");
             return;
         }
 
