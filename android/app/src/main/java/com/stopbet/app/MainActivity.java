@@ -14,6 +14,16 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+        }
+    }
+
         super.onCreate(savedInstanceState);
 
         LinearLayout layout = new LinearLayout(this);

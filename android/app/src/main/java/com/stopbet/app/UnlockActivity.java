@@ -19,17 +19,20 @@ public class UnlockActivity extends Activity {
         layout.setPadding(40,40,40,40);
 
         TextView title = new TextView(this);
-        title.setText("🔓 Desbloqueio de Acesso");
+        title.setText("🔓 Liberação antecipada de acesso");
         title.setTextSize(20);
 
         TextView info = new TextView(this);
         info.setText(
-            "Para remover o bloqueio antes do tempo automático:\n\n" +
-            "💰 Valor: R$ 50,00\n\n" +
-            "📌 Pix:\n" +
-            "SUA_CHAVE_PIX_AQUI\n\n" +
-            "📲 Após o pagamento, envie o comprovante pelo WhatsApp informando seu ID:\n\n" +
-            UserIdentity.getId(this)
+                "O acesso foi bloqueado como parte do método de controle.\n\n" +
+                "Você pode:\n" +
+                "• Aguardar o desbloqueio automático\n" +
+                "• Solicitar liberação antecipada\n\n" +
+                "💰 Valor da liberação antecipada: R$ 50,00\n\n" +
+                "📌 Pix:\n" +
+                "SUA_CHAVE_PIX_AQUI\n\n" +
+                "📲 Após o pagamento, envie o comprovante via WhatsApp informando seu ID:\n\n" +
+                UserIdentity.getId(this)
         );
         info.setTextSize(16);
 
@@ -38,7 +41,7 @@ public class UnlockActivity extends Activity {
 
         whatsapp.setOnClickListener(v -> {
             String url = "https://wa.me/55SEU_NUMERO_AQUI"
-                    + "?text=Olá,%20segue%20comprovante%20do%20desbloqueio.%0AID:%20"
+                    + "?text=Olá,%20segue%20o%20comprovante%20de%20liberação.%0AID:%20"
                     + UserIdentity.getId(this);
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
         });
