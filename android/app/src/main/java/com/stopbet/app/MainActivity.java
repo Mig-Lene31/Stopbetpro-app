@@ -24,10 +24,10 @@ public class MainActivity extends Activity {
         title.setText("StopBet Pro");
         title.setTextSize(22);
 
-        status = new TextView(this);
-
         TextView userId = new TextView(this);
         userId.setText("ID do usuário: " + UserIdentity.getId(this));
+
+        status = new TextView(this);
 
         Button motor = new Button(this);
         motor.setText("Ativar / Desativar motor");
