@@ -145,6 +145,14 @@ public class MainActivity extends Activity {
         layout.addView(limites);
         layout.addView(tempo);
 
+        Button unlock = new Button(this);
+        unlock.setText("🔓 Desbloquear acesso");
+        unlock.setOnClickListener(v ->
+                startActivity(new Intent(this, UnlockActivity.class))
+        );
+        layout.addView(unlock);
+
+
         Button info = new Button(this);
         info.setText("📘 Informações e uso");
         info.setOnClickListener(v ->
