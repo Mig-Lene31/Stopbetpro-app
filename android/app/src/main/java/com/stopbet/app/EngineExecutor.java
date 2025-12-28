@@ -4,30 +4,25 @@ import android.content.Context;
 
 public class EngineExecutor {
 
-    public static void process(Context ctx, float saldoAtual) {
+    public static void process(Context ctx, float saldo) {
 
-        if (!EngineGuard.canUseMotor(ctx)) return;
-
-        // conta 1 minuto por uso (tempo diário)
-        DailyTimeEngine.addUsage(ctx, 60_000);
-
-        if (DailyTimeEngine.exceeded(ctx)) {
-            EngineState.blockFor12Hours(ctx);
-            MotorState.setEnabled(ctx, false);
+        // 🔒 MOTOR DESLIGADO = NÃO EXECUTA NADA
+        if (!MotorState.isEnabled(ctx)) {
             return;
         }
 
-        float stopWin  = AppPrefs.getWinValue(ctx);
-        float stopLoss = AppPrefs.getLossValue(ctx);
-
-        if (stopWin > 0 && saldoAtual >= stopWin) {
+        // ⏱️ Limite diário
+        if (DailyTimeEngine.exceeded(ctx)) {
             EngineState.blockFor12Hours(ctx);
-            MotorState.setEnabled(ctx, false);
+            return;
         }
 
-        if (stopLoss > 0 && saldoAtual <= stopLoss) {
+        // 🎯 Stop Win / Stop Loss
+        float win = LimitsState.getWin(ctx);
+        float loss = LimitsState.getLoss(ctx);
+
+        if (saldo >= win || saldo <= loss) {
             EngineState.blockFor12Hours(ctx);
-            MotorState.setEnabled(ctx, false);
         }
     }
 }

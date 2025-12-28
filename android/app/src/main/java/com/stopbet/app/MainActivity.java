@@ -18,7 +18,7 @@ public class MainActivity extends Activity {
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(40, 40, 40, 40);
+        layout.setPadding(40,40,40,40);
 
         TextView title = new TextView(this);
         title.setText("StopBet Pro");
@@ -27,33 +27,40 @@ public class MainActivity extends Activity {
         TextView userId = new TextView(this);
         userId.setText("ID do usuário: " + UserIdentity.getId(this));
 
+        TextView unlockCode = new TextView(this);
+        unlockCode.setText(
+                "CÓDIGO: " +
+                UnlockCodeGenerator.generate(UserIdentity.getId(this))
+        );
+
         status = new TextView(this);
 
         Button motor = new Button(this);
         motor.setText("Ativar / Desativar motor");
         motor.setOnClickListener(v -> {
             if (!AppStateAdmin.isReleased(this)
-                    || !LicenseState.isValid(this)
-                    || EngineState.isBlocked(this)
-                    || DailyTimeEngine.exceeded(this)) {
+                    || EngineState.isBlocked(this)) {
                 atualizarStatus();
                 return;
             }
-
-            boolean atual = MotorState.isEnabled(this);
-            MotorState.setEnabled(this, !atual);
+            MotorState.setEnabled(this, !MotorState.isEnabled(this));
             atualizarStatus();
         });
 
-        Button simular = new Button(this);
-        simular.setText("Simular saldo +10");
-        simular.setOnClickListener(v -> {
-            if (!EngineGuard.canUseMotor(this)) {
-                atualizarStatus();
-                return;
-            }
-
+        Button simWin = new Button(this);
+        simWin.setText("Simular +10 (WIN)");
+        simWin.setOnClickListener(v -> {
+            if (!EngineGuard.canUseMotor(this)) return;
             saldoSimulado += 10f;
+            EngineExecutor.process(this, saldoSimulado);
+            atualizarStatus();
+        });
+
+        Button simLoss = new Button(this);
+        simLoss.setText("Simular -10 (LOSS)");
+        simLoss.setOnClickListener(v -> {
+            if (!EngineGuard.canUseMotor(this)) return;
+            saldoSimulado -= 10f;
             EngineExecutor.process(this, saldoSimulado);
             atualizarStatus();
         });
@@ -84,9 +91,11 @@ public class MainActivity extends Activity {
 
         layout.addView(title);
         layout.addView(userId);
+        layout.addView(unlockCode);
         layout.addView(status);
         layout.addView(motor);
-        layout.addView(simular);
+        layout.addView(simWin);
+        layout.addView(simLoss);
         layout.addView(limites);
         layout.addView(tempo);
         layout.addView(unlock);
@@ -113,16 +122,6 @@ public class MainActivity extends Activity {
 
         if (!AppStateAdmin.isReleased(this)) {
             status.setText("🔒 Aguardando liberação do administrador");
-            return;
-        }
-
-        if (!LicenseState.isValid(this)) {
-            status.setText("⛔ Licença expirada");
-            return;
-        }
-
-        if (DailyTimeEngine.exceeded(this)) {
-            status.setText("⏱️ Limite diário atingido");
             return;
         }
 
