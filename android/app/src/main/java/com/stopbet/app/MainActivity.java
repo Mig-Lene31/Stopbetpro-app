@@ -38,8 +38,7 @@ public class MainActivity extends Activity {
         Button motor = new Button(this);
         motor.setText("Ativar / Desativar motor");
         motor.setOnClickListener(v -> {
-            if (!AppStateAdmin.isReleased(this)
-                    || EngineState.isBlocked(this)) {
+            if (!AppStateAdmin.isReleased(this) || EngineState.isBlocked(this)) {
                 atualizarStatus();
                 return;
             }

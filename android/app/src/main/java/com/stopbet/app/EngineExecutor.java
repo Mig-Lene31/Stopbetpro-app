@@ -6,18 +6,18 @@ public class EngineExecutor {
 
     public static void process(Context ctx, float saldo) {
 
-        // 🔒 MOTOR DESLIGADO = NÃO EXECUTA NADA
+        // Motor desligado = não executa nada
         if (!MotorState.isEnabled(ctx)) {
             return;
         }
 
-        // ⏱️ Limite diário
+        // Limite diário
         if (DailyTimeEngine.exceeded(ctx)) {
             EngineState.blockFor12Hours(ctx);
             return;
         }
 
-        // 🎯 Stop Win / Stop Loss
+        // Stop Win / Stop Loss
         float win = LimitsState.getWin(ctx);
         float loss = LimitsState.getLoss(ctx);
 
