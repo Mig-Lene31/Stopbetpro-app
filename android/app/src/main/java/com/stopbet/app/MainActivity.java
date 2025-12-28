@@ -20,9 +20,72 @@ public class MainActivity extends Activity {
         layout.setOrientation(LinearLayout.VERTICAL);
         layout.setPadding(40,40,40,40);
 
+        final int[] taps = {0};
+        final long[] lastTap = {0};
+
         TextView title = new TextView(this);
         title.setText("StopBet Pro");
         title.setTextSize(22);
+
+        title.setOnClickListener(v -> {
+            long now = System.currentTimeMillis();
+
+            if (now - lastTap[0] > 3000) {
+                taps[0] = 0;
+            }
+
+            lastTap[0] = now;
+            taps[0]++;
+
+            if (taps[0] == 5) {
+                taps[0] = 0;
+                startActivity(new Intent(this, AdminActivity.class));
+            }
+        });
+        final int[] taps = {0};
+        final long[] lastTap = {0};
+
+        TextView title = new TextView(this);
+        title.setText("StopBet Pro");
+        title.setTextSize(22);
+
+        title.setOnClickListener(v -> {
+            long now = System.currentTimeMillis();
+
+            if (now - lastTap[0] > 3000) {
+                taps[0] = 0;
+            }
+
+            lastTap[0] = now;
+            taps[0]++;
+
+            if (taps[0] == 5) {
+                taps[0] = 0;
+                startActivity(new Intent(this, AdminActivity.class));
+            }
+        });
+        final int[] taps = {0};
+        final long[] lastTap = {0};
+
+        TextView title = new TextView(this);
+        title.setText("StopBet Pro");
+        title.setTextSize(22);
+
+        title.setOnClickListener(v -> {
+            long now = System.currentTimeMillis();
+
+            if (now - lastTap[0] > 3000) {
+                taps[0] = 0;
+            }
+
+            lastTap[0] = now;
+            taps[0]++;
+
+            if (taps[0] == 5) {
+                taps[0] = 0;
+                startActivity(new Intent(this, AdminActivity.class));
+            }
+        });
 
         status = new TextView(this);
 
