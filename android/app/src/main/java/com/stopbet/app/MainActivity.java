@@ -28,15 +28,6 @@ public class MainActivity extends Activity {
 
         Button motor = new Button(this);
         motor.setText("Ativar / Desativar motor");
-        motor.setOnClickListener(v -> {
-            if (!EngineGuard.canUseMotor(this)) {
-                atualizarStatus();
-                return;
-            }
-            boolean atual = MotorState.isEnabled(this);
-            MotorState.setEnabled(this, !atual);
-            atualizarStatus();
-        });
 
         Button simular = new Button(this);
         simular.setText("Simular saldo +10");
