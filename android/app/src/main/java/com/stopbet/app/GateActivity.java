@@ -3,7 +3,6 @@ package com.stopbet.app;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -11,11 +10,13 @@ import android.widget.TextView;
 public class GateActivity extends Activity {
 
     private int tapCount = 0;
+    private long lastTapTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Se estiver bloqueado, vai pra tela azul
         if (EngineState.isBlocked(this)) {
             startActivity(new Intent(this, BlockedActivity.class));
             finish();
@@ -24,11 +25,29 @@ public class GateActivity extends Activity {
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(40,40,40,40);
+        layout.setPadding(40, 40, 40, 40);
 
+        // 🔒 LOCAL SECRETO DO ADM (5 TOQUES)
         TextView title = new TextView(this);
         title.setText("STOPBET PRO");
         title.setTextSize(22);
+
+        title.setOnClickListener(v -> {
+            long now = System.currentTimeMillis();
+
+            // reseta se demorou demais
+            if (now - lastTapTime > 2000) {
+                tapCount = 0;
+            }
+
+            tapCount++;
+            lastTapTime = now;
+
+            if (tapCount == 5) {
+                tapCount = 0;
+                startActivity(new Intent(this, AdminActivity.class));
+            }
+        });
 
         TextView idView = new TextView(this);
         idView.setText("SEU ID:\n" + UserIdentity.getId(this));
@@ -38,8 +57,8 @@ public class GateActivity extends Activity {
                 "Para liberar o acesso:\n\n" +
                 "1️⃣ Envie o pagamento via PIX\n" +
                 "2️⃣ Tire um PRINT desta tela\n" +
-                "3️⃣ Envie o comprovante no WhatsApp\n\n" +
-                "📱 WhatsApp / PIX:\n(11) 97020-0771"
+                "3️⃣ Envie o comprovante + ID\n\n" +
+                "📱 PIX / WhatsApp:\n(11) 97020-0771"
         );
 
         TextView status = new TextView(this);
@@ -55,14 +74,6 @@ public class GateActivity extends Activity {
         avancar.setOnClickListener(v -> {
             startActivity(new Intent(this, MainActivity.class));
             finish();
-        });
-
-        title.setOnClickListener(v -> {
-            tapCount++;
-            if (tapCount == 5) {
-                startActivity(new Intent(this, AdminActivity.class));
-                tapCount = 0;
-            }
         });
 
         layout.addView(title);
