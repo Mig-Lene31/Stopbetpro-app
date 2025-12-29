@@ -27,7 +27,6 @@ public class AdminActivity extends Activity {
         title.setTextSize(22);
 
         EditText senha = new EditText(this);
-        // 🔒 CORREÇÃO DE SEGURANÇA: nenhum padrão exposto
         senha.setHint("Senha administrativa");
         senha.setInputType(
                 InputType.TYPE_CLASS_TEXT |
@@ -39,20 +38,32 @@ public class AdminActivity extends Activity {
 
         TextView status = new TextView(this);
 
-        Button liberar = new Button(this);
-        liberar.setText("LIBERAR USUÁRIO");
+        Button liberarApp = new Button(this);
+        liberarApp.setText("LIBERAR APP");
 
-        liberar.setOnClickListener(v -> {
+        Button desbloquearAgora = new Button(this);
+        desbloquearAgora.setText("DESBLOQUEAR AGORA");
+
+        liberarApp.setOnClickListener(v -> {
             String hoje = new SimpleDateFormat("ddMM", Locale.getDefault())
                     .format(new Date()) + "mi$";
 
             if (senha.getText().toString().equals(hoje)) {
-                AdminUnlockStore.saveAuthorizedId(
-                        this,
-                        userId.getText().toString().trim()
-                );
+                AdminUnlockStore.saveAuthorizedId(this, userId.getText().toString().trim());
                 LicenseState.grant30Days(this);
-                status.setText("✅ USUÁRIO LIBERADO");
+                status.setText("✅ APP LIBERADO");
+            } else {
+                status.setText("❌ SENHA INVÁLIDA");
+            }
+        });
+
+        desbloquearAgora.setOnClickListener(v -> {
+            String hoje = new SimpleDateFormat("ddMM", Locale.getDefault())
+                    .format(new Date()) + "mi$";
+
+            if (senha.getText().toString().equals(hoje)) {
+                EngineState.adminUnlock(this);
+                status.setText("🔓 BLOQUEIO REMOVIDO");
             } else {
                 status.setText("❌ SENHA INVÁLIDA");
             }
@@ -61,7 +72,8 @@ public class AdminActivity extends Activity {
         layout.addView(title);
         layout.addView(senha);
         layout.addView(userId);
-        layout.addView(liberar);
+        layout.addView(liberarApp);
+        layout.addView(desbloquearAgora);
         layout.addView(status);
 
         setContentView(layout);
