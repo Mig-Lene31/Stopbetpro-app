@@ -51,6 +51,7 @@ public class MainActivity extends Activity {
             if (!MotorState.isEnabled(this)) return;
             saldo += 10f;
             EngineExecutor.process(this, saldo);
+            TimeEngine.tick(this);
             atualizar();
 
             if (EngineState.isBlocked(this)) {

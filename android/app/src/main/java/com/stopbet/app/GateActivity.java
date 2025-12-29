@@ -16,26 +16,20 @@ public class GateActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (EngineState.isBlocked(this)) {
-            startActivity(new Intent(this, BlockedActivity.class));
-            finish();
-            return;
-        }
-
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
         layout.setPadding(40,40,40,40);
 
         TextView title = new TextView(this);
         title.setText("STOPBET PRO");
-        title.setTextSize(22);
+        title.setTextSize(24);
 
+        // ADM oculto (5 toques)
         title.setOnClickListener(v -> {
             long now = System.currentTimeMillis();
             if (now - lastTapTime > 2000) tapCount = 0;
             tapCount++;
             lastTapTime = now;
-
             if (tapCount == 5) {
                 tapCount = 0;
                 startActivity(new Intent(this, AdminActivity.class));
@@ -44,6 +38,16 @@ public class GateActivity extends Activity {
 
         TextView idView = new TextView(this);
         idView.setText("SEU ID:\n" + UserIdentity.getId(this));
+
+        TextView info = new TextView(this);
+        info.setText(
+                "Controle de apostas com limites automáticos.\n\n" +
+                "Para liberar o acesso:\n" +
+                "1️⃣ Envie o pagamento via PIX\n" +
+                "2️⃣ Tire um print desta tela\n" +
+                "3️⃣ Envie o comprovante + ID\n\n" +
+                "📱 WhatsApp / PIX:\n(11) 97020-0771"
+        );
 
         boolean liberado =
                 LicenseState.isValid(this) ||
@@ -55,7 +59,6 @@ public class GateActivity extends Activity {
         Button entrar = new Button(this);
         entrar.setText("ENTRAR");
         entrar.setEnabled(liberado);
-
         entrar.setOnClickListener(v -> {
             startActivity(new Intent(this, MainActivity.class));
             finish();
@@ -63,6 +66,7 @@ public class GateActivity extends Activity {
 
         layout.addView(title);
         layout.addView(idView);
+        layout.addView(info);
         layout.addView(status);
         layout.addView(entrar);
 
