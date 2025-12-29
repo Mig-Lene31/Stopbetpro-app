@@ -6,34 +6,40 @@ import android.content.SharedPreferences;
 public class EngineState {
 
     private static final String PREF = "engine_state";
-    private static final String KEY_BLOCKED = "blocked";
-    private static final String KEY_BLOCK_START = "block_start";
+    private static final String KEY_BLOCK_UNTIL = "blocked_until";
 
     private static SharedPreferences sp(Context ctx) {
         return ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE);
     }
 
+    // 🔴 Está bloqueado?
     public static boolean isBlocked(Context ctx) {
-        return sp(ctx).getBoolean(KEY_BLOCKED, false);
+        long until = sp(ctx).getLong(KEY_BLOCK_UNTIL, 0);
+        return System.currentTimeMillis() < until;
     }
 
-    public static void block(Context ctx) {
-        sp(ctx).edit()
-                .putBoolean(KEY_BLOCKED, true)
-                .putLong(KEY_BLOCK_START, System.currentTimeMillis())
-                .apply();
-        MotorState.setEnabled(ctx, false);
+    // ⛔ Bloqueia por 12 horas
+    public static void blockFor12Hours(Context ctx) {
+        long until = System.currentTimeMillis() + (12L * 60 * 60 * 1000);
+        sp(ctx).edit().putLong(KEY_BLOCK_UNTIL, until).apply();
+        MotorState.forceDisable(ctx);
     }
 
+    // ⏱ Tempo restante do bloqueio
+    public static long getRemainingTime(Context ctx) {
+        long until = sp(ctx).getLong(KEY_BLOCK_UNTIL, 0);
+        return Math.max(0, until - System.currentTimeMillis());
+    }
+
+    // 🔓 Desbloqueio automático (tempo acabou)
+    public static void autoUnlock(Context ctx) {
+        sp(ctx).edit().remove(KEY_BLOCK_UNTIL).apply();
+        MotorState.forceDisable(ctx);
+    }
+
+    // 🔓 Desbloqueio manual via ADM
     public static void adminUnlock(Context ctx) {
-        sp(ctx).edit()
-                .putBoolean(KEY_BLOCKED, false)
-                .remove(KEY_BLOCK_START)
-                .apply();
-        MotorState.setEnabled(ctx, false);
-    }
-
-    public static long getBlockedAt(Context ctx) {
-        return sp(ctx).getLong(KEY_BLOCK_START, 0);
+        sp(ctx).edit().remove(KEY_BLOCK_UNTIL).apply();
+        MotorState.forceDisable(ctx);
     }
 }
