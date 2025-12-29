@@ -18,7 +18,7 @@ public class BlockedActivity extends Activity {
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(40,40,40,40);
+        layout.setPadding(40, 40, 40, 40);
         layout.setBackgroundColor(0xFF0D47A1);
 
         TextView title = new TextView(this);
@@ -63,7 +63,10 @@ public class BlockedActivity extends Activity {
                 long m = (r % 3600000) / 60000;
                 long s = (r % 60000) / 1000;
 
-                timer.setText("Tempo restante: " + h + "h " + m + "m " + s + "s");
+                timer.setText(
+                        "Tempo restante: " + h + "h " + m + "m " + s + "s"
+                );
+
                 handler.postDelayed(this, 1000);
             }
         }, 0);
