@@ -17,13 +17,13 @@ public class AdminActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        LinearLayout layout = new LinearLayout(this);
-        layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(40, 40, 40, 40);
+        LinearLayout l = new LinearLayout(this);
+        l.setOrientation(LinearLayout.VERTICAL);
+        l.setPadding(40,40,40,40);
 
-        TextView title = new TextView(this);
-        title.setText("ADMINISTRADOR");
-        title.setTextSize(22);
+        TextView t = new TextView(this);
+        t.setText("ÁREA ADMINISTRATIVA");
+        t.setTextSize(22);
 
         EditText senha = new EditText(this);
         senha.setHint("Senha ADM");
@@ -31,25 +31,26 @@ public class AdminActivity extends Activity {
         TextView status = new TextView(this);
 
         Button liberar = new Button(this);
-        liberar.setText("LIBERAR 30 DIAS");
+        liberar.setText("LIBERAR ACESSO");
 
         liberar.setOnClickListener(v -> {
-            String hoje = new SimpleDateFormat("ddMM", Locale.getDefault()).format(new Date());
+            String hoje = new SimpleDateFormat("ddMM", Locale.getDefault())
+                    .format(new Date());
             String correta = hoje + "Mi$";
 
             if (senha.getText().toString().equals(correta)) {
-                LicenseState.grant30Days(this);
-                status.setText("LIBERAÇÃO CONCLUÍDA ✅");
+                EngineState.adminUnlock(this);
+                status.setText("✅ ACESSO LIBERADO MANUALMENTE");
             } else {
-                status.setText("SENHA INCORRETA ❌");
+                status.setText("❌ SENHA INCORRETA");
             }
         });
 
-        layout.addView(title);
-        layout.addView(senha);
-        layout.addView(liberar);
-        layout.addView(status);
+        l.addView(t);
+        l.addView(senha);
+        l.addView(liberar);
+        l.addView(status);
 
-        setContentView(layout);
+        setContentView(l);
     }
 }
