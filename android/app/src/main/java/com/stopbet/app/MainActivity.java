@@ -16,6 +16,11 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (!AccessibilityUtil.isServiceEnabled(this)) {
+            startActivity(new Intent(this, AccessibilityRequiredActivity.class));
+            finish();
+            return;
+        }
 
         if (EngineState.isBlocked(this)) {
             startActivity(new Intent(this, BlockedActivity.class));
