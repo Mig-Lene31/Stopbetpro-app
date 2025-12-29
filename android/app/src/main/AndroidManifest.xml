@@ -2,25 +2,21 @@
     package="com.stopbet.app">
 
     <application
-        android:allowBackup="true"
         android:label="StopBet Pro"
-        android:supportsRtl="true">
+        android:allowBackup="true">
 
-        <!-- Activity de entrada -->
         <activity
             android:name=".GateActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
-        <!-- Telas internas -->
-        <activity android:name=".MainActivity" android:exported="false" />
-        <activity android:name=".BlockedActivity" android:exported="false" />
-        <activity android:name=".AdminActivity" android:exported="false" />
+        <activity android:name=".MainActivity" android:exported="false"/>
+        <activity android:name=".BlockedActivity" android:exported="false"/>
+        <activity android:name=".AdminActivity" android:exported="false"/>
 
     </application>
-
 </manifest>

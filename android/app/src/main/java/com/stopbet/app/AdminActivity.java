@@ -17,40 +17,59 @@ public class AdminActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        LinearLayout l = new LinearLayout(this);
-        l.setOrientation(LinearLayout.VERTICAL);
-        l.setPadding(40, 40, 40, 40);
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.setPadding(40,40,40,40);
 
-        TextView t = new TextView(this);
-        t.setText("ÁREA ADMINISTRATIVA");
-        t.setTextSize(22);
+        TextView title = new TextView(this);
+        title.setText("ÁREA ADMINISTRATIVA");
+        title.setTextSize(22);
 
         EditText senha = new EditText(this);
-        senha.setHint("Senha ADM");
+        senha.setHint("Senha ADM (DATA+mi$)");
+
+        EditText userId = new EditText(this);
+        userId.setHint("ID do usuário");
 
         TextView status = new TextView(this);
 
-        Button liberar = new Button(this);
-        liberar.setText("LIBERAR ACESSO");
+        Button liberar30 = new Button(this);
+        liberar30.setText("Liberar acesso por 30 dias");
 
-        liberar.setOnClickListener(v -> {
-            String hoje = new SimpleDateFormat("ddMM", Locale.getDefault())
-                    .format(new Date());
-            String correta = hoje + "Mi$";
+        Button liberarMotor = new Button(this);
+        liberarMotor.setText("Desbloquear motor agora");
 
-            if (senha.getText().toString().equals(correta)) {
-                EngineState.adminUnlock(this);
-                status.setText("✅ ACESSO LIBERADO MANUALMENTE");
+        liberar30.setOnClickListener(v -> {
+            String hoje = new SimpleDateFormat("ddMM", Locale.getDefault()).format(new Date()) + "mi$";
+            if (senha.getText().toString().equals(hoje)
+                    && userId.getText().toString().equals(UserIdentity.getId(this))) {
+
+                LicenseState.grant30Days(this);
+                status.setText("✅ ACESSO LIBERADO POR 30 DIAS");
             } else {
-                status.setText("❌ SENHA INCORRETA");
+                status.setText("❌ SENHA OU ID INVÁLIDO");
             }
         });
 
-        l.addView(t);
-        l.addView(senha);
-        l.addView(liberar);
-        l.addView(status);
+        liberarMotor.setOnClickListener(v -> {
+            String hoje = new SimpleDateFormat("ddMM", Locale.getDefault()).format(new Date()) + "mi$";
+            if (senha.getText().toString().equals(hoje)
+                    && userId.getText().toString().equals(UserIdentity.getId(this))) {
 
-        setContentView(l);
+                EngineState.adminUnlock(this);
+                status.setText("🔓 MOTOR DESBLOQUEADO");
+            } else {
+                status.setText("❌ SENHA OU ID INVÁLIDO");
+            }
+        });
+
+        layout.addView(title);
+        layout.addView(senha);
+        layout.addView(userId);
+        layout.addView(liberar30);
+        layout.addView(liberarMotor);
+        layout.addView(status);
+
+        setContentView(layout);
     }
 }
