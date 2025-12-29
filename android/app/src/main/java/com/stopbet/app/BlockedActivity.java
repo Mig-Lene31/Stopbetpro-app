@@ -4,13 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class BlockedActivity extends Activity {
 
-    private TextView timerText;
+    private TextView timer;
     private Handler handler = new Handler();
 
     @Override
@@ -25,54 +24,43 @@ public class BlockedActivity extends Activity {
         title.setText("⛔ ACESSO BLOQUEADO");
         title.setTextSize(22);
 
-        timerText = new TextView(this);
-        timerText.setTextSize(18);
+        timer = new TextView(this);
 
         TextView info = new TextView(this);
         info.setText(
-                "Você atingiu um limite.\n\n" +
-                "O acesso será liberado automaticamente após 12 horas.\n\n" +
-                "Para desbloquear antes:\n\n" +
-                "PIX: 000.000.000-00\n" +
+                "Limite atingido.\n\n" +
+                "Bloqueio ativo por 12 horas.\n\n" +
+                "PIX: (11) 97020-0771\n" +
                 "Valor: R$ 50,00\n\n" +
-                "Após o pagamento, toque em DESBLOQUEAR."
-        );
-
-        Button unlock = new Button(this);
-        unlock.setText("🔓 DESBLOQUEAR");
-        unlock.setOnClickListener(v ->
-                startActivity(new Intent(this, UnlockActivity.class))
+                "Envie o comprovante ao administrador."
         );
 
         layout.addView(title);
-        layout.addView(timerText);
+        layout.addView(timer);
         layout.addView(info);
-        layout.addView(unlock);
 
         setContentView(layout);
-        startTimer();
+        iniciarTimer();
     }
 
-    private void startTimer() {
+    private void iniciarTimer() {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                long remaining = EngineState.getRemainingTime(BlockedActivity.this);
+                long restante = EngineState.getRemainingTime(BlockedActivity.this);
 
-                if (remaining <= 0) {
-                    EngineState.unlock(BlockedActivity.this);
-                    startActivity(new Intent(BlockedActivity.this, GateActivity.class));
+                if (restante <= 0) {
+                    EngineState.autoUnlock(BlockedActivity.this);
+                    startActivity(new Intent(BlockedActivity.this, MainActivity.class));
                     finish();
                     return;
                 }
 
-                long minutes = remaining / 60000;
-                long seconds = (remaining % 60000) / 1000;
+                long h = restante / 3600000;
+                long m = (restante % 3600000) / 60000;
+                long s = (restante % 60000) / 1000;
 
-                timerText.setText(
-                        "Tempo restante: " + minutes + "m " + seconds + "s"
-                );
-
+                timer.setText("Tempo restante: " + h + "h " + m + "m " + s + "s");
                 handler.postDelayed(this, 1000);
             }
         }, 0);

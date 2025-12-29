@@ -20,6 +20,7 @@ public class EngineState {
     public static void blockFor12Hours(Context c) {
         long until = System.currentTimeMillis() + (12L * 60 * 60 * 1000);
         sp(c).edit().putLong(KEY_BLOCK_UNTIL, until).apply();
+        MotorState.forceDisable(c);
     }
 
     public static long getRemainingTime(Context c) {
@@ -27,7 +28,13 @@ public class EngineState {
         return Math.max(0, until - System.currentTimeMillis());
     }
 
-    // 🔓 SOMENTE ADM
+    // 🔓 usado SOMENTE quando o tempo acabar automaticamente
+    public static void autoUnlock(Context c) {
+        sp(c).edit().remove(KEY_BLOCK_UNTIL).apply();
+        MotorState.forceDisable(c);
+    }
+
+    // 🔓 usado SOMENTE pelo ADM
     public static void adminUnlock(Context c) {
         sp(c).edit().remove(KEY_BLOCK_UNTIL).apply();
         MotorState.forceDisable(c);
