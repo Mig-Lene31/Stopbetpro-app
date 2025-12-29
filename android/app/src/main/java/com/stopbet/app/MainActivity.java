@@ -38,8 +38,23 @@ public class MainActivity extends Activity {
         motor.setText("Ativar / Desativar Motor");
         motor.setOnClickListener(v -> {
             if (EngineState.isBlocked(this)) return;
-            MotorState.setEnabled(this, !MotorState.isEnabled(this));
+            boolean novoEstado = !MotorState.isEnabled(this);
+            MotorState.setEnabled(this, novoEstado);
+            if (novoEstado) {
+                RealTimeEngine.start(this);
+            } else {
+                RealTimeEngine.stop(this);
+            }
             atualizar();
+            if (RealTimeWatcher.check(this)) {
+                startActivity(new Intent(this, BlockedActivity.class));
+                finish();
+            }
+            atualizar();
+            if (RealTimeWatcher.check(this)) {
+                startActivity(new Intent(this, BlockedActivity.class));
+                finish();
+            }
         });
 
         Button simular = new Button(this);
@@ -53,6 +68,10 @@ public class MainActivity extends Activity {
             TimeEngine.tick(this);
 
             atualizar();
+            if (RealTimeWatcher.check(this)) {
+                startActivity(new Intent(this, BlockedActivity.class));
+                finish();
+            }
 
             if (bloqueouValor || EngineState.isBlocked(this)) {
                 startActivity(new Intent(this, BlockedActivity.class));
@@ -89,6 +108,10 @@ public class MainActivity extends Activity {
 
         setContentView(layout);
         atualizar();
+            if (RealTimeWatcher.check(this)) {
+                startActivity(new Intent(this, BlockedActivity.class));
+                finish();
+            }
     }
 
     private void atualizar() {
