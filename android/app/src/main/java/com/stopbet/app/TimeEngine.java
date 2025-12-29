@@ -6,8 +6,10 @@ public class TimeEngine {
 
     public static void tick(Context ctx) {
         if (!MotorState.isEnabled(ctx)) return;
+
         if (DailyTimeEngine.exceeded(ctx)) {
-            EngineState.block(ctx);
+            MotorState.forceDisable(ctx);
+            EngineState.blockFor12Hours(ctx);
         }
     }
 }
