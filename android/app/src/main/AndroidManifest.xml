@@ -1,22 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.stopbet.app">
 
     <application
+        android:allowBackup="true"
         android:label="StopBet Pro"
-        android:allowBackup="true">
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar">
 
+        <!-- TELA INICIAL -->
         <activity
             android:name=".GateActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity" android:exported="false"/>
-        <activity android:name=".BlockedActivity" android:exported="false"/>
-        <activity android:name=".AdminActivity" android:exported="false"/>
+        <!-- ADMIN -->
+        <activity android:name=".AdminActivity" />
+
+        <!-- APP PRINCIPAL -->
+        <activity android:name=".MainActivity" />
+
+        <!-- BLOQUEIO (TELA AZUL) -->
+        <activity android:name=".BlockedActivity" />
+
+        <!-- CONFIGURAÇÕES -->
+        <activity android:name=".LimitsActivity" />
+        <activity android:name=".TimeActivity" />
+        <activity android:name=".InfoActivity" />
+
+        <!-- OUTRAS TELAS EXISTENTES -->
+        <activity android:name=".PaymentActivity" />
+        <activity android:name=".DepositActivity" />
+        <activity android:name=".RulesActivity" />
+        <activity android:name=".UnlockActivity" />
+        <activity android:name=".BootActivity" />
 
     </application>
+
 </manifest>
