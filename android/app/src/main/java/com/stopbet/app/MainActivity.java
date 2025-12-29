@@ -17,7 +17,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Se estiver bloqueado, vai direto pra tela azul
+        // Se já estiver bloqueado, vai direto pra tela azul
         if (EngineState.isBlocked(this)) {
             startActivity(new Intent(this, BlockedActivity.class));
             finish();
@@ -44,16 +44,24 @@ public class MainActivity extends Activity {
             atualizar();
         });
 
-        // 🔘 SIMULAÇÃO (mantém engine funcionando)
+        // 🔘 SIMULAÇÃO
         Button simular = new Button(this);
         simular.setText("Simular +10");
         simular.setOnClickListener(v -> {
+
             if (!MotorState.isEnabled(this)) return;
+
             saldo += 10f;
+
+            // 🔥 STOP WIN / LOSS
             EngineExecutor.process(this, saldo);
-            TimeEngine.tick(this);
+
+            // ⏱ STOP TEMPO
+            TimeEngine.check(this);
+
             atualizar();
 
+            // ⛔ BLOQUEIO → TELA AZUL
             if (EngineState.isBlocked(this)) {
                 startActivity(new Intent(this, BlockedActivity.class));
                 finish();
