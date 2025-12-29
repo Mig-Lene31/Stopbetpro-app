@@ -32,11 +32,7 @@ public class GateActivity extends Activity {
 
         title.setOnClickListener(v -> {
             long now = System.currentTimeMillis();
-
-            if (now - lastTapTime > 2000) {
-                tapCount = 0;
-            }
-
+            if (now - lastTapTime > 2000) tapCount = 0;
             tapCount++;
             lastTapTime = now;
 
@@ -49,18 +45,16 @@ public class GateActivity extends Activity {
         TextView idView = new TextView(this);
         idView.setText("SEU ID:\n" + UserIdentity.getId(this));
 
+        boolean liberado =
+                LicenseState.isValid(this) ||
+                AdminUnlockStore.isAuthorized(this);
+
         TextView status = new TextView(this);
-        status.setText(
-                LicenseState.isValid(this) || AdminUnlockStore.isAuthorized(this)
-                        ? "LICENÇA ATIVA ✅"
-                        : "LICENÇA BLOQUEADA 🔒"
-        );
+        status.setText(liberado ? "STATUS: LIBERADO ✅" : "STATUS: BLOQUEADO 🔒");
 
         Button entrar = new Button(this);
         entrar.setText("ENTRAR");
-        entrar.setEnabled(
-                LicenseState.isValid(this) || AdminUnlockStore.isAuthorized(this)
-        );
+        entrar.setEnabled(liberado);
 
         entrar.setOnClickListener(v -> {
             startActivity(new Intent(this, MainActivity.class));

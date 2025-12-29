@@ -34,17 +34,14 @@ public class AdminActivity extends Activity {
         );
 
         EditText userId = new EditText(this);
-        userId.setHint("ID do usuário");
+        userId.setHint("ID DO USUÁRIO");
 
         TextView status = new TextView(this);
 
-        Button liberar30 = new Button(this);
-        liberar30.setText("Liberar acesso por 30 dias");
+        Button liberar = new Button(this);
+        liberar.setText("LIBERAR USUÁRIO");
 
-        Button liberarMotor = new Button(this);
-        liberarMotor.setText("Desbloquear motor agora");
-
-        liberar30.setOnClickListener(v -> {
+        liberar.setOnClickListener(v -> {
             String hoje = new SimpleDateFormat("ddMM", Locale.getDefault())
                     .format(new Date()) + "mi$";
 
@@ -54,23 +51,7 @@ public class AdminActivity extends Activity {
                         userId.getText().toString().trim()
                 );
                 LicenseState.grant30Days(this);
-                status.setText("✅ ID LIBERADO POR 30 DIAS");
-            } else {
-                status.setText("❌ SENHA INVÁLIDA");
-            }
-        });
-
-        liberarMotor.setOnClickListener(v -> {
-            String hoje = new SimpleDateFormat("ddMM", Locale.getDefault())
-                    .format(new Date()) + "mi$";
-
-            if (senha.getText().toString().equals(hoje)) {
-                AdminUnlockStore.saveAuthorizedId(
-                        this,
-                        userId.getText().toString().trim()
-                );
-                EngineState.adminUnlock(this);
-                status.setText("🔓 MOTOR DESBLOQUEADO PARA ESTE ID");
+                status.setText("✅ USUÁRIO LIBERADO");
             } else {
                 status.setText("❌ SENHA INVÁLIDA");
             }
@@ -79,8 +60,7 @@ public class AdminActivity extends Activity {
         layout.addView(title);
         layout.addView(senha);
         layout.addView(userId);
-        layout.addView(liberar30);
-        layout.addView(liberarMotor);
+        layout.addView(liberar);
         layout.addView(status);
 
         setContentView(layout);
