@@ -2,6 +2,7 @@ package com.stopbet.app;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -27,6 +28,10 @@ public class AdminActivity extends Activity {
 
         EditText senha = new EditText(this);
         senha.setHint("Senha ADM (DATA+mi$)");
+        senha.setInputType(
+                InputType.TYPE_CLASS_TEXT |
+                InputType.TYPE_TEXT_VARIATION_PASSWORD
+        );
 
         EditText userId = new EditText(this);
         userId.setHint("ID do usuário");
@@ -40,22 +45,36 @@ public class AdminActivity extends Activity {
         liberarMotor.setText("Desbloquear motor agora");
 
         liberar30.setOnClickListener(v -> {
-            String hoje = new SimpleDateFormat("ddMM", Locale.getDefault()).format(new Date()) + "mi$";
-            if (senha.getText().toString().equals(hoje)
-                    && userId.getText().toString().equals(UserIdentity.getId(this))) {
+            String hoje = new SimpleDateFormat(
+                    "ddMM",
+                    Locale.getDefault()
+            ).format(new Date()) + "mi$";
 
+            if (
+                senha.getText().toString().equals(hoje) &&
+                userId.getText().toString().equals(
+                        UserIdentity.getId(this)
+                )
+            ) {
                 LicenseState.grant30Days(this);
-                status.setText("✅ ACESSO LIBERADO POR 30 DIAS");
+                status.setText("✅ LIBERAÇÃO CONCLUÍDA");
             } else {
                 status.setText("❌ SENHA OU ID INVÁLIDO");
             }
         });
 
         liberarMotor.setOnClickListener(v -> {
-            String hoje = new SimpleDateFormat("ddMM", Locale.getDefault()).format(new Date()) + "mi$";
-            if (senha.getText().toString().equals(hoje)
-                    && userId.getText().toString().equals(UserIdentity.getId(this))) {
+            String hoje = new SimpleDateFormat(
+                    "ddMM",
+                    Locale.getDefault()
+            ).format(new Date()) + "mi$";
 
+            if (
+                senha.getText().toString().equals(hoje) &&
+                userId.getText().toString().equals(
+                        UserIdentity.getId(this)
+                )
+            ) {
                 EngineState.adminUnlock(this);
                 status.setText("🔓 MOTOR DESBLOQUEADO");
             } else {
