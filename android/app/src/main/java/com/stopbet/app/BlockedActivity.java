@@ -66,6 +66,6 @@ public class BlockedActivity extends Activity {
                 timer.setText("Tempo restante: " + h + "h " + m + "m " + s + "s");
                 handler.postDelayed(this, 1000);
             }
-        },0);
+        }, 0);
     }
 }
