@@ -11,8 +11,8 @@ public class EngineExecutor {
         float loss = LimitsStore.getLoss(ctx);
 
         if ((win > 0 && saldo >= win) || (loss < 0 && saldo <= loss)) {
-            EngineState.blockFor12Hours(ctx);
             MotorState.forceDisable(ctx);
+            EngineState.blockFor12Hours(ctx);
             return true;
         }
         return false;
