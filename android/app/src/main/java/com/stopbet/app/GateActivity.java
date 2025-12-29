@@ -16,7 +16,6 @@ public class GateActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Se estiver bloqueado, vai pra tela azul
         if (EngineState.isBlocked(this)) {
             startActivity(new Intent(this, BlockedActivity.class));
             finish();
@@ -25,9 +24,8 @@ public class GateActivity extends Activity {
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(40, 40, 40, 40);
+        layout.setPadding(40,40,40,40);
 
-        // 🔒 LOCAL SECRETO DO ADM (5 TOQUES)
         TextView title = new TextView(this);
         title.setText("STOPBET PRO");
         title.setTextSize(22);
@@ -35,7 +33,6 @@ public class GateActivity extends Activity {
         title.setOnClickListener(v -> {
             long now = System.currentTimeMillis();
 
-            // reseta se demorou demais
             if (now - lastTapTime > 2000) {
                 tapCount = 0;
             }
@@ -52,35 +49,28 @@ public class GateActivity extends Activity {
         TextView idView = new TextView(this);
         idView.setText("SEU ID:\n" + UserIdentity.getId(this));
 
-        TextView info = new TextView(this);
-        info.setText(
-                "Para liberar o acesso:\n\n" +
-                "1️⃣ Envie o pagamento via PIX\n" +
-                "2️⃣ Tire um PRINT desta tela\n" +
-                "3️⃣ Envie o comprovante + ID\n\n" +
-                "📱 PIX / WhatsApp:\n(11) 97020-0771"
-        );
-
         TextView status = new TextView(this);
         status.setText(
-                LicenseState.isValid(this)
-                        ? "STATUS: LIBERADO ✅"
-                        : "STATUS: BLOQUEADO 🔒"
+                LicenseState.isValid(this) || AdminUnlockStore.isAuthorized(this)
+                        ? "LICENÇA ATIVA ✅"
+                        : "LICENÇA BLOQUEADA 🔒"
         );
 
-        Button avancar = new Button(this);
-        avancar.setText("Avançar");
-        avancar.setEnabled(LicenseState.isValid(this));
-        avancar.setOnClickListener(v -> {
+        Button entrar = new Button(this);
+        entrar.setText("ENTRAR");
+        entrar.setEnabled(
+                LicenseState.isValid(this) || AdminUnlockStore.isAuthorized(this)
+        );
+
+        entrar.setOnClickListener(v -> {
             startActivity(new Intent(this, MainActivity.class));
             finish();
         });
 
         layout.addView(title);
         layout.addView(idView);
-        layout.addView(info);
         layout.addView(status);
-        layout.addView(avancar);
+        layout.addView(entrar);
 
         setContentView(layout);
     }

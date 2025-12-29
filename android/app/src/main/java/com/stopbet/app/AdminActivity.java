@@ -45,40 +45,34 @@ public class AdminActivity extends Activity {
         liberarMotor.setText("Desbloquear motor agora");
 
         liberar30.setOnClickListener(v -> {
-            String hoje = new SimpleDateFormat(
-                    "ddMM",
-                    Locale.getDefault()
-            ).format(new Date()) + "mi$";
+            String hoje = new SimpleDateFormat("ddMM", Locale.getDefault())
+                    .format(new Date()) + "mi$";
 
-            if (
-                senha.getText().toString().equals(hoje) &&
-                userId.getText().toString().equals(
-                        UserIdentity.getId(this)
-                )
-            ) {
+            if (senha.getText().toString().equals(hoje)) {
+                AdminUnlockStore.saveAuthorizedId(
+                        this,
+                        userId.getText().toString().trim()
+                );
                 LicenseState.grant30Days(this);
-                status.setText("✅ LIBERAÇÃO CONCLUÍDA");
+                status.setText("✅ ID LIBERADO POR 30 DIAS");
             } else {
-                status.setText("❌ SENHA OU ID INVÁLIDO");
+                status.setText("❌ SENHA INVÁLIDA");
             }
         });
 
         liberarMotor.setOnClickListener(v -> {
-            String hoje = new SimpleDateFormat(
-                    "ddMM",
-                    Locale.getDefault()
-            ).format(new Date()) + "mi$";
+            String hoje = new SimpleDateFormat("ddMM", Locale.getDefault())
+                    .format(new Date()) + "mi$";
 
-            if (
-                senha.getText().toString().equals(hoje) &&
-                userId.getText().toString().equals(
-                        UserIdentity.getId(this)
-                )
-            ) {
+            if (senha.getText().toString().equals(hoje)) {
+                AdminUnlockStore.saveAuthorizedId(
+                        this,
+                        userId.getText().toString().trim()
+                );
                 EngineState.adminUnlock(this);
-                status.setText("🔓 MOTOR DESBLOQUEADO");
+                status.setText("🔓 MOTOR DESBLOQUEADO PARA ESTE ID");
             } else {
-                status.setText("❌ SENHA OU ID INVÁLIDO");
+                status.setText("❌ SENHA INVÁLIDA");
             }
         });
 

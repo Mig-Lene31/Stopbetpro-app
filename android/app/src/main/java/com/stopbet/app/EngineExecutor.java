@@ -4,25 +4,16 @@ import android.content.Context;
 
 public class EngineExecutor {
 
-    public static void process(Context ctx, float saldo) {
+    public static void process(Context c, float saldo) {
 
-        // Motor desligado = não executa nada
-        if (!MotorState.isEnabled(ctx)) {
-            return;
-        }
+        if (!MotorState.isEnabled(c)) return;
 
-        // Limite diário
-        if (DailyTimeEngine.exceeded(ctx)) {
-            EngineState.blockFor12Hours(ctx);
-            return;
-        }
-
-        // Stop Win / Stop Loss
-        float win = LimitsState.getWin(ctx);
-        float loss = LimitsState.getLoss(ctx);
+        float win = LimitsState.getWin(c);
+        float loss = LimitsState.getLoss(c);
 
         if (saldo >= win || saldo <= loss) {
-            EngineState.blockFor12Hours(ctx);
+            MotorState.forceDisable(c);
+            EngineState.blockFor12Hours(c);
         }
     }
 }
