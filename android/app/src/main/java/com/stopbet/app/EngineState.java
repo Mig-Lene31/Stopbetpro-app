@@ -30,6 +30,6 @@ public class EngineState {
     // 🔓 SOMENTE ADM
     public static void adminUnlock(Context c) {
         sp(c).edit().remove(KEY_BLOCK_UNTIL).apply();
-        MotorState.forceDisable(c); // segurança obrigatória
+        MotorState.forceDisable(c);
     }
 }
