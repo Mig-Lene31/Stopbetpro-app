@@ -27,9 +27,9 @@ public class EngineState {
         return Math.max(0, until - System.currentTimeMillis());
     }
 
-    // 🔓 USADO APENAS PELO ADM
+    // 🔓 SOMENTE ADM
     public static void adminUnlock(Context c) {
         sp(c).edit().remove(KEY_BLOCK_UNTIL).apply();
-        MotorState.forceDisable(c); // segurança
+        MotorState.forceDisable(c); // segurança obrigatória
     }
 }

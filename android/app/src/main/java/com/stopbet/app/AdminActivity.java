@@ -19,7 +19,7 @@ public class AdminActivity extends Activity {
 
         LinearLayout l = new LinearLayout(this);
         l.setOrientation(LinearLayout.VERTICAL);
-        l.setPadding(40,40,40,40);
+        l.setPadding(40, 40, 40, 40);
 
         TextView t = new TextView(this);
         t.setText("ÁREA ADMINISTRATIVA");
