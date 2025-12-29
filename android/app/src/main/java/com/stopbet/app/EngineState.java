@@ -6,37 +6,34 @@ import android.content.SharedPreferences;
 public class EngineState {
 
     private static final String PREF = "engine_state";
-    private static final String KEY_BLOCK_UNTIL = "blocked_until";
+    private static final String KEY_BLOCKED = "blocked";
+    private static final String KEY_BLOCK_START = "block_start";
 
-    private static SharedPreferences sp(Context c) {
-        return c.getSharedPreferences(PREF, Context.MODE_PRIVATE);
+    private static SharedPreferences sp(Context ctx) {
+        return ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE);
     }
 
-    public static boolean isBlocked(Context c) {
-        long until = sp(c).getLong(KEY_BLOCK_UNTIL, 0);
-        return System.currentTimeMillis() < until;
+    public static boolean isBlocked(Context ctx) {
+        return sp(ctx).getBoolean(KEY_BLOCKED, false);
     }
 
-    public static void blockFor12Hours(Context c) {
-        long until = System.currentTimeMillis() + (12L * 60 * 60 * 1000);
-        sp(c).edit().putLong(KEY_BLOCK_UNTIL, until).apply();
-        MotorState.forceDisable(c);
+    public static void block(Context ctx) {
+        sp(ctx).edit()
+                .putBoolean(KEY_BLOCKED, true)
+                .putLong(KEY_BLOCK_START, System.currentTimeMillis())
+                .apply();
+        MotorState.setEnabled(ctx, false);
     }
 
-    public static long getRemainingTime(Context c) {
-        long until = sp(c).getLong(KEY_BLOCK_UNTIL, 0);
-        return Math.max(0, until - System.currentTimeMillis());
+    public static void adminUnlock(Context ctx) {
+        sp(ctx).edit()
+                .putBoolean(KEY_BLOCKED, false)
+                .remove(KEY_BLOCK_START)
+                .apply();
+        MotorState.setEnabled(ctx, false);
     }
 
-    // 🔓 usado SOMENTE quando o tempo acabar automaticamente
-    public static void autoUnlock(Context c) {
-        sp(c).edit().remove(KEY_BLOCK_UNTIL).apply();
-        MotorState.forceDisable(c);
-    }
-
-    // 🔓 usado SOMENTE pelo ADM
-    public static void adminUnlock(Context c) {
-        sp(c).edit().remove(KEY_BLOCK_UNTIL).apply();
-        MotorState.forceDisable(c);
+    public static long getBlockedAt(Context ctx) {
+        return sp(ctx).getLong(KEY_BLOCK_START, 0);
     }
 }
