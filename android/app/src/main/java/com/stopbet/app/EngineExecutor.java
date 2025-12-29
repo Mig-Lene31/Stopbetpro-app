@@ -11,12 +11,17 @@ public class EngineExecutor {
 
         float win = LimitsStore.getWin(ctx);
         float loss = LimitsStore.getLoss(ctx);
+        float m = EngineConfig.VALUE_MARGIN;
 
-        if ((win >= 0 && saldo >= win) || (loss <= 0 && saldo <= loss)) {
+        boolean bateuWin  = (win >= 0)  && saldo >= (win - m);
+        boolean bateuLoss = (loss <= 0) && saldo <= (loss + m);
+
+        if (bateuWin || bateuLoss) {
             MotorState.forceDisable(ctx);
             EngineState.blockFor12Hours(ctx);
             return true;
         }
+
         return false;
     }
 }
