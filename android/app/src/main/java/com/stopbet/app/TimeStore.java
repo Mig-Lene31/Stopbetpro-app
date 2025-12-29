@@ -1,7 +1,6 @@
 package com.stopbet.app;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 
 public class TimeStore {
 
@@ -18,5 +17,9 @@ public class TimeStore {
     public static int getMinutes(Context ctx) {
         return ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
                 .getInt(KEY_MINUTES, 0);
+    }
+
+    public static boolean hasTimeLimit(Context ctx) {
+        return getMinutes(ctx) > 0;
     }
 }

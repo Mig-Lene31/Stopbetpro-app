@@ -22,10 +22,14 @@ public class LimitsStore {
     }
 
     public static float getWin(Context ctx) {
-        return sp(ctx).getFloat(KEY_WIN, 0f);
+        return sp(ctx).getFloat(KEY_WIN, -1f);
     }
 
     public static float getLoss(Context ctx) {
-        return sp(ctx).getFloat(KEY_LOSS, 0f);
+        return sp(ctx).getFloat(KEY_LOSS, 1f);
+    }
+
+    public static boolean hasLimits(Context ctx) {
+        return getWin(ctx) >= 0 || getLoss(ctx) <= 0;
     }
 }
