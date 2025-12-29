@@ -17,6 +17,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Se estiver bloqueado, vai direto pra tela azul
         if (EngineState.isBlocked(this)) {
             startActivity(new Intent(this, BlockedActivity.class));
             finish();
@@ -34,14 +35,16 @@ public class MainActivity extends Activity {
         status = new TextView(this);
         saldoView = new TextView(this);
 
+        // 🔘 MOTOR
         Button motor = new Button(this);
-        motor.setText("Ativar / Desativar motor");
+        motor.setText("Ativar / Desativar Motor");
         motor.setOnClickListener(v -> {
             if (EngineState.isBlocked(this)) return;
             MotorState.setEnabled(this, !MotorState.isEnabled(this));
             atualizar();
         });
 
+        // 🔘 SIMULAÇÃO (mantém engine funcionando)
         Button simular = new Button(this);
         simular.setText("Simular +10");
         simular.setOnClickListener(v -> {
@@ -56,11 +59,35 @@ public class MainActivity extends Activity {
             }
         });
 
+        // 🔘 STOP WIN / LOSS
+        Button limites = new Button(this);
+        limites.setText("Configurar Stop Win / Loss");
+        limites.setOnClickListener(v ->
+                startActivity(new Intent(this, LimitsActivity.class))
+        );
+
+        // 🔘 STOP TEMPO
+        Button tempo = new Button(this);
+        tempo.setText("Configurar Stop Tempo");
+        tempo.setOnClickListener(v ->
+                startActivity(new Intent(this, TimeActivity.class))
+        );
+
+        // 🔘 INFORMAÇÕES
+        Button info = new Button(this);
+        info.setText("Informações do App");
+        info.setOnClickListener(v ->
+                startActivity(new Intent(this, InfoActivity.class))
+        );
+
         layout.addView(title);
         layout.addView(status);
         layout.addView(saldoView);
         layout.addView(motor);
         layout.addView(simular);
+        layout.addView(limites);
+        layout.addView(tempo);
+        layout.addView(info);
 
         setContentView(layout);
         atualizar();
