@@ -17,7 +17,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Se já estiver bloqueado, vai direto pra tela azul
         if (EngineState.isBlocked(this)) {
             startActivity(new Intent(this, BlockedActivity.class));
             finish();
@@ -26,7 +25,7 @@ public class MainActivity extends Activity {
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(40, 40, 40, 40);
+        layout.setPadding(40,40,40,40);
 
         TextView title = new TextView(this);
         title.setText("StopBet Pro");
@@ -35,7 +34,6 @@ public class MainActivity extends Activity {
         status = new TextView(this);
         saldoView = new TextView(this);
 
-        // 🔘 MOTOR
         Button motor = new Button(this);
         motor.setText("Ativar / Desativar Motor");
         motor.setOnClickListener(v -> {
@@ -44,45 +42,36 @@ public class MainActivity extends Activity {
             atualizar();
         });
 
-        // 🔘 SIMULAÇÃO
         Button simular = new Button(this);
         simular.setText("Simular +10");
         simular.setOnClickListener(v -> {
-
             if (!MotorState.isEnabled(this)) return;
 
             saldo += 10f;
 
-            // 🔥 STOP WIN / LOSS
-            EngineExecutor.process(this, saldo);
-
-            // ⏱ STOP TEMPO
-            TimeEngine.check(this);
+            boolean bloqueouValor = EngineExecutor.process(this, saldo);
+            TimeEngine.tick(this);
 
             atualizar();
 
-            // ⛔ BLOQUEIO → TELA AZUL
-            if (EngineState.isBlocked(this)) {
+            if (bloqueouValor || EngineState.isBlocked(this)) {
                 startActivity(new Intent(this, BlockedActivity.class));
                 finish();
             }
         });
 
-        // 🔘 STOP WIN / LOSS
         Button limites = new Button(this);
         limites.setText("Configurar Stop Win / Loss");
         limites.setOnClickListener(v ->
                 startActivity(new Intent(this, LimitsActivity.class))
         );
 
-        // 🔘 STOP TEMPO
         Button tempo = new Button(this);
         tempo.setText("Configurar Stop Tempo");
         tempo.setOnClickListener(v ->
                 startActivity(new Intent(this, TimeActivity.class))
         );
 
-        // 🔘 INFORMAÇÕES
         Button info = new Button(this);
         info.setText("Informações do App");
         info.setOnClickListener(v ->
