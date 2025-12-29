@@ -6,11 +6,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class AdminActivity extends Activity {
-
-    private static final String ADMIN_PASSWORD = "1234"; // depois você muda
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,61 +19,36 @@ public class AdminActivity extends Activity {
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(40,40,40,40);
+        layout.setPadding(40, 40, 40, 40);
 
         TextView title = new TextView(this);
-        title.setText("Modo Administrador");
-        title.setTextSize(20);
+        title.setText("ADMINISTRADOR");
+        title.setTextSize(22);
 
         EditText senha = new EditText(this);
         senha.setHint("Senha ADM");
 
-        Button entrar = new Button(this);
-        entrar.setText("Entrar");
+        TextView status = new TextView(this);
+
+        Button liberar = new Button(this);
+        liberar.setText("LIBERAR 30 DIAS");
+
+        liberar.setOnClickListener(v -> {
+            String hoje = new SimpleDateFormat("ddMM", Locale.getDefault()).format(new Date());
+            String correta = hoje + "Mi$";
+
+            if (senha.getText().toString().equals(correta)) {
+                LicenseState.grant30Days(this);
+                status.setText("LIBERAÇÃO CONCLUÍDA ✅");
+            } else {
+                status.setText("SENHA INCORRETA ❌");
+            }
+        });
 
         layout.addView(title);
         layout.addView(senha);
-        layout.addView(entrar);
-
-        setContentView(layout);
-
-        entrar.setOnClickListener(v -> {
-            if (!ADMIN_PASSWORD.equals(senha.getText().toString())) {
-                Toast.makeText(this, "Senha incorreta", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            abrirPainel();
-        });
-    }
-
-    private void abrirPainel() {
-
-        LinearLayout layout = new LinearLayout(this);
-        layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(40,40,40,40);
-
-        TextView info = new TextView(this);
-        info.setText("ID do usuário:\n" + UserIdentity.getId(this));
-
-        Button desbloquear12h = new Button(this);
-        desbloquear12h.setText("🔓 Desbloquear bloqueio");
-
-        Button liberar30d = new Button(this);
-        liberar30d.setText("✅ Liberar por 30 dias");
-
-        desbloquear12h.setOnClickListener(v -> {
-            EngineState.unlock(this);
-            Toast.makeText(this, "Bloqueio removido", Toast.LENGTH_SHORT).show();
-        });
-
-        liberar30d.setOnClickListener(v -> {
-            AppStateAdmin.releaseFor30Days(this);
-            Toast.makeText(this, "Liberado por 30 dias", Toast.LENGTH_SHORT).show();
-        });
-
-        layout.addView(info);
-        layout.addView(desbloquear12h);
-        layout.addView(liberar30d);
+        layout.addView(liberar);
+        layout.addView(status);
 
         setContentView(layout);
     }

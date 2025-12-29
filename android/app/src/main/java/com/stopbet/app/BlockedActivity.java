@@ -30,11 +30,11 @@ public class BlockedActivity extends Activity {
 
         TextView info = new TextView(this);
         info.setText(
-                "Você atingiu um limite configurado.\n\n" +
+                "Você atingiu um limite.\n\n" +
                 "O acesso será liberado automaticamente após 12 horas.\n\n" +
-                "Para desbloquear antes, utilize o PIX:\n\n" +
+                "Para desbloquear antes:\n\n" +
                 "PIX: 000.000.000-00\n" +
-                "Valor: R$ XX,XX\n\n" +
+                "Valor: R$ 50,00\n\n" +
                 "Após o pagamento, toque em DESBLOQUEAR."
         );
 
@@ -60,15 +60,18 @@ public class BlockedActivity extends Activity {
                 long remaining = EngineState.getRemainingTime(BlockedActivity.this);
 
                 if (remaining <= 0) {
-                    EngineState.clearBlock(BlockedActivity.this);
-                    startActivity(new Intent(BlockedActivity.this, MainActivity.class));
+                    EngineState.unlock(BlockedActivity.this);
+                    startActivity(new Intent(BlockedActivity.this, GateActivity.class));
                     finish();
                     return;
                 }
 
                 long minutes = remaining / 60000;
                 long seconds = (remaining % 60000) / 1000;
-                timerText.setText("Tempo restante: " + minutes + "m " + seconds + "s");
+
+                timerText.setText(
+                        "Tempo restante: " + minutes + "m " + seconds + "s"
+                );
 
                 handler.postDelayed(this, 1000);
             }

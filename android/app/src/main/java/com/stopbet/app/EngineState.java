@@ -22,6 +22,12 @@ public class EngineState {
         return System.currentTimeMillis() < until;
     }
 
+    public static long getRemainingTime(Context ctx) {
+        long until = sp(ctx).getLong(KEY_BLOCK_UNTIL, 0);
+        long now = System.currentTimeMillis();
+        return Math.max(0, until - now);
+    }
+
     public static void unlock(Context ctx) {
         sp(ctx).edit().remove(KEY_BLOCK_UNTIL).apply();
     }
