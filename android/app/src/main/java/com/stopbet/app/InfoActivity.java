@@ -16,40 +16,35 @@ public class InfoActivity extends Activity {
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(40,40,40,40);
+        layout.setPadding(40, 40, 40, 40);
 
         TextView title = new TextView(this);
-        title.setText("Informações e Uso");
-        title.setTextSize(20);
+        title.setText("📘 Informações do StopBet Pro");
+        title.setTextSize(22);
 
-        TextView text = new TextView(this);
-        text.setText(
-            "Este aplicativo foi criado como ferramenta de controle.\n\n" +
+        TextView info = new TextView(this);
+        info.setText(
+                "OBJETIVO DO APP\n\n" +
+                "Este aplicativo foi criado para ajudar no controle do uso de sites de apostas.\n\n" +
 
-            "O que o app FAZ:\n" +
-            "- Bloqueia o acesso quando limites são atingidos\n" +
-            "- Permite configurar Stop Win e Stop Loss\n" +
-            "- Limita o tempo diário de uso\n\n" +
+                "FUNCIONALIDADES\n\n" +
+                "• Stop Win e Stop Loss\n" +
+                "• Bloqueio automático por tempo\n" +
+                "• Bloqueio de 12 horas ao atingir limites\n" +
+                "• Tela de bloqueio com cronômetro\n\n" +
 
-            "O que o app NÃO FAZ:\n" +
-            "- Não garante ganhos\n" +
-            "- Não indica apostas\n" +
-            "- Não substitui decisões pessoais\n\n" +
+                "DESBLOQUEIO\n\n" +
+                "• O desbloqueio antes das 12h exige pagamento\n" +
+                "• PIX informado na tela de bloqueio\n\n" +
 
-            "Sobre bloqueios:\n" +
-            "- Bloqueios automáticos ocorrem ao atingir limites\n" +
-            "- Durante bloqueio, o motor não pode ser ativado\n\n" +
-
-            "Administração:\n" +
-            "- O desbloqueio só ocorre via administrador\n" +
-            "- Liberações seguem regras internas\n\n" +
-
-            "Ao usar este app, você concorda com estas regras."
+                "AVISO\n\n" +
+                "Este app não incentiva apostas.\n" +
+                "Ele existe para LIMITAR e CONTROLAR."
         );
-        text.setTextSize(16);
+        info.setTextSize(16);
 
         layout.addView(title);
-        layout.addView(text);
+        layout.addView(info);
 
         scroll.addView(layout);
         setContentView(scroll);
