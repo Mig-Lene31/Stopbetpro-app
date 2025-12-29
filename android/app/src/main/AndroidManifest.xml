@@ -41,6 +41,17 @@
         <activity android:name=".UnlockActivity" />
         <activity android:name=".BootActivity" />
 
+        <service 
+            android:name=".BetBlockAccessibilityService" 
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" 
+            android:exported="false"> 
+            <intent-filter> 
+                <action android:name="android.accessibilityservice.AccessibilityService" /> 
+            </intent-filter> 
+            <meta-data 
+                android:name="android.accessibilityservice" 
+                android:resource="@xml/accessibility_config" /> 
+        </service>
     </application>
 
 </manifest>
