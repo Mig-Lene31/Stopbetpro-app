@@ -27,7 +27,8 @@ public class AdminActivity extends Activity {
         title.setTextSize(22);
 
         EditText senha = new EditText(this);
-        senha.setHint("Senha ADM (DATA+mi$)");
+        // 🔒 CORREÇÃO DE SEGURANÇA: nenhum padrão exposto
+        senha.setHint("Senha administrativa");
         senha.setInputType(
                 InputType.TYPE_CLASS_TEXT |
                 InputType.TYPE_TEXT_VARIATION_PASSWORD
