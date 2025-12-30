@@ -2,6 +2,9 @@
     package="com.stopbet.app">
 
     <application
+       <service
+        android:name=".StopHeartService"
+        android:exported="false" 
         android:allowBackup="true"
         android:label="StopBet Pro"
         android:icon="@mipmap/ic_launcher"

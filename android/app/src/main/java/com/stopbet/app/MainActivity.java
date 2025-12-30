@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
         title.setTextSize(22);
         title.setGravity(Gravity.CENTER);
 
-        // 🔐 Acesso ADM oculto (5 toques)
+        // 🔐 ADM oculto (5 toques)
         title.setOnClickListener(v -> {
             long now = System.currentTimeMillis();
             if (now - lastTap > 1500) tapCount = 0;
@@ -93,11 +93,15 @@ public class MainActivity extends Activity {
     protected void onResume() {
         super.onResume();
 
-        // 🔵 BLOQUEIO AZUL SOMENTE QUANDO STOP FOR ATINGIDO
+        // 🔵 Tela azul SOMENTE se stop foi atingido
         if (EngineState.isBlocked(this)) {
             startActivity(new Intent(this, LockScreenActivity.class));
             finish();
+            return;
         }
+
+        // ❤️ Liga o coração
+        startService(new Intent(this, StopHeartService.class));
     }
 
     private void updateMotorText(Button btn) {
