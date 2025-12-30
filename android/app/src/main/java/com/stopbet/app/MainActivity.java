@@ -12,6 +12,7 @@ public class MainActivity extends Activity {
 
     private int tapCount = 0;
     private long lastTap = 0;
+    private TextView balanceView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,30 @@ public class MainActivity extends Activity {
         idView.setText("ID do usuário:\n" + userId);
         idView.setGravity(Gravity.CENTER);
 
+        balanceView = new TextView(this);
+        updateBalanceText();
+
+        Button add10 = new Button(this);
+        add10.setText("+ R$10 (teste)");
+        add10.setOnClickListener(v -> {
+            AppState.addBalance(this, 10f);
+            updateBalanceText();
+        });
+
+        Button sub10 = new Button(this);
+        sub10.setText("- R$10 (teste)");
+        sub10.setOnClickListener(v -> {
+            AppState.addBalance(this, -10f);
+            updateBalanceText();
+        });
+
+        Button reset = new Button(this);
+        reset.setText("Resetar saldo");
+        reset.setOnClickListener(v -> {
+            AppState.resetBalance(this);
+            updateBalanceText();
+        });
+
         Button btnLimits = new Button(this);
         btnLimits.setText("Stop Win / Loss");
         btnLimits.setOnClickListener(v ->
@@ -58,12 +83,6 @@ public class MainActivity extends Activity {
                 startActivity(new Intent(this, TimeActivity.class))
         );
 
-        Button btnDeposit = new Button(this);
-        btnDeposit.setText("Configuração de Depósito");
-        btnDeposit.setOnClickListener(v ->
-                startActivity(new Intent(this, DepositActivity.class))
-        );
-
         Button btnMotor = new Button(this);
         updateMotorText(btnMotor);
         btnMotor.setOnClickListener(v -> {
@@ -72,19 +91,15 @@ public class MainActivity extends Activity {
             updateMotorText(btnMotor);
         });
 
-        Button btnInfo = new Button(this);
-        btnInfo.setText("Informações");
-        btnInfo.setOnClickListener(v ->
-                startActivity(new Intent(this, InfoActivity.class))
-        );
-
         layout.addView(title);
         layout.addView(idView);
+        layout.addView(balanceView);
+        layout.addView(add10);
+        layout.addView(sub10);
+        layout.addView(reset);
         layout.addView(btnLimits);
         layout.addView(btnTime);
-        layout.addView(btnDeposit);
         layout.addView(btnMotor);
-        layout.addView(btnInfo);
 
         setContentView(layout);
     }
@@ -93,15 +108,19 @@ public class MainActivity extends Activity {
     protected void onResume() {
         super.onResume();
 
-        // 🔵 Tela azul SOMENTE se stop foi atingido
         if (EngineState.isBlocked(this)) {
             startActivity(new Intent(this, LockScreenActivity.class));
             finish();
             return;
         }
 
-        // ❤️ Liga o coração
         startService(new Intent(this, StopHeartService.class));
+        updateBalanceText();
+    }
+
+    private void updateBalanceText() {
+        balanceView.setText("Saldo atual: R$ " + AppState.getCurrentBalance(this));
+        balanceView.setGravity(Gravity.CENTER);
     }
 
     private void updateMotorText(Button btn) {
