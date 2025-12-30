@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
         title.setTextSize(22);
         title.setGravity(Gravity.CENTER);
 
-        // ===== ACESSO ADM SECRETO =====
+        // ===== ACESSO ADM SECRETO (5 TOQUES) =====
         title.setOnClickListener(v -> {
             long now = System.currentTimeMillis();
             if (now - lastTap > 1500) tapCount = 0;
@@ -58,6 +58,21 @@ public class MainActivity extends Activity {
                 startActivity(new Intent(this, TimeActivity.class))
         );
 
+        Button btnDeposit = new Button(this);
+        btnDeposit.setText("Depósito");
+        btnDeposit.setOnClickListener(v ->
+                startActivity(new Intent(this, DepositActivity.class))
+        );
+
+        // ===== MOTOR ON / OFF (USUÁRIO) =====
+        Button btnMotor = new Button(this);
+        updateMotorText(btnMotor);
+        btnMotor.setOnClickListener(v -> {
+            boolean enabled = EngineToggleStore.isEnabled(this);
+            EngineToggleStore.set(this, !enabled);
+            updateMotorText(btnMotor);
+        });
+
         Button btnInfo = new Button(this);
         btnInfo.setText("Informações");
         btnInfo.setOnClickListener(v ->
@@ -68,8 +83,44 @@ public class MainActivity extends Activity {
         layout.addView(idView);
         layout.addView(btnLimits);
         layout.addView(btnTime);
+        layout.addView(btnDeposit);
+        layout.addView(btnMotor);
         layout.addView(btnInfo);
 
         setContentView(layout);
+    }
+
+    // 🔒 TRAVA REAL DO APP
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // 1️⃣ ADM não liberou
+        if (!AdminSession.isUnlocked(this)) {
+            startActivity(new Intent(this, LockScreenActivity.class));
+            finish();
+            return;
+        }
+
+        // 2️⃣ Depósito não informado
+        String deposit = DepositStore.getValue(this);
+        if (deposit == null || deposit.trim().isEmpty() || deposit.equals("0")) {
+            startActivity(new Intent(this, DepositActivity.class));
+            return;
+        }
+
+        // 3️⃣ Motor desligado
+        if (!EngineToggleStore.isEnabled(this)) {
+            startActivity(new Intent(this, LockScreenActivity.class));
+            finish();
+        }
+    }
+
+    private void updateMotorText(Button btn) {
+        if (EngineToggleStore.isEnabled(this)) {
+            btn.setText("Motor: ATIVADO");
+        } else {
+            btn.setText("Motor: DESATIVADO");
+        }
     }
 }
