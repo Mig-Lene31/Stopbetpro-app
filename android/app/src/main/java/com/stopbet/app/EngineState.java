@@ -2,6 +2,7 @@ package com.stopbet.app;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.Intent;
 
 public class EngineState {
 
@@ -12,34 +13,35 @@ public class EngineState {
         return ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE);
     }
 
-    // 🔴 Está bloqueado?
     public static boolean isBlocked(Context ctx) {
         long until = sp(ctx).getLong(KEY_BLOCK_UNTIL, 0);
         return System.currentTimeMillis() < until;
     }
 
-    // ⛔ Bloqueia por 12 horas
     public static void blockFor12Hours(Context ctx) {
         long until = System.currentTimeMillis() + (12L * 60 * 60 * 1000);
         sp(ctx).edit().putLong(KEY_BLOCK_UNTIL, until).apply();
         MotorState.forceDisable(ctx);
+
+        ctx.startService(new Intent(ctx, BetBlockVpnService.class));
     }
 
-    // ⏱ Tempo restante do bloqueio
     public static long getRemainingTime(Context ctx) {
         long until = sp(ctx).getLong(KEY_BLOCK_UNTIL, 0);
         return Math.max(0, until - System.currentTimeMillis());
     }
 
-    // 🔓 Desbloqueio automático (tempo acabou)
     public static void autoUnlock(Context ctx) {
         sp(ctx).edit().remove(KEY_BLOCK_UNTIL).apply();
         MotorState.forceDisable(ctx);
+
+        ctx.stopService(new Intent(ctx, BetBlockVpnService.class));
     }
 
-    // 🔓 Desbloqueio manual via ADM
     public static void adminUnlock(Context ctx) {
         sp(ctx).edit().remove(KEY_BLOCK_UNTIL).apply();
         MotorState.forceDisable(ctx);
+
+        ctx.stopService(new Intent(ctx, BetBlockVpnService.class));
     }
 }
