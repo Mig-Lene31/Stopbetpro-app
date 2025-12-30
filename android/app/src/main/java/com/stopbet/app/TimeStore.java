@@ -1,25 +1,29 @@
 package com.stopbet.app;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
 public class TimeStore {
 
-    private static final String PREF = "time_store";
-    private static final String KEY_MINUTES = "limit_minutes";
+    private static final String PREF = "stopbet_time";
+    private static final String KEY_ACTIVE = "time_active";
 
-    public static void saveMinutes(Context ctx, int minutes) {
+    public static void setActive(Context ctx, boolean active) {
         ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
                 .edit()
-                .putInt(KEY_MINUTES, minutes)
+                .putBoolean(KEY_ACTIVE, active)
                 .apply();
     }
 
-    public static int getMinutes(Context ctx) {
+    public static boolean isActive(Context ctx) {
         return ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
-                .getInt(KEY_MINUTES, 0);
+                .getBoolean(KEY_ACTIVE, false);
     }
 
-    public static boolean hasTimeLimit(Context ctx) {
-        return getMinutes(ctx) > 0;
+    public static void clear(Context ctx) {
+        ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
+                .edit()
+                .clear()
+                .apply();
     }
 }
