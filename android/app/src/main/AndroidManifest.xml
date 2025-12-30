@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.stopbet.app">
 
     <application
         android:allowBackup="true"
@@ -9,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar">
 
-        <!-- ENTRADA DO APP -->
+        <!-- ENTRADA ÚNICA DO APP -->
         <activity
             android:name=".GateActivity"
             android:exported="true">
@@ -19,24 +20,24 @@
             </intent-filter>
         </activity>
 
-        <!-- TELAS PRINCIPAIS -->
-        <activity android:name=".InfoActivity" />
+        <!-- BLOQUEIO INICIAL -->
+        <activity android:name=".LockScreenActivity" />
+
+        <!-- APP -->
         <activity android:name=".MainActivity" />
-        <activity android:name=".LimitsActivity" />
-        <activity android:name=".TimeActivity" />
-        <activity android:name=".BlockedActivity" />
-        <activity android:name=".DepositActivity" />
-        <activity android:name=".RulesActivity" />
-        <activity android:name=".UnlockActivity" />
 
         <!-- ADMIN -->
-        <activity android:name=".AdminActivity" />
         <activity android:name=".AdminLoginActivity" />
+        <activity android:name=".AdminActivity" />
 
-        <!-- PROTEÇÃO -->
-        <activity android:name=".EnableProtectionActivity" />
+        <!-- CONFIGURAÇÕES -->
+        <activity android:name=".LimitsActivity" />
+        <activity android:name=".TimeActivity" />
+        <activity android:name=".DepositActivity" />
+        <activity android:name=".InfoActivity" />
+        <activity android:name=".BlockedActivity" />
 
-        <!-- VPN LOCAL -->
+        <!-- VPN -->
         <service
             android:name=".BetBlockVpnService"
             android:permission="android.permission.BIND_VPN_SERVICE"
@@ -46,7 +47,7 @@
             </intent-filter>
         </service>
 
-        <!-- ACESSIBILIDADE (LEITURA DE SALDO) -->
+        <!-- ACESSIBILIDADE -->
         <service
             android:name=".BalanceReadAccessibilityService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
