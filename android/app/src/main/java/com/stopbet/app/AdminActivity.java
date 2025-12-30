@@ -2,15 +2,10 @@ package com.stopbet.app;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.text.InputType;
+import android.view.Gravity;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 public class AdminActivity extends Activity {
 
@@ -21,60 +16,30 @@ public class AdminActivity extends Activity {
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
         layout.setPadding(40,40,40,40);
+        layout.setGravity(Gravity.CENTER);
 
         TextView title = new TextView(this);
-        title.setText("ÁREA ADMINISTRATIVA");
-        title.setTextSize(22);
+        title.setText("Painel Administrativo");
+        title.setTextSize(20);
+        title.setGravity(Gravity.CENTER);
 
-        EditText senha = new EditText(this);
-        senha.setHint("Senha administrativa");
-        senha.setInputType(
-                InputType.TYPE_CLASS_TEXT |
-                InputType.TYPE_TEXT_VARIATION_PASSWORD
-        );
-
-        EditText userId = new EditText(this);
-        userId.setHint("ID DO USUÁRIO");
-
-        TextView status = new TextView(this);
-
-        Button liberarApp = new Button(this);
-        liberarApp.setText("LIBERAR APP");
-
-        Button desbloquearAgora = new Button(this);
-        desbloquearAgora.setText("DESBLOQUEAR AGORA");
-
-        liberarApp.setOnClickListener(v -> {
-            String hoje = new SimpleDateFormat("ddMM", Locale.getDefault())
-                    .format(new Date()) + "mi$";
-
-            if (senha.getText().toString().equals(hoje)) {
-                AdminUnlockStore.saveAuthorizedId(this, userId.getText().toString().trim());
-                LicenseState.grant30Days(this);
-                status.setText("✅ APP LIBERADO");
-            } else {
-                status.setText("❌ SENHA INVÁLIDA");
-            }
+        Button unlock30 = new Button(this);
+        unlock30.setText("Liberar por 30 dias");
+        unlock30.setOnClickListener(v -> {
+            EngineState.unlockFor30Days(this);
+            finish();
         });
 
-        desbloquearAgora.setOnClickListener(v -> {
-            String hoje = new SimpleDateFormat("ddMM", Locale.getDefault())
-                    .format(new Date()) + "mi$";
-
-            if (senha.getText().toString().equals(hoje)) {
-                EngineState.adminUnlock(this);
-                status.setText("🔓 BLOQUEIO REMOVIDO");
-            } else {
-                status.setText("❌ SENHA INVÁLIDA");
-            }
+        Button unlock12 = new Button(this);
+        unlock12.setText("Liberar antes das 12h");
+        unlock12.setOnClickListener(v -> {
+            EngineState.clearBlock(this);
+            finish();
         });
 
         layout.addView(title);
-        layout.addView(senha);
-        layout.addView(userId);
-        layout.addView(liberarApp);
-        layout.addView(desbloquearAgora);
-        layout.addView(status);
+        layout.addView(unlock30);
+        layout.addView(unlock12);
 
         setContentView(layout);
     }

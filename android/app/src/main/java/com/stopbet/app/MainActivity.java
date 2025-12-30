@@ -8,6 +8,18 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+// 🔧 IMPORTS INTERNOS DO APP (OBRIGATÓRIOS)
+import com.stopbet.app.EngineToggleStore;
+import com.stopbet.app.DepositStore;
+import com.stopbet.app.AdminSession;
+import com.stopbet.app.UserIdentity;
+import com.stopbet.app.LockScreenActivity;
+import com.stopbet.app.AdminLoginActivity;
+import com.stopbet.app.LimitsActivity;
+import com.stopbet.app.TimeActivity;
+import com.stopbet.app.DepositActivity;
+import com.stopbet.app.InfoActivity;
+
 public class MainActivity extends Activity {
 
     private int tapCount = 0;

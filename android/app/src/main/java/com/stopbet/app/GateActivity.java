@@ -9,7 +9,7 @@ public class GateActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        startActivity(new Intent(this, InfoActivity.class));
+        startActivity(new Intent(this, LockScreenActivity.class));
         finish();
     }
 }
