@@ -1,4 +1,4 @@
-package com.stopbet.app;
+ackage com.stopbet.app;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,6 +10,10 @@ public class GateActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Inicializações mínimas defensivas
+        AppPrefs.ensureDefaults(this);
+        MotorState.ensureDefaults(this);
+
         // Se estiver bloqueado, vai direto pra tela azul
         if (EngineState.isBlocked(this)) {
             startActivity(new Intent(this, BlockedActivity.class));
@@ -17,7 +21,7 @@ public class GateActivity extends Activity {
             return;
         }
 
-        // Fluxo NORMAL antigo (mantém aparência original)
+        // Fluxo normal
         startActivity(new Intent(this, PaymentActivity.class));
         finish();
     }
