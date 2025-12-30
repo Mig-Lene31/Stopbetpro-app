@@ -20,28 +20,25 @@
             </intent-filter>
         </activity>
 
-        <!-- ADMIN -->
-        <activity android:name=".AdminActivity" />
-
-        <!-- APP PRINCIPAL -->
+        <!-- TELAS PRINCIPAIS -->
         <activity android:name=".MainActivity" />
-
-        <!-- BLOQUEIO (TELA AZUL) -->
+        <activity android:name=".PaymentActivity" />
+        <activity android:name=".BootActivity" />
         <activity android:name=".BlockedActivity" />
 
         <!-- CONFIGURAÇÕES -->
         <activity android:name=".LimitsActivity" />
         <activity android:name=".TimeActivity" />
         <activity android:name=".InfoActivity" />
-
-        <!-- OUTRAS TELAS -->
-        <activity android:name=".PaymentActivity" />
-        <activity android:name=".DepositActivity" />
         <activity android:name=".RulesActivity" />
         <activity android:name=".UnlockActivity" />
-        <activity android:name=".BootActivity" />
+        <activity android:name=".DepositActivity" />
+        <activity android:name=".AdminActivity" />
 
-        <!-- VPN LOCAL (BLOQUEIO DE APOSTAS) -->
+        <!-- ATIVAÇÃO DA PROTEÇÃO -->
+        <activity android:name=".EnableProtectionActivity" />
+
+        <!-- VPN LOCAL -->
         <service
             android:name=".BetBlockVpnService"
             android:permission="android.permission.BIND_VPN_SERVICE"
@@ -51,7 +48,7 @@
             </intent-filter>
         </service>
 
-        <!-- LEITURA DE SALDO (ACESSIBILIDADE) -->
+        <!-- ACESSIBILIDADE (LEITOR DE SALDO) -->
         <service
             android:name=".BalanceReadAccessibilityService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
