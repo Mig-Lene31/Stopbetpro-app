@@ -14,7 +14,6 @@ public class BootActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Se estiver bloqueado, garante VPN ativa e vai direto pra tela azul
         if (EngineState.isBlocked(this)) {
             ensureVpnPermission();
             startActivity(new Intent(this, BlockedActivity.class));
@@ -39,11 +38,8 @@ public class BootActivity extends Activity {
         Intent vpnIntent = VpnService.prepare(this);
         if (vpnIntent != null) {
             startActivityForResult(vpnIntent, VPN_REQUEST_CODE);
-        } else {
-            // Permissão já concedida → pode iniciar VPN se necessário
-            if (EngineState.isBlocked(this)) {
-                startService(new Intent(this, BetBlockVpnService.class));
-            }
+        } else if (EngineState.isBlocked(this)) {
+            startService(new Intent(this, BetBlockVpnService.class));
         }
     }
 
@@ -51,8 +47,8 @@ public class BootActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == VPN_REQUEST_CODE) {
-            if (resultCode == RESULT_OK && EngineState.isBlocked(this)) {
+        if (requestCode == VPN_REQUEST_CODE && resultCode == RESULT_OK) {
+            if (EngineState.isBlocked(this)) {
                 startService(new Intent(this, BetBlockVpnService.class));
             }
         }
