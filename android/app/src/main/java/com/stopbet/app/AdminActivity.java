@@ -1,4 +1,4 @@
-ackage com.stopbet.app;
+package com.stopbet.app;
 
 import android.app.Activity;
 import android.os.Bundle;
