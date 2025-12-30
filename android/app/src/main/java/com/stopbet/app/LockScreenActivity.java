@@ -44,12 +44,12 @@ public class LockScreenActivity extends Activity {
 
         TextView info = new TextView(this);
         info.setText(
+                "⚠️ Para desbloquear antes das 12h:\n" +
+                "R$ 50,00\n\n" +
+                "💰 PIX: 11 970200771\n" +
+                "📲 Comprovante no WhatsApp: 11 970200771\n\n" +
+                "———————————————\n\n" +
                 "🔒 ACESSO BLOQUEADO\n\n" +
-                "Para liberar o uso do aplicativo:\n\n" +
-                "💰 PIX PARA PAGAMENTO:\n" +
-                "11 970200771\n\n" +
-                "📲 ENVIE O COMPROVANTE NO WHATSAPP:\n" +
-                "11 970200771\n\n" +
                 "📸 Envie também o PRINT desta tela\n" +
                 "com o ID do aplicativo.\n\n" +
                 "🆔 ID DO USUÁRIO:\n" +
@@ -59,9 +59,8 @@ public class LockScreenActivity extends Activity {
 
         Button btnAdvance = new Button(this);
         btnAdvance.setText("Avançar");
-        btnAdvance.setEnabled(false); // 🔒 só ADM libera
+        btnAdvance.setEnabled(false); // só ADM libera
 
-        // Se ADM já liberou, permite avançar
         if (AdminSession.isUnlocked(this)) {
             btnAdvance.setEnabled(true);
             btnAdvance.setOnClickListener(v ->
