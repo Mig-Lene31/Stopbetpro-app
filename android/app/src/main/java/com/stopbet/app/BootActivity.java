@@ -11,6 +11,12 @@ public class BootActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
         TextView tv = new TextView(this);
         tv.setText("STOPBET PRO\nVERSÃO 2.0.3\nBOOT OK");
         tv.setTextSize(22);
