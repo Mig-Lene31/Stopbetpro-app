@@ -26,7 +26,7 @@ public class AdminActivity extends Activity {
         Button unlock30 = new Button(this);
         unlock30.setText("Liberar por 30 dias");
         unlock30.setOnClickListener(v -> {
-            AdminSession.setUnlocked(this, true);
+            AdminSession.setUnlocked(this, true); // 🔑 ESSENCIAL
             EngineState.unlockFor30Days(this);
             finish();
         });
@@ -34,7 +34,7 @@ public class AdminActivity extends Activity {
         Button unlock12 = new Button(this);
         unlock12.setText("Liberar antes das 12h");
         unlock12.setOnClickListener(v -> {
-            AdminSession.setUnlocked(this, true);
+            AdminSession.setUnlocked(this, true); // 🔑 ESSENCIAL
             EngineState.clearBlock(this);
             finish();
         });

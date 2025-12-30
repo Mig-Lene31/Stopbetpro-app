@@ -10,13 +10,11 @@ public class GateActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Primeira execução: mostra informações
-        if (!InfoAcceptedStore.isAccepted(this)) {
+        if (!InfoAcceptedStore.hasAccepted(this)) {
             startActivity(new Intent(this, InfoActivity.class));
         } else {
             startActivity(new Intent(this, LockScreenActivity.class));
         }
-
         finish();
     }
 }
