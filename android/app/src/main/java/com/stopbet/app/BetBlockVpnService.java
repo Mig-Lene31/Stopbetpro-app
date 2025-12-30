@@ -6,6 +6,7 @@ import android.os.ParcelFileDescriptor;
 
 import java.io.FileInputStream;
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 
 public class BetBlockVpnService extends VpnService implements Runnable {
 
@@ -47,10 +48,30 @@ public class BetBlockVpnService extends VpnService implements Runnable {
             while (EngineState.isBlocked(this)) {
                 packet.clear();
                 int len = in.read(packet.array());
-                if (len > 0) {
-                    // descarta pacotes durante bloqueio
+                if (len <= 0) continue;
+
+                String payload = new String(packet.array(), 0, len, StandardCharsets.ISO_8859_1);
+
+                if (isDnsQuery(payload) && containsBetDomain(payload)) {
+                    // Bloqueia SOMENTE sites de aposta
+                    continue;
                 }
+
+                // tráfego normal segue (não bloqueado)
             }
         } catch (Exception ignored) {}
+    }
+
+    private boolean isDnsQuery(String data) {
+        return data.contains("\u0000\u0001\u0000\u0001"); // padrão simples DNS query
+    }
+
+    private boolean containsBetDomain(String data) {
+        for (String domain : BetDomains.BLOCKED) {
+            if (data.toLowerCase().contains(domain)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
