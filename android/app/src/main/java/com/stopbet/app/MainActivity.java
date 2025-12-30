@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
         title.setTextSize(22);
         title.setGravity(Gravity.CENTER);
 
-        // 🔐 ACESSO ADM OCULTO (5 TOQUES)
+        // 🔐 ACESSO ADM OCULTO
         title.setOnClickListener(v -> {
             long now = System.currentTimeMillis();
             if (now - lastTap > 1500) tapCount = 0;
@@ -93,7 +93,7 @@ public class MainActivity extends Activity {
     protected void onResume() {
         super.onResume();
 
-        // 🔴 BLOQUEIO AZUL APENAS SE STOP ESTIVER ATIVO
+        // 🔒 BLOQUEIO AZUL SOMENTE SE MOTOR DE STOP ATIVAR
         if (EngineState.isBlocked(this)) {
             startActivity(new Intent(this, LockScreenActivity.class));
             finish();
