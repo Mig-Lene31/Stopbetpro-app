@@ -1,10 +1,7 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.stopbet.app">
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
-       <service
-        android:name=".StopHeartService"
-        android:exported="false" 
         android:allowBackup="true"
         android:label="StopBet Pro"
         android:icon="@mipmap/ic_launcher"
@@ -12,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar">
 
-        <!-- ENTRADA ÚNICA DO APP -->
+        <!-- ENTRADA ÚNICA -->
         <activity
             android:name=".GateActivity"
             android:exported="true">
@@ -22,11 +19,11 @@
             </intent-filter>
         </activity>
 
-        <!-- BLOQUEIO INICIAL -->
-        <activity android:name=".LockScreenActivity" />
-
-        <!-- APP -->
+        <!-- TELAS -->
+        <activity android:name=".InfoActivity" />
+        <activity android:name=".AuthLockActivity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".LockScreenActivity" />
 
         <!-- ADMIN -->
         <activity android:name=".AdminLoginActivity" />
@@ -36,8 +33,11 @@
         <activity android:name=".LimitsActivity" />
         <activity android:name=".TimeActivity" />
         <activity android:name=".DepositActivity" />
-        <activity android:name=".InfoActivity" />
-        <activity android:name=".BlockedActivity" />
+
+        <!-- SERVIÇO CORAÇÃO -->
+        <service
+            android:name=".StopHeartService"
+            android:exported="false" />
 
         <!-- VPN -->
         <service
