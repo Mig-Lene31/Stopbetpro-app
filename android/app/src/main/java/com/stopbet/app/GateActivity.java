@@ -9,7 +9,14 @@ public class GateActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        startActivity(new Intent(this, LockScreenActivity.class));
+
+        // Primeira execução: mostra informações
+        if (!InfoAcceptedStore.isAccepted(this)) {
+            startActivity(new Intent(this, InfoActivity.class));
+        } else {
+            startActivity(new Intent(this, LockScreenActivity.class));
+        }
+
         finish();
     }
 }
