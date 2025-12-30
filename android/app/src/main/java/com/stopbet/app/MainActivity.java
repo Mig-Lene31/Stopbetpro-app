@@ -10,11 +10,14 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
+    private int tapCount = 0;
+    private long lastTap = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        AppController controller = AppController.get(this);
+        String userId = UserIdentity.getId(this);
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
@@ -24,6 +27,24 @@ public class MainActivity extends Activity {
         TextView title = new TextView(this);
         title.setText("StopBet Pro");
         title.setTextSize(22);
+        title.setGravity(Gravity.CENTER);
+
+        // ===== ACESSO ADM SECRETO =====
+        title.setOnClickListener(v -> {
+            long now = System.currentTimeMillis();
+            if (now - lastTap > 1500) tapCount = 0;
+            lastTap = now;
+            tapCount++;
+
+            if (tapCount >= 5) {
+                tapCount = 0;
+                startActivity(new Intent(this, AdminLoginActivity.class));
+            }
+        });
+
+        TextView idView = new TextView(this);
+        idView.setText("ID do usuário:\n" + userId);
+        idView.setGravity(Gravity.CENTER);
 
         Button btnLimits = new Button(this);
         btnLimits.setText("Stop Win / Loss");
@@ -44,6 +65,7 @@ public class MainActivity extends Activity {
         );
 
         layout.addView(title);
+        layout.addView(idView);
         layout.addView(btnLimits);
         layout.addView(btnTime);
         layout.addView(btnInfo);
