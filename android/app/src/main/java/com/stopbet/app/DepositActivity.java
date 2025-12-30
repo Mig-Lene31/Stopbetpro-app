@@ -21,19 +21,22 @@ public class DepositActivity extends Activity {
 
         TextView info = new TextView(this);
         info.setText(
-            "Informe o valor que pretende jogar.\n\n" +
+            "💰 VALOR DO DEPÓSITO\n\n" +
+            "Informe o valor TOTAL que pretende jogar.\n\n" +
             "⚠️ Atenção:\n" +
-            "O app NÃO diferencia bônus.\n" +
-            "Se houver bônus, ele deve ser somado ao valor informado."
+            "O aplicativo NÃO diferencia valor real de bônus.\n\n" +
+            "Se houver bônus, some o valor do bônus\n" +
+            "ao valor depositado e informe o TOTAL.\n\n" +
+            "Exemplo:\n" +
+            "Depósito R$100 + bônus R$50 → informe R$150"
         );
         info.setGravity(Gravity.CENTER);
 
         EditText input = new EditText(this);
-        input.setHint("Valor do depósito (R$)");
+        input.setHint("Valor total (R$)");
 
         Button save = new Button(this);
         save.setText("Salvar valor");
-
         save.setOnClickListener(v -> {
             DepositStore.setValue(this, input.getText().toString());
             finish();

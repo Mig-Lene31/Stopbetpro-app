@@ -8,18 +8,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-// 🔧 IMPORTS INTERNOS DO APP (OBRIGATÓRIOS)
-import com.stopbet.app.EngineToggleStore;
-import com.stopbet.app.DepositStore;
-import com.stopbet.app.AdminSession;
-import com.stopbet.app.UserIdentity;
-import com.stopbet.app.LockScreenActivity;
-import com.stopbet.app.AdminLoginActivity;
-import com.stopbet.app.LimitsActivity;
-import com.stopbet.app.TimeActivity;
-import com.stopbet.app.DepositActivity;
-import com.stopbet.app.InfoActivity;
-
 public class MainActivity extends Activity {
 
     private int tapCount = 0;
@@ -41,7 +29,7 @@ public class MainActivity extends Activity {
         title.setTextSize(22);
         title.setGravity(Gravity.CENTER);
 
-        // ===== ACESSO ADM SECRETO (5 TOQUES) =====
+        // 🔐 ACESSO ADM OCULTO (5 TOQUES)
         title.setOnClickListener(v -> {
             long now = System.currentTimeMillis();
             if (now - lastTap > 1500) tapCount = 0;
@@ -71,12 +59,11 @@ public class MainActivity extends Activity {
         );
 
         Button btnDeposit = new Button(this);
-        btnDeposit.setText("Depósito");
+        btnDeposit.setText("Configuração de Depósito");
         btnDeposit.setOnClickListener(v ->
                 startActivity(new Intent(this, DepositActivity.class))
         );
 
-        // ===== MOTOR ON / OFF (USUÁRIO) =====
         Button btnMotor = new Button(this);
         updateMotorText(btnMotor);
         btnMotor.setOnClickListener(v -> {
@@ -102,27 +89,12 @@ public class MainActivity extends Activity {
         setContentView(layout);
     }
 
-    // 🔒 TRAVA REAL DO APP
     @Override
     protected void onResume() {
         super.onResume();
 
-        // 1️⃣ ADM não liberou
-        if (!AdminSession.isUnlocked(this)) {
-            startActivity(new Intent(this, LockScreenActivity.class));
-            finish();
-            return;
-        }
-
-        // 2️⃣ Depósito não informado
-        String deposit = DepositStore.getValue(this);
-        if (deposit == null || deposit.trim().isEmpty() || deposit.equals("0")) {
-            startActivity(new Intent(this, DepositActivity.class));
-            return;
-        }
-
-        // 3️⃣ Motor desligado
-        if (!EngineToggleStore.isEnabled(this)) {
+        // 🔴 BLOQUEIO AZUL APENAS SE STOP ESTIVER ATIVO
+        if (EngineState.isBlocked(this)) {
             startActivity(new Intent(this, LockScreenActivity.class));
             finish();
         }
