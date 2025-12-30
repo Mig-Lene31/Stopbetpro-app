@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">StopBet Pro</string>
 </resources>
+<string name="accessibility_desc">
+Lê apenas texto visível na tela de sites de apostas para identificar saldo e aplicar limites definidos pelo usuário. Não coleta dados pessoais nem envia informações para servidores externos.
+</string>

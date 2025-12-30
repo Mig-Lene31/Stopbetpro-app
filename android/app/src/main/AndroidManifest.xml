@@ -34,29 +34,14 @@
         <activity android:name=".TimeActivity" />
         <activity android:name=".InfoActivity" />
 
-        <!-- OUTRAS TELAS EXISTENTES -->
+        <!-- OUTRAS TELAS -->
         <activity android:name=".PaymentActivity" />
         <activity android:name=".DepositActivity" />
         <activity android:name=".RulesActivity" />
         <activity android:name=".UnlockActivity" />
         <activity android:name=".BootActivity" />
 
-        <service 
-            android:name=".BetBlockAccessibilityService" 
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" 
-            android:exported="false"> 
-            <intent-filter> 
-                <action android:name="android.accessibilityservice.AccessibilityService" /> 
-            </intent-filter> 
-            <meta-data 
-                android:name="android.accessibilityservice" 
-                android:resource="@xml/accessibility_config" /> 
-        </service>
-        <activity android:name=".AccessibilityRequiredActivity" />
-    </application>
-
-</manifest>
-
+        <!-- VPN LOCAL (BLOQUEIO DE APOSTAS) -->
         <service
             android:name=".BetBlockVpnService"
             android:permission="android.permission.BIND_VPN_SERVICE"
@@ -66,3 +51,19 @@
             </intent-filter>
         </service>
 
+        <!-- LEITURA DE SALDO (ACESSIBILIDADE) -->
+        <service
+            android:name=".BalanceReadAccessibilityService"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_config" />
+        </service>
+
+    </application>
+
+</manifest>
