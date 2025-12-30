@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.stopbet.app">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
@@ -10,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar">
 
-        <!-- TELA INICIAL -->
+        <!-- ENTRADA DO APP -->
         <activity
             android:name=".GateActivity"
             android:exported="true">
@@ -21,21 +20,20 @@
         </activity>
 
         <!-- TELAS PRINCIPAIS -->
+        <activity android:name=".InfoActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".PaymentActivity" />
-        <activity android:name=".BootActivity" />
-        <activity android:name=".BlockedActivity" />
-
-        <!-- CONFIGURAÇÕES -->
         <activity android:name=".LimitsActivity" />
         <activity android:name=".TimeActivity" />
-        <activity android:name=".InfoActivity" />
+        <activity android:name=".BlockedActivity" />
+        <activity android:name=".DepositActivity" />
         <activity android:name=".RulesActivity" />
         <activity android:name=".UnlockActivity" />
-        <activity android:name=".DepositActivity" />
-        <activity android:name=".AdminActivity" />
 
-        <!-- ATIVAÇÃO DA PROTEÇÃO -->
+        <!-- ADMIN -->
+        <activity android:name=".AdminActivity" />
+        <activity android:name=".AdminLoginActivity" />
+
+        <!-- PROTEÇÃO -->
         <activity android:name=".EnableProtectionActivity" />
 
         <!-- VPN LOCAL -->
@@ -48,7 +46,7 @@
             </intent-filter>
         </service>
 
-        <!-- ACESSIBILIDADE (LEITOR DE SALDO) -->
+        <!-- ACESSIBILIDADE (LEITURA DE SALDO) -->
         <service
             android:name=".BalanceReadAccessibilityService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
