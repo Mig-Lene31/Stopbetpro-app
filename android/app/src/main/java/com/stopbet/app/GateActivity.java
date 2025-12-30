@@ -12,9 +12,12 @@ public class GateActivity extends Activity {
 
         if (!InfoAcceptedStore.hasAccepted(this)) {
             startActivity(new Intent(this, InfoActivity.class));
+        } else if (!AuthState.isUnlocked(this)) {
+            startActivity(new Intent(this, AuthLockActivity.class));
         } else {
-            startActivity(new Intent(this, LockScreenActivity.class));
+            startActivity(new Intent(this, MainActivity.class));
         }
+
         finish();
     }
 }

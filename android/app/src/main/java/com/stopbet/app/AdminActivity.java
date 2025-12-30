@@ -26,22 +26,20 @@ public class AdminActivity extends Activity {
         Button unlock30 = new Button(this);
         unlock30.setText("Liberar por 30 dias");
         unlock30.setOnClickListener(v -> {
-            AdminSession.setUnlocked(this, true);
-            EngineState.unlockFor30Days(this);
+            AuthState.unlockFor30Days(this);
             finish();
         });
 
-        Button unlock12 = new Button(this);
-        unlock12.setText("Liberar antes das 12h");
-        unlock12.setOnClickListener(v -> {
-            AdminSession.setUnlocked(this, true);
-            EngineState.clearBlock(this);
+        Button unlockStop = new Button(this);
+        unlockStop.setText("Quebrar bloqueio de Stop (12h)");
+        unlockStop.setOnClickListener(v -> {
+            AuthState.clearStopBlock(this);
             finish();
         });
 
         layout.addView(title);
         layout.addView(unlock30);
-        layout.addView(unlock12);
+        layout.addView(unlockStop);
 
         setContentView(layout);
     }
