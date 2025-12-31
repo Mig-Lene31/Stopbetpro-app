@@ -10,6 +10,11 @@ public class TimeStore {
     private static final String KEY_USED = "used_minutes";
     private static final String KEY_DAY = "day_key";
 
+    // 🔑 MÉTODO QUE O BUILD ESTÁ COBRANDO
+    public static boolean hasTimeLimit(Context ctx) {
+        return getMinutes(ctx) > 0;
+    }
+
     public static int getMinutes(Context ctx) {
         return ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
                 .getInt(KEY_LIMIT, 0);

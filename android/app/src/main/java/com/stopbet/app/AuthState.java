@@ -1,7 +1,6 @@
 package com.stopbet.app;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 
 public class AuthState {
 
@@ -12,6 +11,11 @@ public class AuthState {
         long until = ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
                 .getLong(KEY_UNLOCK_UNTIL, 0);
         return System.currentTimeMillis() < until;
+    }
+
+    // 🔁 MÉTODO ESPERADO PELO CÓDIGO ANTIGO
+    public static boolean isAuthorized(Context ctx) {
+        return isUnlocked(ctx);
     }
 
     public static void unlockFor30Days(Context ctx) {
