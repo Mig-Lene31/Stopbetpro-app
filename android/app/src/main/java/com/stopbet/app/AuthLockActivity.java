@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -29,6 +28,7 @@ public class AuthLockActivity extends Activity {
         title.setTextSize(22);
         title.setGravity(Gravity.CENTER);
 
+        // 🔐 ADM oculto (5 toques)
         title.setOnClickListener(v -> {
             long now = System.currentTimeMillis();
             if (now - lastTap > 1500) tapCount = 0;
@@ -42,30 +42,19 @@ public class AuthLockActivity extends Activity {
         });
 
         TextView info = new TextView(this);
-        info.setText(
-                "💰 PARA USAR O APP\n\n" +
-                "Valor: R$ 100,00\n\n" +
-                "PIX: 11 970200771\n" +
-                "WhatsApp: 11 970200771\n\n" +
-                "📸 Envie o comprovante + PRINT desta tela\n\n" +
-                "ID DO USUÁRIO:\n" + userId
-        );
         info.setGravity(Gravity.CENTER);
-
-        Button advance = new Button(this);
-        advance.setText("Avançar");
-        advance.setEnabled(false);
-
-        if (AuthState.isAuthorized(this)) {
-            advance.setEnabled(true);
-            advance.setOnClickListener(v ->
-                    startActivity(new Intent(this, MainActivity.class))
-            );
-        }
+        info.setText(
+                "🔒 ACESSO BLOQUEADO\n\n" +
+                "Para usar o app é necessário liberação.\n\n" +
+                "💰 PIX: 11 970200771\n" +
+                "📲 WhatsApp: 11 970200771\n\n" +
+                "📸 Envie o comprovante + print desta tela\n\n" +
+                "🆔 ID DO USUÁRIO:\n" +
+                userId
+        );
 
         layout.addView(title);
         layout.addView(info);
-        layout.addView(advance);
 
         setContentView(layout);
     }

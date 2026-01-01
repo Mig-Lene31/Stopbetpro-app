@@ -15,7 +15,7 @@ public class AdminActivity extends Activity {
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(40, 40, 40, 40);
+        layout.setPadding(40,40,40,40);
         layout.setGravity(Gravity.CENTER);
 
         TextView title = new TextView(this);
@@ -30,16 +30,16 @@ public class AdminActivity extends Activity {
             finish();
         });
 
-        Button unlockStop = new Button(this);
-        unlockStop.setText("Quebrar bloqueio de Stop (12h)");
-        unlockStop.setOnClickListener(v -> {
-            AuthState.clearStopBlock(this);
+        Button unlock12 = new Button(this);
+        unlock12.setText("Quebrar bloqueio de Stop (12h)");
+        unlock12.setOnClickListener(v -> {
+            EngineState.clearBlock(this);
             finish();
         });
 
         layout.addView(title);
         layout.addView(unlock30);
-        layout.addView(unlockStop);
+        layout.addView(unlock12);
 
         setContentView(layout);
     }
