@@ -7,64 +7,47 @@ public class EngineState {
 
     private static final String PREF = "engine_state";
     private static final String KEY_BLOCKED_UNTIL = "blocked_until";
+    private static final String KEY_BLOCK_REASON = "block_reason";
 
-    // ===============================
-    // BLOQUEIO ATIVO?
-    // ===============================
+    public static final String REASON_NONE = "NONE";
+    public static final String REASON_STOP_WIN = "STOP_WIN";
+    public static final String REASON_STOP_LOSS = "STOP_LOSS";
+    public static final String REASON_STOP_TIME = "STOP_TIME";
+
     public static boolean isBlocked(Context ctx) {
-        long until = getBlockedUntil(ctx);
-        return System.currentTimeMillis() < until;
+        return System.currentTimeMillis() < getBlockedUntil(ctx);
     }
 
-    // ===============================
-    // TEMPO RESTANTE DE BLOQUEIO
-    // ===============================
-    public static long getRemainingTime(Context ctx) {
-        long until = getBlockedUntil(ctx);
-        long now = System.currentTimeMillis();
-        return Math.max(0, until - now);
-    }
-
-    // ===============================
-    // BLOQUEIO PADRÃO DE 12H
-    // ===============================
-    public static void blockFor12Hours(Context ctx) {
+    public static void blockFor12Hours(Context ctx, String reason) {
         long until = System.currentTimeMillis() + (12L * 60 * 60 * 1000);
-        setBlockedUntil(ctx, until);
+        SharedPreferences.Editor ed =
+                ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE).edit();
+
+        ed.putLong(KEY_BLOCKED_UNTIL, until);
+        ed.putString(KEY_BLOCK_REASON, reason);
+        ed.apply();
     }
 
-    // ===============================
-    // 🔓 ADM: LIBERAR POR 30 DIAS
-    // ===============================
     public static void unlockFor30Days(Context ctx) {
         long until = System.currentTimeMillis() + (30L * 24 * 60 * 60 * 1000);
-        setBlockedUntil(ctx, until);
-    }
-
-    // ===============================
-    // 🔓 ADM: QUEBRAR BLOQUEIO ANTES DAS 12H
-    // ===============================
-    public static void clearBlock(Context ctx) {
-        setBlockedUntil(ctx, 0);
-    }
-
-    // ===============================
-    // AUTO DESBLOQUEIO
-    // ===============================
-    public static void autoUnlock(Context ctx) {
-        if (!isBlocked(ctx)) {
-            clearBlock(ctx);
-        }
-    }
-
-    // ===============================
-    // STORAGE
-    // ===============================
-    private static void setBlockedUntil(Context ctx, long value) {
         ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
                 .edit()
-                .putLong(KEY_BLOCKED_UNTIL, value)
+                .putLong(KEY_BLOCKED_UNTIL, until)
+                .putString(KEY_BLOCK_REASON, REASON_NONE)
                 .apply();
+    }
+
+    public static void clearBlock(Context ctx) {
+        ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
+                .edit()
+                .putLong(KEY_BLOCKED_UNTIL, 0)
+                .putString(KEY_BLOCK_REASON, REASON_NONE)
+                .apply();
+    }
+
+    public static String getBlockReason(Context ctx) {
+        return ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
+                .getString(KEY_BLOCK_REASON, REASON_NONE);
     }
 
     private static long getBlockedUntil(Context ctx) {

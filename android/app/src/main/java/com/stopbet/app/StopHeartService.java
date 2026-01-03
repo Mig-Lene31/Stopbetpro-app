@@ -26,7 +26,7 @@ public class StopHeartService extends Service {
                     return;
                 }
 
-                // Já bloqueado? não repete
+                // Já bloqueado = não repete
                 if (EngineState.isBlocked(StopHeartService.this)) {
                     handler.postDelayed(this, 5000);
                     return;
@@ -36,24 +36,33 @@ public class StopHeartService extends Service {
                 float loss = LimitsStore.getLoss(StopHeartService.this);
                 float balance = AppState.getCurrentBalance(StopHeartService.this);
 
-                // Stop Win
+                // STOP WIN
                 if (win > 0 && balance >= win) {
-                    EngineState.blockFor12Hours(StopHeartService.this);
+                    EngineState.blockFor12Hours(
+                            StopHeartService.this,
+                            EngineState.REASON_STOP_WIN
+                    );
                     return;
                 }
 
-                // Stop Loss
+                // STOP LOSS
                 if (loss > 0 && balance <= loss) {
-                    EngineState.blockFor12Hours(StopHeartService.this);
+                    EngineState.blockFor12Hours(
+                            StopHeartService.this,
+                            EngineState.REASON_STOP_LOSS
+                    );
                     return;
                 }
 
-                // Tempo diário
+                // STOP POR TEMPO
                 int limitMinutes = TimeStore.getMinutes(StopHeartService.this);
                 int usedMinutes = TimeStore.getUsedMinutesToday(StopHeartService.this);
 
                 if (limitMinutes > 0 && usedMinutes >= limitMinutes) {
-                    EngineState.blockFor12Hours(StopHeartService.this);
+                    EngineState.blockFor12Hours(
+                            StopHeartService.this,
+                            EngineState.REASON_STOP_TIME
+                    );
                     return;
                 }
 

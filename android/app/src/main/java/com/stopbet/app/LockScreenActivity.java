@@ -18,10 +18,26 @@ public class LockScreenActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         String userId = UserIdentity.getId(this);
+        String reason = EngineState.getBlockReason(this);
+        String motivo;
+
+        switch (reason) {
+            case EngineState.REASON_STOP_WIN:
+                motivo = "🟢 Stop Win atingido";
+                break;
+            case EngineState.REASON_STOP_LOSS:
+                motivo = "🔴 Stop Loss atingido";
+                break;
+            case EngineState.REASON_STOP_TIME:
+                motivo = "⏱️ Tempo diário esgotado";
+                break;
+            default:
+                motivo = "🔒 Acesso bloqueado";
+        }
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(40,40,40,40);
+        layout.setPadding(40, 40, 40, 40);
         layout.setGravity(Gravity.CENTER);
 
         TextView title = new TextView(this);
@@ -29,7 +45,7 @@ public class LockScreenActivity extends Activity {
         title.setTextSize(22);
         title.setGravity(Gravity.CENTER);
 
-        // 🔐 ACESSO ADM OCULTO (5 TOQUES)
+        // 🔐 ADM oculto (5 toques)
         title.setOnClickListener(v -> {
             long now = System.currentTimeMillis();
             if (now - lastTap > 1500) tapCount = 0;
@@ -43,26 +59,23 @@ public class LockScreenActivity extends Activity {
         });
 
         TextView info = new TextView(this);
+        info.setGravity(Gravity.CENTER);
         info.setText(
+                motivo + "\n\n" +
                 "⚠️ Para desbloquear antes das 12h:\n" +
                 "R$ 50,00\n\n" +
                 "💰 PIX: 11 970200771\n" +
-                "📲 Comprovante no WhatsApp: 11 970200771\n\n" +
-                "———————————————\n\n" +
-                "🔒 ACESSO BLOQUEADO\n\n" +
-                "📸 Envie também o PRINT desta tela\n" +
-                "com o ID do aplicativo.\n\n" +
+                "📲 WhatsApp: 11 970200771\n\n" +
+                "📸 Envie o comprovante + print desta tela\n\n" +
                 "🆔 ID DO USUÁRIO:\n" +
                 userId
         );
-        info.setGravity(Gravity.CENTER);
 
         Button btnAdvance = new Button(this);
         btnAdvance.setText("Avançar");
-        btnAdvance.setEnabled(false); // só ADM libera
+        btnAdvance.setEnabled(AuthState.isUnlocked(this));
 
-        if (AdminSession.isUnlocked(this)) {
-            btnAdvance.setEnabled(true);
+        if (AuthState.isUnlocked(this)) {
             btnAdvance.setOnClickListener(v ->
                     startActivity(new Intent(this, MainActivity.class))
             );
