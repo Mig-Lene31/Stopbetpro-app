@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Button, StyleSheet, Alert, TextInput } from 'react-native';
-
+import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
 import Storage from '../services/storage';
 import { activateSubscription } from '../core/SubscriptionGuard';
 import { clearBlock } from '../core/BlockController';
@@ -19,25 +18,20 @@ export default function AdminScreen() {
   if (!ok) {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Administração</Text>
-
+        <Text>Senha ADM</Text>
         <TextInput
-          placeholder="Senha ADM"
           secureTextEntry
           value={senha}
           onChangeText={setSenha}
           style={styles.input}
         />
-
         <Button
           title="Entrar"
-          onPress={() => {
-            if (senha === gerarSenhaDoDia()) {
-              setOk(true);
-            } else {
-              Alert.alert('Erro', 'Senha incorreta');
-            }
-          }}
+          onPress={() =>
+            senha === gerarSenhaDoDia()
+              ? setOk(true)
+              : Alert.alert('Erro', 'Senha incorreta')
+          }
         />
       </View>
     );
@@ -45,23 +39,22 @@ export default function AdminScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Painel Administrativo</Text>
+      <Text>Painel Administrativo</Text>
 
       <Button
         title="Liberar 30 dias"
-        onPress={() => activateSubscription(30)}
+        onPress={async () => {
+          await activateSubscription(30);
+          await Storage.set('access_liberado', true);
+          Alert.alert('OK', 'Acesso liberado por 30 dias');
+        }}
       />
 
       <Button
-        title="Remover bloqueio"
-        onPress={clearBlock}
-      />
-
-      <Button
-        title="Liberar acesso (Gate)"
+        title="Desbloquear agora"
         onPress={() => {
-          Storage.set('access_liberado', true);
-          Alert.alert('OK', 'Acesso liberado');
+          clearBlock();
+          Alert.alert('OK', 'Bloqueio removido');
         }}
       />
     </View>
@@ -69,19 +62,6 @@ export default function AdminScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    padding: 20
-  },
-  title: {
-    fontSize: 22,
-    marginBottom: 20,
-    textAlign: 'center'
-  },
-  input: {
-    borderWidth: 1,
-    padding: 10,
-    marginBottom: 15
-  }
+  container: { flex: 1, justifyContent: 'center', padding: 20 },
+  input: { borderWidth: 1, padding: 10, marginBottom: 10 }
 });
