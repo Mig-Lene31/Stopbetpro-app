@@ -16,57 +16,41 @@ const Stack = createNativeStackNavigator();
 function FlowController() {
   const [state, setState] = useState(null);
 
+  const load = async () => {
+    const s = await getFlowState();
+    setState(s);
+  };
+
   useFocusEffect(
     useCallback(() => {
-      let alive = true;
-
-      getFlowState().then(s => {
-        if (alive) setState(s);
-      });
-
-      return () => {
-        alive = false;
-      };
+      load();
     }, [])
   );
 
   if (!state) return null;
 
-  // 1️⃣ Aviso legal
-  if (!state.legalAccepted) {
-    return (
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Legal" component={LegalNoticeScreen} />
-      </Stack.Navigator>
-    );
-  }
-
-  // 2️⃣ Não liberado (aguardando pagamento / desbloqueio)
-  if (state.accessStatus !== ACCESS_STATUS.LIBERADO) {
-    return (
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Access" component={AccessScreen} />
-        <Stack.Screen name="AdminLogin" component={AdminLoginScreen} />
-        <Stack.Screen name="Admin" component={AdminScreen} />
-      </Stack.Navigator>
-    );
-  }
-
-  // 3️⃣ Bloqueado por tempo
-  if (state.blocked) {
-    return (
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Blocked" component={BlockedScreen} />
-        <Stack.Screen name="AdminLogin" component={AdminLoginScreen} />
-        <Stack.Screen name="Admin" component={AdminScreen} />
-      </Stack.Navigator>
-    );
-  }
-
-  // 4️⃣ Liberado → Configuração
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="StopBetConfig" component={StopBetConfigScreen} />
+      {!state.legalAccepted && (
+        <Stack.Screen name="Legal" component={LegalNoticeScreen} />
+      )}
+
+      {state.legalAccepted && state.accessStatus !== ACCESS_STATUS.LIBERADO && (
+        <Stack.Screen name="Access" component={AccessScreen} />
+      )}
+
+      {state.legalAccepted &&
+        state.accessStatus === ACCESS_STATUS.LIBERADO &&
+        !state.blocked && (
+          <Stack.Screen name="StopBetConfig" component={StopBetConfigScreen} />
+        )}
+
+      {state.blocked && (
+        <Stack.Screen name="Blocked" component={BlockedScreen} />
+      )}
+
+      <Stack.Screen name="AdminLogin" component={AdminLoginScreen} />
+      <Stack.Screen name="Admin" component={AdminScreen} />
     </Stack.Navigator>
   );
 }
