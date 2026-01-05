@@ -11,7 +11,7 @@
         android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".GateActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,6 +19,9 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".MainActivity" />
+        <activity android:name=".InfoActivity" />
+        <activity android:name=".AuthLockActivity" />
         <activity android:name=".AdminLoginActivity" />
         <activity android:name=".AdminActivity" />
 
@@ -41,5 +44,4 @@
         </service>
 
     </application>
-
 </manifest>

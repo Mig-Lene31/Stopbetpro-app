@@ -1,11 +1,15 @@
 package com.stopbet.app;
 
-import com.facebook.react.ReactActivity;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
 
-public class MainActivity extends ReactActivity {
+public class MainActivity extends Activity {
 
     @Override
-    protected String getMainComponentName() {
-        return "StopBetPro";
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        startActivity(new Intent(this, GateActivity.class));
+        finish();
     }
 }
