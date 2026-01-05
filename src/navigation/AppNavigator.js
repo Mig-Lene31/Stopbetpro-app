@@ -19,9 +19,11 @@ function FlowController() {
   useFocusEffect(
     useCallback(() => {
       let alive = true;
+
       getFlowState().then(s => {
         if (alive) setState(s);
       });
+
       return () => {
         alive = false;
       };
@@ -39,7 +41,7 @@ function FlowController() {
     );
   }
 
-  // 2️⃣ Não liberado (pagamento / espera)
+  // 2️⃣ Não liberado (aguardando pagamento / desbloqueio)
   if (state.accessStatus !== ACCESS_STATUS.LIBERADO) {
     return (
       <Stack.Navigator screenOptions={{ headerShown: false }}>
