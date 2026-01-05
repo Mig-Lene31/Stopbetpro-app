@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.stopbet.app">
 
     <application
         android:allowBackup="true"
@@ -9,9 +10,8 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar">
 
-        <!-- ENTRADA ÚNICA -->
         <activity
-            android:name=".GateActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,44 +19,22 @@
             </intent-filter>
         </activity>
 
-        <!-- TELAS -->
-        <activity android:name=".InfoActivity" />
-        <activity android:name=".AuthLockActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".LockScreenActivity" />
-
-        <!-- ADMIN -->
         <activity android:name=".AdminLoginActivity" />
         <activity android:name=".AdminActivity" />
 
-        <!-- CONFIGURAÇÕES -->
-        <activity android:name=".LimitsActivity" />
-        <activity android:name=".TimeActivity" />
-        <activity android:name=".DepositActivity" />
-
-        <!-- SERVIÇO CORAÇÃO -->
         <service
             android:name=".StopHeartService"
             android:exported="false" />
 
-        <!-- VPN -->
         <service
             android:name=".BetBlockVpnService"
             android:permission="android.permission.BIND_VPN_SERVICE"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.net.VpnService" />
-            </intent-filter>
-        </service>
+            android:exported="false" />
 
-        <!-- ACESSIBILIDADE -->
         <service
             android:name=".BalanceReadAccessibilityService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
             android:exported="false">
-            <intent-filter>
-                <action android:name="android.accessibilityservice.AccessibilityService" />
-            </intent-filter>
             <meta-data
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibility_config" />
