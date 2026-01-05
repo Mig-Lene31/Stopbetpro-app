@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, Alert } from 'react-native';
 import Storage from '../services/storage';
-import { activateSubscription } from '../core/SubscriptionGuard';
-import { clearBlock } from '../core/BlockController';
+import { FLOW_KEYS, ACCESS_STATUS } from '../core/FlowState';
 
-function gerarSenhaDoDia() {
+function senhaDoDia() {
   const d = new Date();
-  const dia = String(d.getDate()).padStart(2, '0');
-  const mes = String(d.getMonth() + 1).padStart(2, '0');
-  return dia + mes + 'Mi$';
+  return String(d.getDate()).padStart(2, '0') +
+         String(d.getMonth() + 1).padStart(2, '0') +
+         'Mi$';
 }
 
 export default function AdminScreen() {
@@ -17,51 +16,33 @@ export default function AdminScreen() {
 
   if (!ok) {
     return (
-      <View style={styles.container}>
+      <View>
         <Text>Senha ADM</Text>
-        <TextInput
-          secureTextEntry
-          value={senha}
-          onChangeText={setSenha}
-          style={styles.input}
-        />
-        <Button
-          title="Entrar"
-          onPress={() =>
-            senha === gerarSenhaDoDia()
-              ? setOk(true)
-              : Alert.alert('Erro', 'Senha incorreta')
-          }
-        />
+        <TextInput secureTextEntry value={senha} onChangeText={setSenha} />
+        <Button title="Entrar" onPress={() =>
+          senha === senhaDoDia() ? setOk(true) : Alert.alert('Erro')
+        }/>
       </View>
     );
   }
 
   return (
-    <View style={styles.container}>
-      <Text>Painel Administrativo</Text>
-
+    <View>
       <Button
         title="Liberar 30 dias"
         onPress={async () => {
-          await activateSubscription(30);
-          await Storage.set('access_liberado', true);
-          Alert.alert('OK', 'Acesso liberado por 30 dias');
+          await Storage.set(FLOW_KEYS.ACCESS, ACCESS_STATUS.LIBERADO);
+          Alert.alert('Liberado');
         }}
       />
 
       <Button
         title="Desbloquear agora"
-        onPress={() => {
-          clearBlock();
-          Alert.alert('OK', 'Bloqueio removido');
+        onPress={async () => {
+          await Storage.remove(FLOW_KEYS.BLOCKED);
+          Alert.alert('Bloqueio removido');
         }}
       />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', padding: 20 },
-  input: { borderWidth: 1, padding: 10, marginBottom: 10 }
-});
