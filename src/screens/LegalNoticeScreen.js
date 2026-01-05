@@ -2,10 +2,9 @@ import React from 'react';
 import { View, Text, Button, StyleSheet, ScrollView } from 'react-native';
 import Storage from '../services/storage';
 
-export default function LegalNoticeScreen({ navigation }) {
+export default function LegalNoticeScreen() {
   const accept = async () => {
     await Storage.set('legalAccepted', true);
-    navigation.replace('DepositConfirm');
   };
 
   return (
