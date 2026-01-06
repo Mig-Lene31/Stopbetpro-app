@@ -10,10 +10,12 @@ public class GateActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        String userId = UserIdentity.getId(this);
+
         if (!InfoAcceptedStore.hasAccepted(this)) {
             startActivity(new Intent(this, InfoActivity.class));
         }
-        else if (!UnlockStore.isUnlocked(this)) {
+        else if (!AdminUnlockStore.isUnlocked(this, userId)) {
             startActivity(new Intent(this, PaymentActivity.class));
         }
         else {

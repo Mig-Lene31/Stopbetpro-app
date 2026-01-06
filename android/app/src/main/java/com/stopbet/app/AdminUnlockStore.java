@@ -1,32 +1,28 @@
 package com.stopbet.app;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
 public class AdminUnlockStore {
 
-    private static final String PREF = "admin_unlock";
-    private static final String KEY_ID = "authorized_id";
+    private static final String PREF = "admin_unlocks";
 
-    public static void saveAuthorizedId(Context ctx, String id) {
-        ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
-                .edit()
-                .putString(KEY_ID, id)
-                .apply();
+    private static SharedPreferences sp(Context ctx) {
+        return ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE);
     }
 
-    public static boolean isAuthorized(Context ctx) {
-        String savedId = ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
-                .getString(KEY_ID, null);
-
-        if (savedId == null) return false;
-
-        return savedId.equals(UserIdentity.getId(ctx));
+    public static void unlockForMillis(Context ctx, String userId, long millis) {
+        long until = System.currentTimeMillis() + millis;
+        sp(ctx).edit().putLong(userId, until).apply();
     }
 
-    public static void clear(Context ctx) {
-        ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
-                .edit()
-                .clear()
-                .apply();
+    public static boolean isUnlocked(Context ctx, String userId) {
+        long until = sp(ctx).getLong(userId, 0);
+        return System.currentTimeMillis() < until;
+    }
+
+    public static long getRemaining(Context ctx, String userId) {
+        long until = sp(ctx).getLong(userId, 0);
+        return Math.max(0, until - System.currentTimeMillis());
     }
 }

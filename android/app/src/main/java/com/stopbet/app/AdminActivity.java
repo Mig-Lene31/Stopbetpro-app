@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,27 +20,36 @@ public class AdminActivity extends Activity {
         layout.setGravity(Gravity.CENTER);
 
         TextView title = new TextView(this);
-        title.setText("Painel Administrativo");
-        title.setTextSize(20);
+        title.setText("ADMIN - Desbloqueio");
         title.setGravity(Gravity.CENTER);
 
-        Button unlock30 = new Button(this);
-        unlock30.setText("Liberar por 30 dias");
-        unlock30.setOnClickListener(v -> {
-            AuthState.unlockFor30Days(this);
-            finish();
-        });
+        EditText inputId = new EditText(this);
+        inputId.setHint("ID do usuário");
 
-        Button unlock12 = new Button(this);
-        unlock12.setText("Quebrar bloqueio de Stop (12h)");
-        unlock12.setOnClickListener(v -> {
-            EngineState.clearBlock(this);
-            finish();
-        });
+        Button unlock30 = new Button(this);
+        unlock30.setText("Liberar 30 dias");
+        unlock30.setOnClickListener(v ->
+            AdminUnlockStore.unlockForMillis(
+                this,
+                inputId.getText().toString().trim(),
+                30L * 24L * 60L * 60L * 1000L
+            )
+        );
+
+        Button unlock12h = new Button(this);
+        unlock12h.setText("Liberar 12 horas");
+        unlock12h.setOnClickListener(v ->
+            AdminUnlockStore.unlockForMillis(
+                this,
+                inputId.getText().toString().trim(),
+                12L * 60L * 60L * 1000L
+            )
+        );
 
         layout.addView(title);
+        layout.addView(inputId);
         layout.addView(unlock30);
-        layout.addView(unlock12);
+        layout.addView(unlock12h);
 
         setContentView(layout);
     }
