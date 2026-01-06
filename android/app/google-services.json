@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "479735325976",
+    "project_id": "stobet-8c360",
+    "storage_bucket": "stobet-8c360.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:479735325976:android:c77c817d188f9ec9b5ea6d",
+        "android_client_info": {
+          "package_name": "com.stopbet.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCC8vFIq-h4sinIbEnnoAGQIDJnMnumL6k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
