@@ -20,14 +20,14 @@ public class PaymentActivity extends Activity {
         layout.setGravity(Gravity.CENTER);
 
         TextView info = new TextView(this);
+        info.setGravity(Gravity.CENTER);
         info.setText(
             "ACESSO BLOQUEADO\n\n" +
-            "Para liberar o app:\n\n" +
-            "PIX: 000.000.000-00\n" +
-            "WhatsApp: (xx) xxxxx-xxxx\n\n" +
-            "Envie o comprovante com seu ID."
+            "Para liberar o app por 30 dias:\n\n" +
+            "PIX: SEU_PIX_AQUI\n" +
+            "WhatsApp: SEU_WHATSAPP_AQUI\n\n" +
+            "Envie o comprovante junto com seu ID."
         );
-        info.setGravity(Gravity.CENTER);
 
         Button adm = new Button(this);
         adm.setText("Entrar como ADM");
