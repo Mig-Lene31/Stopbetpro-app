@@ -1,10 +1,11 @@
-<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.stopbet.app">
 
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
     <application
         android:allowBackup="true"
-        android:label="StopBet Pro"
+        android:label="Kairós"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -14,23 +15,23 @@
             android:name=".GateActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
-        <activity android:name=".InfoActivity" />
-        <activity android:name=".PaymentActivity" />
-        <activity android:name=".ConfigActivity" />
-        <activity android:name=".DepositActivity" />
-        <activity android:name=".LimitsActivity" />
-        <activity android:name=".TimeActivity" />
-        <activity android:name=".RulesActivity" />
-        <activity android:name=".BlockedActivity" />
+        <activity android:name=".InfoActivity"/>
+        <activity android:name=".PaymentActivity"/>
+        <activity android:name=".ConfigActivity"/>
+        <activity android:name=".DepositActivity"/>
+        <activity android:name=".LimitsActivity"/>
+        <activity android:name=".TimeActivity"/>
+        <activity android:name=".RulesActivity"/>
+        <activity android:name=".BlockedActivity"/>
 
-        <service android:name=".EngineService" android:exported="false" />
-        <service android:name=".ScreenCaptureService" android:exported="false" />
-        <service android:name=".BalanceConfirmOverlayService" android:exported="false" />
+        <service android:name=".EngineService" android:exported="false"/>
+        <service android:name=".ScreenCaptureService" android:exported="false"/>
+        <service android:name=".BalanceConfirmOverlayService" android:exported="false"/>
+
     </application>
-
 </manifest>
