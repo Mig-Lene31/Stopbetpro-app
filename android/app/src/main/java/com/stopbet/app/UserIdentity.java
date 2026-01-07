@@ -5,10 +5,10 @@ import android.provider.Settings;
 
 public class UserIdentity {
 
-    public static String getId(Context ctx) {
+    public static String getId(Context context) {
         return Settings.Secure.getString(
-            ctx.getContentResolver(),
-            Settings.Secure.ANDROID_ID
+                context.getContentResolver(),
+                Settings.Secure.ANDROID_ID
         );
     }
 }
