@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="app_name">StopBet Pro</string>
-
-    <string name="accessibility_desc">
-        Lê apenas texto visível na tela de sites de apostas para identificar saldo
-        e aplicar limites definidos pelo usuário. Não coleta dados pessoais nem
-        envia informações para servidores externos.
-    </string>
-
+    <string name="app_name">Kairós</string>
 </resources>
