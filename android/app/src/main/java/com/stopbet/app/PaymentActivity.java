@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -23,18 +22,24 @@ public class PaymentActivity extends Activity {
         root.setBackgroundColor(0xFF0D1B2A);
 
         TextView title = new TextView(this);
-        title.setText("Liberação do Kairós");
+        title.setText("Kairós — Liberação de Acesso");
         title.setTextSize(26);
         title.setTypeface(null, Typeface.BOLD);
         title.setTextColor(0xFFFFFFFF);
         title.setGravity(Gravity.CENTER);
 
+        TextView status = new TextView(this);
+        status.setText("\nSTATUS: AGUARDANDO LIBERAÇÃO\n");
+        status.setTextSize(18);
+        status.setTextColor(0xFFFFC107);
+        status.setGravity(Gravity.CENTER);
+
         TextView info = new TextView(this);
         info.setText(
-            "\nPara liberar o uso do Kairós:\n" +
+            "Para liberar o acesso:\n\n" +
             "1) Faça o pagamento\n" +
-            "2) Envie o comprovante\n" +
-            "3) Envie o PRINT desta tela com o ID\n"
+            "2) Envie o comprovante no WhatsApp\n" +
+            "3) Envie o PRINT desta tela com o ID abaixo\n"
         );
         info.setTextSize(16);
         info.setTextColor(0xFFB0BEC5);
@@ -53,21 +58,24 @@ public class PaymentActivity extends Activity {
         zap.setGravity(Gravity.CENTER);
 
         TextView id = new TextView(this);
-        id.setText("\nSEU ID:\n" + userId);
+        id.setText("\nSEU ID ÚNICO:\n" + userId);
         id.setTextSize(18);
         id.setTextColor(0xFFFFFFFF);
         id.setGravity(Gravity.CENTER);
 
-        Button btn = new Button(this);
-        btn.setText("ENTENDI, VOU ENVIAR O PRINT");
-        btn.setEnabled(false);
+        TextView lock = new TextView(this);
+        lock.setText("\n⛔ O APP SÓ SERÁ LIBERADO APÓS CONFIRMAÇÃO MANUAL ⛔");
+        lock.setTextSize(14);
+        lock.setTextColor(0xFFEF5350);
+        lock.setGravity(Gravity.CENTER);
 
         root.addView(title);
+        root.addView(status);
         root.addView(info);
         root.addView(pix);
         root.addView(zap);
         root.addView(id);
-        root.addView(btn);
+        root.addView(lock);
 
         setContentView(root);
     }
