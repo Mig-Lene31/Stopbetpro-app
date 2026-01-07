@@ -39,6 +39,7 @@ public class LimitsActivity extends Activity {
 
             LimitsStore.saveWin(this, win);
             LimitsStore.saveLoss(this, loss);
+            ConfigRules.onSaveLimits(this);
             finish();
         });
 

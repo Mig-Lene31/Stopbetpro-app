@@ -32,6 +32,7 @@ public class TimeActivity extends Activity {
         save.setOnClickListener(v -> {
             int minutes = Integer.parseInt(input.getText().toString());
             TimeStore.setMinutes(this, minutes);
+            ConfigRules.onSaveTime(this);
             finish();
         });
 
