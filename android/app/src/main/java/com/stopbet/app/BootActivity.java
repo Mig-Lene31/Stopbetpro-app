@@ -26,17 +26,20 @@ public class BootActivity extends Activity {
 
         String userId = UserIdentity.getId(this);
 
-        if (!ReleaseState.isReleased(this)) {
-            if (RemoteReleaseChecker.isReleasedRemotely(this, userId)) {
-                ReleaseState.markReleased(this);
-            } else {
-                startActivity(new Intent(this, PaymentActivity.class));
-                finish();
-                return;
-            }
+        if (ReleaseState.isReleased(this)) {
+            startActivity(new Intent(this, GateActivity.class));
+            finish();
+            return;
         }
 
-        startActivity(new Intent(this, GateActivity.class));
-        finish();
+        FirebaseReleaseChecker.check(userId, released -> {
+            if (released) {
+                ReleaseState.markReleased(this);
+                startActivity(new Intent(this, GateActivity.class));
+            } else {
+                startActivity(new Intent(this, PaymentActivity.class));
+            }
+            finish();
+        });
     }
 }
