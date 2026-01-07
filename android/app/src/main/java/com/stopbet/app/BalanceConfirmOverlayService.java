@@ -12,29 +12,23 @@ import android.widget.TextView;
 
 public class BalanceConfirmOverlayService extends Service {
 
-    private WindowManager windowManager;
-    private LinearLayout overlay;
+    private WindowManager wm;
+    private LinearLayout view;
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-        if (FinanceEngineState.isPending(this)) {
-            return START_NOT_STICKY;
-        }
+        wm = (WindowManager) getSystemService(WINDOW_SERVICE);
 
-        FinanceEngineState.setPending(this, true);
+        view = new LinearLayout(this);
+        view.setOrientation(LinearLayout.VERTICAL);
+        view.setPadding(40,40,40,40);
+        view.setBackgroundColor(0xEE000000);
 
-        windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
-
-        overlay = new LinearLayout(this);
-        overlay.setOrientation(LinearLayout.VERTICAL);
-        overlay.setPadding(40, 40, 40, 40);
-        overlay.setBackgroundColor(0xEE0A2A66);
-
-        TextView text = new TextView(this);
-        text.setText("Esse valor é o seu saldo real?");
-        text.setTextColor(0xFFFFFFFF);
-        text.setGravity(Gravity.CENTER);
+        TextView txt = new TextView(this);
+        txt.setText("Esse valor é o seu saldo real?");
+        txt.setTextColor(0xFFFFFFFF);
+        txt.setGravity(Gravity.CENTER);
 
         Button yes = new Button(this);
         yes.setText("SIM");
@@ -43,48 +37,43 @@ public class BalanceConfirmOverlayService extends Service {
         no.setText("NÃO");
 
         yes.setOnClickListener(v -> {
-            BalanceConfirmationStore.confirm(this);
-            FinanceEngineState.clear(this);
+            BalanceConfirmState.confirm(this);
             stopSelf();
         });
 
         no.setOnClickListener(v -> {
-            int tries = BalanceConfirmationStore.incTry(this);
-            FinanceEngineState.setPending(this, false);
+            int tries = BalanceConfirmState.incTry(this);
 
             if (tries >= 3) {
                 MotorState.forceDisable(this);
-                TimeStore.clear(this);
                 TimeStore.setMinutes(this, 1);
             }
 
             stopSelf();
         });
 
-        overlay.addView(text);
-        overlay.addView(yes);
-        overlay.addView(no);
+        view.addView(txt);
+        view.addView(yes);
+        view.addView(no);
 
-        WindowManager.LayoutParams params = new WindowManager.LayoutParams(
-                WindowManager.LayoutParams.MATCH_PARENT,
-                WindowManager.LayoutParams.WRAP_CONTENT,
-                WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
-                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
-                PixelFormat.TRANSLUCENT
+        WindowManager.LayoutParams p = new WindowManager.LayoutParams(
+            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.WRAP_CONTENT,
+            WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+            PixelFormat.TRANSLUCENT
         );
 
-        params.gravity = Gravity.TOP;
-        windowManager.addView(overlay, params);
+        p.gravity = Gravity.TOP;
+        wm.addView(view, p);
 
         return START_NOT_STICKY;
     }
 
     @Override
     public void onDestroy() {
+        if (view != null) wm.removeView(view);
         super.onDestroy();
-        if (overlay != null && windowManager != null) {
-            windowManager.removeView(overlay);
-        }
     }
 
     @Override
