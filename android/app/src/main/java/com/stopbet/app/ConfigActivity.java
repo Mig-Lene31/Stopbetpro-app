@@ -1,50 +1,33 @@
 package com.stopbet.app;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 public class ConfigActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_config);
 
-        LinearLayout layout = new LinearLayout(this);
-        layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(40,40,40,40);
-        layout.setGravity(Gravity.CENTER);
+        Button btnDeposit = findViewById(R.id.btnDeposit);
+        Button btnLimits = findViewById(R.id.btnLimits);
+        Button btnTime = findViewById(R.id.btnTime);
+        Button btnRules = findViewById(R.id.btnRules);
 
-        TextView title = new TextView(this);
-        title.setText("Configurações");
-        title.setTextSize(18);
-        title.setGravity(Gravity.CENTER);
+        btnDeposit.setOnClickListener(v ->
+                startActivity(new Intent(this, DepositActivity.class)));
 
-        Button deposito = new Button(this);
-        deposito.setText("Valor de Depósito");
+        btnLimits.setOnClickListener(v ->
+                startActivity(new Intent(this, LimitsActivity.class)));
 
-        Button stopWinLoss = new Button(this);
-        stopWinLoss.setText("Configurar Stop Win / Loss");
+        btnTime.setOnClickListener(v ->
+                startActivity(new Intent(this, TimeActivity.class)));
 
-        Button stopTempo = new Button(this);
-        stopTempo.setText("Configurar Tempo");
-
-        Button info = new Button(this);
-        info.setText("Informações e Uso");
-
-        Button motor = new Button(this);
-        motor.setText("Motor: DESATIVADO");
-
-        layout.addView(title);
-        layout.addView(deposito);
-        layout.addView(stopWinLoss);
-        layout.addView(stopTempo);
-        layout.addView(info);
-        layout.addView(motor);
-
-        setContentView(layout);
+        btnRules.setOnClickListener(v ->
+                startActivity(new Intent(this, RulesActivity.class)));
     }
 }

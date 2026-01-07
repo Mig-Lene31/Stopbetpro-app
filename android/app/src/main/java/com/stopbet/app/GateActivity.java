@@ -20,7 +20,7 @@ public class GateActivity extends Activity {
 
         FirebaseAccessStore.checkAccess(this, userId, unlocked -> {
             if (unlocked) {
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(this, ConfigActivity.class));
             } else {
                 startActivity(new Intent(this, PaymentActivity.class));
             }
