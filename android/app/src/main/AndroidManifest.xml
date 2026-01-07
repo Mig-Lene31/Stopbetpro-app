@@ -33,5 +33,6 @@
         <service android:name=".BalanceConfirmOverlayService" android:exported="false"/>
 
     <service android:name=".EngineRecoveryService" android:exported="false"/>
+    <service android:name=".EngineStatusOverlayService" android:exported="false"/>
     </application>
 </manifest>
