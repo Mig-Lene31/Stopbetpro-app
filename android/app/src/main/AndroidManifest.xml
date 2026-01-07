@@ -28,6 +28,7 @@
         <activity android:name=".BlockedActivity" />
 
         <service android:name=".EngineService" android:exported="false" />
+        <service android:name=".ScreenCaptureService" android:exported="false" />
     </application>
 
 </manifest>
