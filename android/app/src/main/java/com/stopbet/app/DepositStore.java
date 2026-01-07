@@ -5,24 +5,23 @@ import android.content.SharedPreferences;
 
 public class DepositStore {
 
-    private static final String PREF = "stopbet_deposit";
-    private static final String KEY = "value";
+    private static final String PREF = "deposit_store";
+    private static final String VALUE = "value";
 
-    public static void setValue(Context ctx, String value) {
-        ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
-            .edit()
-            .putString(KEY, value)
-            .apply();
+    public static void setValue(Context ctx, String v) {
+        sp(ctx).edit().putString(VALUE, v).apply();
     }
 
     public static String getValue(Context ctx) {
-        return ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
-            .getString(KEY, "0");
+        return sp(ctx).getString(VALUE, null);
     }
-}
 
     public static boolean hasValue(Context ctx) {
         String v = getValue(ctx);
         return v != null && !v.trim().isEmpty();
     }
 
+    private static SharedPreferences sp(Context ctx) {
+        return ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE);
+    }
+}
