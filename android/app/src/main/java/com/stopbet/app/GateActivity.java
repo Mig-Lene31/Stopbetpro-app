@@ -10,6 +10,12 @@ public class GateActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        if (EngineState.isBlocked(this)) {
+            startActivity(new Intent(this, BlockedActivity.class));
+            finish();
+            return;
+        }
+
         if (!InfoAcceptedStore.hasAccepted(this)) {
             startActivity(new Intent(this, InfoActivity.class));
             finish();
