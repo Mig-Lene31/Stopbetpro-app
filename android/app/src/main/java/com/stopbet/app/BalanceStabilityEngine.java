@@ -39,7 +39,10 @@ public class BalanceStabilityEngine {
     }
 
     public static void clear(Context ctx) {
-        ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE).edit().clear().apply();
+        ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
+            .edit()
+            .clear()
+            .apply();
     }
 
     private static void reset(SharedPreferences sp, float value, long now) {
