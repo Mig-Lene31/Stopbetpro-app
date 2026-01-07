@@ -7,7 +7,6 @@ import android.view.Gravity;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-
 public class PaymentActivity extends Activity {
 
     @Override
