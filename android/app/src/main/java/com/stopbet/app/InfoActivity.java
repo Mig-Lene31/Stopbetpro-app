@@ -16,7 +16,7 @@ public class InfoActivity extends Activity {
 
         LinearLayout root = new LinearLayout(this);
         root.setOrientation(LinearLayout.VERTICAL);
-        root.setPadding(40,40,40,40);
+        root.setPadding(40, 40, 40, 40);
 
         ScrollView scroll = new ScrollView(this);
         TextView text = new TextView(this);
@@ -36,7 +36,7 @@ public class InfoActivity extends Activity {
         accept.setText("Li e aceito");
         accept.setOnClickListener(v -> {
             InfoAcceptedStore.accept(this);
-            startActivity(new Intent(this, GateActivity.class));
+            startActivity(new Intent(this, BootActivity.class));
             finish();
         });
 
