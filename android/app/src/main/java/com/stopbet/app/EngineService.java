@@ -14,6 +14,11 @@ public class EngineService extends Service {
             return START_NOT_STICKY;
         }
 
+        if (!EngineCooldownStore.canRun(this)) {
+            stopSelf();
+            return START_NOT_STICKY;
+        }
+
         float saldo = intent != null
                 ? intent.getFloatExtra("saldo", -1f)
                 : -1f;
@@ -24,6 +29,7 @@ public class EngineService extends Service {
 
             if (stable) {
                 EngineExecutor.process(this, saldo);
+                EngineCooldownStore.markRun(this);
                 BalanceStabilityEngine.clear(this);
             }
         }
