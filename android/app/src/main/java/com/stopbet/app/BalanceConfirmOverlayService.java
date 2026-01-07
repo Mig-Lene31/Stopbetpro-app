@@ -15,6 +15,27 @@ public class BalanceConfirmOverlayService extends Service {
     private WindowManager windowManager;
     private LinearLayout overlay;
 
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+
+        if (FinanceEngineState.isPending(this)) {
+            return START_NOT_STICKY;
+        }
+
+        FinanceEngineState.setPending(this, true);
+
+        windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
+
+        overlay = new LinearLayout(this);
+        overlay.setOrientation(LinearLayout.VERTICAL);
+        overlay.setPadding(40, 40, 40, 40);
+        overlay.setBackgroundColor(0xEE0A2A66);
+
+        TextView text = new TextView(this);
+        text.setText("Esse valor é o seu saldo real?");
+        text.setTextColor(0xFFFFFFFF);
+        text.setGravity(Gravity.CENTER);
+
         Button yes = new Button(this);
         yes.setText("SIM");
 
@@ -61,7 +82,9 @@ public class BalanceConfirmOverlayService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (overlay != null) windowManager.removeView(overlay);
+        if (overlay != null && windowManager != null) {
+            windowManager.removeView(overlay);
+        }
     }
 
     @Override
