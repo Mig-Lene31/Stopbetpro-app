@@ -26,6 +26,7 @@ public class MotorGuard {
             return false;
         }
 
+        if (LimitsStore.hasLimits(ctx) && !BalanceConfirmationStore.isConfirmed(ctx)) return false;
         return true;
     }
 }
