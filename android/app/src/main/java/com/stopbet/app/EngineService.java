@@ -1,4 +1,3 @@
-import com.stopbet.app.MotorGuard;
 package com.stopbet.app;
 
 import android.app.Service;
@@ -15,9 +14,6 @@ public class EngineService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         startTime = System.currentTimeMillis();
         handler.post(checkRunnable);
-        if (!BalanceConfirmationStore.isConfirmed(this)) {
-            startService(new Intent(this, BalanceConfirmOverlayService.class));
-        }
         return START_STICKY;
     }
 
@@ -25,11 +21,7 @@ public class EngineService extends Service {
         @Override
         public void run() {
 
-            if (!MotorState.isEnabled(EngineService.this)) {
             if (!MotorGuard.canRun(EngineService.this)) {
-                stopSelf();
-                return;
-            }
                 stopSelf();
                 return;
             }
