@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Kairos">
 
         <activity
-            android:name=".GateActivity"
+            android:name=".BootActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -21,6 +21,7 @@
 
         <activity android:name=".InfoActivity"/>
         <activity android:name=".PaymentActivity"/>
+        <activity android:name=".GateActivity"/>
         <activity android:name=".ConfigActivity"/>
         <activity android:name=".DepositActivity"/>
         <activity android:name=".LimitsActivity"/>
@@ -29,10 +30,10 @@
         <activity android:name=".BlockedActivity"/>
 
         <service android:name=".EngineService" android:exported="false"/>
-        <service android:name=".ScreenCaptureService" android:exported="false"/>
+        <service android:name=".EngineRecoveryService" android:exported="false"/>
+        <service android:name=".EngineStatusOverlayService" android:exported="false"/>
         <service android:name=".BalanceConfirmOverlayService" android:exported="false"/>
+        <service android:name=".BetBlockVpnService" android:exported="false"/>
 
-    <service android:name=".EngineRecoveryService" android:exported="false"/>
-    <service android:name=".EngineStatusOverlayService" android:exported="false"/>
     </application>
 </manifest>

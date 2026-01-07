@@ -14,10 +14,23 @@ public class BootActivity extends Activity {
 
         if (EngineState.isBlocked(this)) {
             startActivity(new Intent(this, BlockedActivity.class));
-        } else {
-            startActivity(new Intent(this, GateActivity.class));
+            finish();
+            return;
         }
 
+        if (!InfoAcceptedStore.hasAccepted(this)) {
+            startActivity(new Intent(this, InfoActivity.class));
+            finish();
+            return;
+        }
+
+        if (!ReleaseState.isReleased(this)) {
+            startActivity(new Intent(this, PaymentActivity.class));
+            finish();
+            return;
+        }
+
+        startActivity(new Intent(this, GateActivity.class));
         finish();
     }
 }
