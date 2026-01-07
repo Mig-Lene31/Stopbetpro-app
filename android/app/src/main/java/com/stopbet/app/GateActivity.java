@@ -26,6 +26,8 @@ public class GateActivity extends Activity {
 
         FirebaseAccessStore.checkAccess(this, userId, unlocked -> {
             if (unlocked) {
+                MotorState.enable(this);
+                startService(new Intent(this, EngineService.class));
                 startActivity(new Intent(this, ConfigActivity.class));
             } else {
                 startActivity(new Intent(this, PaymentActivity.class));

@@ -27,6 +27,7 @@
         <activity android:name=".RulesActivity" />
         <activity android:name=".BlockedActivity" />
 
+        <service android:name=".EngineService" android:exported="false" />
     </application>
 
 </manifest>
