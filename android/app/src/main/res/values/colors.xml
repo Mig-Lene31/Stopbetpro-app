@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Base -->
+    <!-- Cores base -->
     <color name="primary">#0D1B2A</color>
     <color name="primary_dark">#08121D</color>
     <color name="accent">#FFC107</color>
 
-    <!-- Kairos theme (obrigatórias para build) -->
+    <!-- Cores do Theme.Kairos (OBRIGATÓRIAS) -->
     <color name="kairos_blue_dark">#0D1B2A</color>
     <color name="kairos_white">#FFFFFF</color>
     <color name="kairos_gray">#B0BEC5</color>
