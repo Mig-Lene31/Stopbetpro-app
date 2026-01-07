@@ -14,10 +14,18 @@ public class EngineService extends Service {
             return START_NOT_STICKY;
         }
 
-        float saldo = intent != null ? intent.getFloatExtra("saldo", -1f) : -1f;
+        float saldo = intent != null
+                ? intent.getFloatExtra("saldo", -1f)
+                : -1f;
 
         if (saldo >= 0) {
-            EngineExecutor.process(this, saldo);
+
+            boolean stable = BalanceStabilityEngine.push(this, saldo);
+
+            if (stable) {
+                EngineExecutor.process(this, saldo);
+                BalanceStabilityEngine.clear(this);
+            }
         }
 
         stopSelf();
