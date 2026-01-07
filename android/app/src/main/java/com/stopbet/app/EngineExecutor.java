@@ -1,3 +1,4 @@
+import com.stopbet.app.MotorGuard;
 package com.stopbet.app;
 
 import android.content.Context;
@@ -5,6 +6,7 @@ import android.content.Context;
 public class EngineExecutor {
 
     public static boolean process(Context ctx, float saldo) {
+        if (!MotorGuard.canRun(ctx)) return false;
 
         if (!MotorState.isEnabled(ctx)) return false;
         if (!LimitsStore.hasLimits(ctx)) return false;

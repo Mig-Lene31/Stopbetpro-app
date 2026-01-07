@@ -1,3 +1,4 @@
+import com.stopbet.app.MotorGuard;
 package com.stopbet.app;
 
 import android.app.Service;
@@ -22,6 +23,10 @@ public class EngineService extends Service {
         public void run() {
 
             if (!MotorState.isEnabled(EngineService.this)) {
+            if (!MotorGuard.canRun(EngineService.this)) {
+                stopSelf();
+                return;
+            }
                 stopSelf();
                 return;
             }
