@@ -24,3 +24,13 @@ public class MotorState {
         setEnabled(c, false);
     }
 }
+
+    public static void enable(Context ctx) {
+        setEnabled(ctx, true);
+    }
+
+
+    public static void enable(Context ctx) {
+        setEnabled(ctx, true);
+    }
+

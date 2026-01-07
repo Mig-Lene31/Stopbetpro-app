@@ -20,3 +20,9 @@ public class DepositStore {
             .getString(KEY, "0");
     }
 }
+
+    public static boolean hasValue(Context ctx) {
+        String v = getValue(ctx);
+        return v != null && !v.trim().isEmpty();
+    }
+
