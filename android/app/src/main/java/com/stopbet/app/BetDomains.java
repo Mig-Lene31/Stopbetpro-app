@@ -1,35 +1,19 @@
 package com.stopbet.app;
 
-import java.util.Arrays;
-import java.util.HashSet;
+import android.content.Context;
 import java.util.Set;
 
 public class BetDomains {
 
-    public static final Set<String> BLOCKED = new HashSet<>(Arrays.asList(
-        "blaze.com",
-        "blaze.bet",
-        "777.com",
-        "sportbet.com",
-        "sportbets.com",
-        "sportsbet.io",
-        "sportsdasorte.com",
-        "bet365.com",
-        "betano.com",
-        "pixbet.com",
-        "novibet.com",
-        "estrelabet.com",
-        "betfair.com",
-        "parimatch.com",
-        "betway.com"
-    ));
+    private static Set<String> BLOCKED;
 
-    public static boolean isBlocked(String host) {
-        if (host == null) return false;
-        host = host.toLowerCase();
-        for (String d : BLOCKED) {
-            if (host.equals(d) || host.endsWith("." + d)) return true;
+    public static void init(Context ctx) {
+        if (BLOCKED == null) {
+            BLOCKED = BetDomainRepository.load(ctx);
         }
-        return false;
+    }
+
+    public static Set<String> get() {
+        return BLOCKED;
     }
 }

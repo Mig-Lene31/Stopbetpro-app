@@ -16,9 +16,15 @@ public class EngineExecutor {
         boolean bateuWin  = win >= 0 && saldo >= (win - margem);
         boolean bateuLoss = loss >= 0 && saldo <= (loss + margem);
 
-        if (bateuWin || bateuLoss) {
+        if (bateuWin) {
             MotorState.forceDisable(ctx);
-            EngineState.blockFor12Hours(ctx);
+            BlockController.block(ctx, EngineState.REASON_STOP_WIN);
+            return true;
+        }
+
+        if (bateuLoss) {
+            MotorState.forceDisable(ctx);
+            BlockController.block(ctx, EngineState.REASON_STOP_LOSS);
             return true;
         }
 
