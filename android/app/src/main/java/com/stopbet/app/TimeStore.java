@@ -20,6 +20,14 @@ public class TimeStore {
         return getMinutes(ctx) > 0;
     }
 
+    public static boolean hasTimeLimit(Context ctx) {
+        return hasTime(ctx);
+    }
+
+    public static int getUsedMinutesToday(Context ctx) {
+        return 0;
+    }
+
     public static void clear(Context ctx) {
         sp(ctx).edit().clear().apply();
     }
