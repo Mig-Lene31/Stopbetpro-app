@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.App" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:windowFullscreen">false</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    <style name="Theme.Kairos" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/kairos_blue_dark</item>
+        <item name="android:textColor">@color/kairos_white</item>
+        <item name="android:textColorSecondary">@color/kairos_gray</item>
+        <item name="android:colorAccent">@color/kairos_green_moss</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
 </resources>

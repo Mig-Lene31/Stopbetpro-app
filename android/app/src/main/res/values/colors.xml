@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#1E1E2E</color>
-    <color name="primary_dark">#151522</color>
-    <color name="accent">#4CAF50</color>
-    <color name="danger">#FF5252</color>
-    <color name="background">#F4F4F4</color>
+    <color name="kairos_blue_dark">#0D1B2A</color>
+    <color name="kairos_green_moss">#2E7D32</color>
+    <color name="kairos_white">#FFFFFF</color>
+    <color name="kairos_gray">#B0BEC5</color>
 </resources>
