@@ -18,6 +18,10 @@ public class BalanceConfirmOverlayService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
+        if (FinanceEngineState.isPending(this)) return START_NOT_STICKY;
+
+        FinanceEngineState.setPending(this, true);
+
         windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
 
         overlay = new LinearLayout(this);
@@ -38,14 +42,20 @@ public class BalanceConfirmOverlayService extends Service {
 
         yes.setOnClickListener(v -> {
             BalanceConfirmationStore.confirm(this);
+            FinanceEngineState.clear(this);
             stopSelf();
         });
 
         no.setOnClickListener(v -> {
             int tries = BalanceConfirmationStore.incTry(this);
+            FinanceEngineState.setPending(this, false);
+
             if (tries >= 3) {
                 MotorState.forceDisable(this);
+                TimeStore.clear(this);
+                TimeStore.setMinutes(this, 1);
             }
+
             stopSelf();
         });
 
@@ -62,7 +72,6 @@ public class BalanceConfirmOverlayService extends Service {
         );
 
         params.gravity = Gravity.TOP;
-
         windowManager.addView(overlay, params);
 
         return START_NOT_STICKY;

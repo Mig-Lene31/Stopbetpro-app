@@ -15,6 +15,9 @@ public class EngineService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         startTime = System.currentTimeMillis();
         handler.post(checkRunnable);
+        if (!BalanceConfirmationStore.isConfirmed(this)) {
+            startService(new Intent(this, BalanceConfirmOverlayService.class));
+        }
         return START_STICKY;
     }
 
