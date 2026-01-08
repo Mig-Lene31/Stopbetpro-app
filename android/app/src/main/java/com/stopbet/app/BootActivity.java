@@ -10,13 +10,7 @@ public class BootActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        startService(new Intent(this, EngineRecoveryService.class));
-
-        if (EngineState.isBlocked(this)) {
-            startActivity(new Intent(this, BlockedActivity.class));
-            finish();
-            return;
-        }
+        // NENHUM SERVICE É INICIADO AQUI
 
         if (!InfoAcceptedStore.hasAccepted(this)) {
             startActivity(new Intent(this, InfoActivity.class));
