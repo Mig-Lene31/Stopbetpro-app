@@ -1,33 +1,44 @@
 package com.stopbet.app;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.view.Gravity;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class ConfigActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_config);
 
-        Button btnDeposit = findViewById(R.id.btnDeposit);
-        Button btnLimits = findViewById(R.id.btnLimits);
-        Button btnTime = findViewById(R.id.btnTime);
-        Button btnRules = findViewById(R.id.btnRules);
+        LinearLayout root = new LinearLayout(this);
+        root.setOrientation(LinearLayout.VERTICAL);
+        root.setGravity(Gravity.CENTER);
+        root.setPadding(60, 60, 60, 60);
+        root.setBackgroundColor(0xFF0D1B2A);
 
-        btnDeposit.setOnClickListener(v ->
-                startActivity(new Intent(this, DepositActivity.class)));
+        TextView title = new TextView(this);
+        title.setText("Configurações");
+        title.setTextSize(22);
+        title.setTextColor(0xFFFFFFFF);
+        title.setGravity(Gravity.CENTER);
 
-        btnLimits.setOnClickListener(v ->
-                startActivity(new Intent(this, LimitsActivity.class)));
+        Button toggle = new Button(this);
 
-        btnTime.setOnClickListener(v ->
-                startActivity(new Intent(this, TimeActivity.class)));
+        boolean enabled = MotorStateStore.isEnabled(this);
+        toggle.setText(enabled ? "DESATIVAR PROTEÇÃO" : "ATIVAR PROTEÇÃO");
 
-        btnRules.setOnClickListener(v ->
-                startActivity(new Intent(this, RulesActivity.class)));
+        toggle.setOnClickListener(v -> {
+            boolean current = MotorStateStore.isEnabled(this);
+            MotorStateStore.setEnabled(this, !current);
+            toggle.setText(!current ? "DESATIVAR PROTEÇÃO" : "ATIVAR PROTEÇÃO");
+        });
+
+        root.addView(title);
+        root.addView(toggle);
+
+        setContentView(root);
     }
 }
