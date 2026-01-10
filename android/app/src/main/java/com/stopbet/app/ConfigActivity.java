@@ -1,6 +1,7 @@
 package com.stopbet.app;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.widget.Button;
@@ -17,16 +18,32 @@ public class ConfigActivity extends Activity {
         root.setOrientation(LinearLayout.VERTICAL);
         root.setGravity(Gravity.CENTER);
         root.setPadding(60, 60, 60, 60);
-        root.setBackgroundColor(0xFF0D1B2A);
+        root.setBackgroundColor(UiStyle.background());
 
         TextView title = new TextView(this);
         title.setText("Configurações");
-        title.setTextSize(22);
-        title.setTextColor(0xFFFFFFFF);
+        UiStyle.applyTitle(title);
         title.setGravity(Gravity.CENTER);
 
-        Button toggle = new Button(this);
+        Button deposit = new Button(this);
+        deposit.setText("VALOR DO DEPÓSITO");
+        deposit.setOnClickListener(v ->
+                startActivity(new Intent(this, DepositActivity.class))
+        );
 
+        Button limits = new Button(this);
+        limits.setText("LIMITES DE GANHO / PERDA");
+        limits.setOnClickListener(v ->
+                startActivity(new Intent(this, LimitsActivity.class))
+        );
+
+        Button time = new Button(this);
+        time.setText("TEMPO DE JOGO");
+        time.setOnClickListener(v ->
+                startActivity(new Intent(this, TimeActivity.class))
+        );
+
+        Button toggle = new Button(this);
         boolean enabled = MotorStateStore.isEnabled(this);
         toggle.setText(enabled ? "DESATIVAR PROTEÇÃO" : "ATIVAR PROTEÇÃO");
 
@@ -36,8 +53,16 @@ public class ConfigActivity extends Activity {
             toggle.setText(!current ? "DESATIVAR PROTEÇÃO" : "ATIVAR PROTEÇÃO");
         });
 
+        Button back = new Button(this);
+        back.setText("VOLTAR");
+        back.setOnClickListener(v -> finish());
+
         root.addView(title);
+        root.addView(deposit);
+        root.addView(limits);
+        root.addView(time);
         root.addView(toggle);
+        root.addView(back);
 
         setContentView(root);
     }
