@@ -25,6 +25,8 @@ public class ConfigActivity extends Activity {
         UiStyle.applyTitle(title);
         title.setGravity(Gravity.CENTER);
 
+        TextView status = MotorStatusBanner.create(this);
+
         Button deposit = new Button(this);
         deposit.setText("VALOR DO DEPÓSITO");
         deposit.setOnClickListener(v ->
@@ -50,7 +52,7 @@ public class ConfigActivity extends Activity {
         toggle.setOnClickListener(v -> {
             boolean current = MotorStateStore.isEnabled(this);
             MotorStateStore.setEnabled(this, !current);
-            toggle.setText(!current ? "DESATIVAR PROTEÇÃO" : "ATIVAR PROTEÇÃO");
+            recreate();
         });
 
         Button back = new Button(this);
@@ -58,6 +60,7 @@ public class ConfigActivity extends Activity {
         back.setOnClickListener(v -> finish());
 
         root.addView(title);
+        root.addView(status);
         root.addView(deposit);
         root.addView(limits);
         root.addView(time);
