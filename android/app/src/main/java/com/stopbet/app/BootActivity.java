@@ -10,21 +10,22 @@ public class BootActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        AuthManager.ensureAuth();
+        AuthManager.ensureAuth(uid -> {
 
-        if (!InfoAcceptedStore.hasAccepted(this)) {
-            startActivity(new Intent(this, InfoActivity.class));
+            if (!InfoAcceptedStore.hasAccepted(this)) {
+                startActivity(new Intent(this, InfoActivity.class));
+                finish();
+                return;
+            }
+
+            if (ReleaseState.isReleased(this)) {
+                startActivity(new Intent(this, GateActivity.class));
+                finish();
+                return;
+            }
+
+            startActivity(new Intent(this, PaymentActivity.class));
             finish();
-            return;
-        }
-
-        if (ReleaseState.isReleased(this)) {
-            startActivity(new Intent(this, GateActivity.class));
-            finish();
-            return;
-        }
-
-        startActivity(new Intent(this, PaymentActivity.class));
-        finish();
+        });
     }
 }

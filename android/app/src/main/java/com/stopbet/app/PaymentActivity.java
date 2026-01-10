@@ -20,49 +20,50 @@ public class PaymentActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String uid = AuthManager.getUid();
+        AuthManager.ensureAuth(uid -> {
 
-        LinearLayout root = new LinearLayout(this);
-        root.setOrientation(LinearLayout.VERTICAL);
-        root.setGravity(Gravity.CENTER);
-        root.setPadding(60, 60, 60, 60);
-        root.setBackgroundColor(UiStyle.background());
+            LinearLayout root = new LinearLayout(this);
+            root.setOrientation(LinearLayout.VERTICAL);
+            root.setGravity(Gravity.CENTER);
+            root.setPadding(60, 60, 60, 60);
+            root.setBackgroundColor(UiStyle.background());
 
-        TextView title = new TextView(this);
-        title.setText("Kairós — Aguardando Liberação");
-        title.setTextSize(24);
-        title.setTypeface(null, Typeface.BOLD);
-        title.setTextColor(0xFFFFFFFF);
-        title.setGravity(Gravity.CENTER);
+            TextView title = new TextView(this);
+            title.setText("Kairós — Aguardando Liberação");
+            title.setTextSize(24);
+            title.setTypeface(null, Typeface.BOLD);
+            title.setTextColor(0xFFFFFFFF);
+            title.setGravity(Gravity.CENTER);
 
-        TextView id = new TextView(this);
-        id.setText("\nSEU ID FIXO:\n" + uid);
-        id.setTextColor(0xFFFFFFFF);
-        id.setGravity(Gravity.CENTER);
+            TextView id = new TextView(this);
+            id.setText("\nSEU ID FIXO:\n" + uid);
+            id.setTextColor(0xFFFFFFFF);
+            id.setGravity(Gravity.CENTER);
 
-        root.addView(title);
-        root.addView(id);
+            root.addView(title);
+            root.addView(id);
 
-        setContentView(root);
+            setContentView(root);
 
-        DatabaseReference ref = FirebaseDatabase.getInstance()
-                .getReference("users")
-                .child(uid)
-                .child("released");
+            DatabaseReference ref = FirebaseDatabase.getInstance()
+                    .getReference("users")
+                    .child(uid)
+                    .child("released");
 
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                Boolean released = snapshot.getValue(Boolean.class);
-                if (released != null && released) {
-                    ReleaseState.markReleased(PaymentActivity.this);
-                    startActivity(new Intent(PaymentActivity.this, GateActivity.class));
-                    finish();
+            ref.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot snapshot) {
+                    Boolean released = snapshot.getValue(Boolean.class);
+                    if (released != null && released) {
+                        ReleaseState.markReleased(PaymentActivity.this);
+                        startActivity(new Intent(PaymentActivity.this, GateActivity.class));
+                        finish();
+                    }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError error) {}
+                @Override
+                public void onCancelled(DatabaseError error) {}
+            });
         });
     }
 }

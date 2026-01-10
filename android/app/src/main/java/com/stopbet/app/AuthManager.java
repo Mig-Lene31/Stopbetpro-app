@@ -5,15 +5,22 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class AuthManager {
 
-    public static String getUid() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        return user != null ? user.getUid() : null;
+    public interface AuthCallback {
+        void onReady(String uid);
     }
 
-    public static void ensureAuth() {
+    public static void ensureAuth(AuthCallback callback) {
         FirebaseAuth auth = FirebaseAuth.getInstance();
-        if (auth.getCurrentUser() == null) {
-            auth.signInAnonymously();
+        FirebaseUser user = auth.getCurrentUser();
+
+        if (user != null) {
+            callback.onReady(user.getUid());
+            return;
         }
+
+        auth.signInAnonymously()
+                .addOnSuccessListener(result ->
+                        callback.onReady(result.getUser().getUid())
+                );
     }
 }
