@@ -27,7 +27,7 @@ public class TimeActivity extends Activity {
         title.setGravity(Gravity.CENTER);
 
         EditText time = new EditText(this);
-        time.setHint("Minutos de jogo (ex: 30)");
+        time.setHint("Minutos (ex: 30)");
         time.setInputType(InputType.TYPE_CLASS_NUMBER);
         time.setGravity(Gravity.CENTER);
         UiStyle.applyInput(time);
@@ -35,9 +35,14 @@ public class TimeActivity extends Activity {
         Button save = new Button(this);
         save.setText("SALVAR TEMPO");
 
+        Button back = new Button(this);
+        back.setText("VOLTAR");
+        back.setOnClickListener(v -> finish());
+
         root.addView(title);
         root.addView(time);
         root.addView(save);
+        root.addView(back);
 
         setContentView(root);
     }
