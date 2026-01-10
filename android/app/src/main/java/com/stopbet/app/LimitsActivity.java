@@ -2,6 +2,7 @@ package com.stopbet.app;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.Gravity;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,40 +15,37 @@ public class LimitsActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        LinearLayout layout = new LinearLayout(this);
-        layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(40,40,40,40);
-        layout.setGravity(Gravity.CENTER);
+        LinearLayout root = new LinearLayout(this);
+        root.setOrientation(LinearLayout.VERTICAL);
+        root.setGravity(Gravity.CENTER);
+        root.setPadding(60, 60, 60, 60);
+        root.setBackgroundColor(UiStyle.background());
 
         TextView title = new TextView(this);
-        title.setText("Configurar Stop Win / Loss");
+        title.setText("📉 LIMITES DE GANHO / PERDA");
+        UiStyle.applyTitle(title);
         title.setGravity(Gravity.CENTER);
 
-        EditText inputWin = new EditText(this);
-        inputWin.setHint("Stop Win (R$)");
-        inputWin.setText(String.valueOf(LimitsStore.getWin(this)));
+        EditText stopWin = new EditText(this);
+        stopWin.setHint("Stop Win (ex: 200)");
+        stopWin.setInputType(InputType.TYPE_CLASS_NUMBER);
+        stopWin.setGravity(Gravity.CENTER);
+        UiStyle.applyInput(stopWin);
 
-        EditText inputLoss = new EditText(this);
-        inputLoss.setHint("Stop Loss (R$)");
-        inputLoss.setText(String.valueOf(LimitsStore.getLoss(this)));
+        EditText stopLoss = new EditText(this);
+        stopLoss.setHint("Stop Loss (ex: 50)");
+        stopLoss.setInputType(InputType.TYPE_CLASS_NUMBER);
+        stopLoss.setGravity(Gravity.CENTER);
+        UiStyle.applyInput(stopLoss);
 
         Button save = new Button(this);
-        save.setText("Salvar");
-        save.setOnClickListener(v -> {
-            float win = Float.parseFloat(inputWin.getText().toString());
-            float loss = Float.parseFloat(inputLoss.getText().toString());
+        save.setText("SALVAR LIMITES");
 
-            LimitsStore.saveWin(this, win);
-            LimitsStore.saveLoss(this, loss);
-            ConfigRules.onSaveLimits(this);
-            finish();
-        });
+        root.addView(title);
+        root.addView(stopWin);
+        root.addView(stopLoss);
+        root.addView(save);
 
-        layout.addView(title);
-        layout.addView(inputWin);
-        layout.addView(inputLoss);
-        layout.addView(save);
-
-        setContentView(layout);
+        setContentView(root);
     }
 }

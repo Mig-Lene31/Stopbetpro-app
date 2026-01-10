@@ -2,6 +2,7 @@ package com.stopbet.app;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.Gravity;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,32 +15,30 @@ public class TimeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        LinearLayout layout = new LinearLayout(this);
-        layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(40,40,40,40);
-        layout.setGravity(Gravity.CENTER);
+        LinearLayout root = new LinearLayout(this);
+        root.setOrientation(LinearLayout.VERTICAL);
+        root.setGravity(Gravity.CENTER);
+        root.setPadding(60, 60, 60, 60);
+        root.setBackgroundColor(UiStyle.background());
 
-        TextView info = new TextView(this);
-        info.setText("Defina o tempo máximo diário (minutos)");
-        info.setGravity(Gravity.CENTER);
+        TextView title = new TextView(this);
+        title.setText("⏱️ TEMPO DE JOGO");
+        UiStyle.applyTitle(title);
+        title.setGravity(Gravity.CENTER);
 
-        EditText input = new EditText(this);
-        input.setHint("Minutos por dia");
-        input.setText(String.valueOf(TimeStore.getMinutes(this)));
+        EditText time = new EditText(this);
+        time.setHint("Minutos de jogo (ex: 30)");
+        time.setInputType(InputType.TYPE_CLASS_NUMBER);
+        time.setGravity(Gravity.CENTER);
+        UiStyle.applyInput(time);
 
         Button save = new Button(this);
-        save.setText("Salvar");
-        save.setOnClickListener(v -> {
-            int minutes = Integer.parseInt(input.getText().toString());
-            TimeStore.setMinutes(this, minutes);
-            ConfigRules.onSaveTime(this);
-            finish();
-        });
+        save.setText("SALVAR TEMPO");
 
-        layout.addView(info);
-        layout.addView(input);
-        layout.addView(save);
+        root.addView(title);
+        root.addView(time);
+        root.addView(save);
 
-        setContentView(layout);
+        setContentView(root);
     }
 }
