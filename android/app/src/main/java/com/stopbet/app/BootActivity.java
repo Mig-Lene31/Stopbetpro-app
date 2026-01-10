@@ -10,7 +10,7 @@ public class BootActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // NENHUM SERVICE É INICIADO AQUI
+        AuthManager.ensureAuth();
 
         if (!InfoAcceptedStore.hasAccepted(this)) {
             startActivity(new Intent(this, InfoActivity.class));
