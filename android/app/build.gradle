@@ -2,13 +2,14 @@ apply plugin: "com.android.application"
 apply plugin: "com.google.gms.google-services"
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    namespace "com.stopbet.app"
+    compileSdkVersion 34
 
     defaultConfig {
         applicationId "com.stopbet.app"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
+        minSdkVersion 23
+        targetSdkVersion 34
+        versionCode 100
         versionName "1.0"
     }
 
