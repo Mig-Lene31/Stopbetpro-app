@@ -18,4 +18,8 @@ public class DepositStore {
                 .putFloat(KEY_VALUE, value)
                 .apply();
     }
+
+    public static boolean hasValue(Context ctx) {
+        return get(ctx) > 0;
+    }
 }

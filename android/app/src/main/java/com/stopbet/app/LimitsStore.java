@@ -1,7 +1,6 @@
 package com.stopbet.app;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 
 public class LimitsStore {
 
@@ -30,6 +29,17 @@ public class LimitsStore {
         ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
                 .edit()
                 .putFloat(KEY_LOSS, value)
+                .apply();
+    }
+
+    public static boolean hasLimits(Context ctx) {
+        return getWin(ctx) > 0 || getLoss(ctx) > 0;
+    }
+
+    public static void clear(Context ctx) {
+        ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
+                .edit()
+                .clear()
                 .apply();
     }
 }
