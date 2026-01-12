@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Kairós</string>
+    <string name="accessibility_desc">Leitor de saldo para proteção contra apostas compulsivas</string>
 </resources>
