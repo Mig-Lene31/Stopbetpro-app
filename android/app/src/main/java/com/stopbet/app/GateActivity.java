@@ -2,7 +2,6 @@ package com.stopbet.app;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.widget.Button;
@@ -15,6 +14,9 @@ public class GateActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        startService(new Intent(this, EngineService.class));
+        startService(new Intent(this, StopHeartService.class));
+
         LinearLayout root = new LinearLayout(this);
         root.setOrientation(LinearLayout.VERTICAL);
         root.setGravity(Gravity.CENTER);
@@ -23,32 +25,18 @@ public class GateActivity extends Activity {
 
         TextView title = new TextView(this);
         title.setText("Kairós");
-        title.setTextSize(32);
-        title.setTypeface(null, Typeface.BOLD);
         title.setTextColor(0xFFFFFFFF);
+        title.setTextSize(26);
         title.setGravity(Gravity.CENTER);
 
-        TextView subtitle = new TextView(this);
-        subtitle.setText("Sistema de proteção inteligente\npara controle de apostas");
-        subtitle.setTextSize(18);
-        subtitle.setTextColor(0xFFB0BEC5);
-        subtitle.setGravity(Gravity.CENTER);
-        subtitle.setPadding(0, 30, 0, 60);
-
-        Button btn = new Button(this);
-        btn.setText("ENTRAR");
-        btn.setTextSize(18);
-        btn.setBackgroundColor(0xFF2E7D32);
-        btn.setTextColor(0xFFFFFFFF);
-
-        btn.setOnClickListener(v -> {
-            startActivity(new Intent(this, ConfigActivity.class));
-            finish();
-        });
+        Button config = new Button(this);
+        config.setText("CONFIGURAÇÕES");
+        config.setOnClickListener(v ->
+                startActivity(new Intent(this, ConfigActivity.class))
+        );
 
         root.addView(title);
-        root.addView(subtitle);
-        root.addView(btn);
+        root.addView(config);
 
         setContentView(root);
     }
