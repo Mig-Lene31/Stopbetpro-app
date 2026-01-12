@@ -24,45 +24,30 @@ public class StopHeartService extends Service {
         public void run() {
 
             if (!MotorStateStore.isEnabled(StopHeartService.this)) {
+                MotorStatusNotifier.update(
+                        StopHeartService.this,
+                        "🔴 Motor desativado",
+                        "Configure o app para ativar a proteção"
+                );
                 handler.postDelayed(this, 5000);
                 return;
             }
 
             if (EngineState.isBlocked(StopHeartService.this)) {
+                MotorStatusNotifier.update(
+                        StopHeartService.this,
+                        "⛔ Acesso bloqueado",
+                        "Proteção ativa por segurança"
+                );
                 handler.postDelayed(this, 5000);
                 return;
             }
 
-            if (TimeStore.isExpired(StopHeartService.this)) {
-                EngineState.blockFor12Hours(
-                        StopHeartService.this,
-                        EngineState.REASON_STOP_TIME
-                );
-                return;
-            }
-
-            float base = DepositStore.get(StopHeartService.this);
-            float current = AppState.getCurrentBalance(StopHeartService.this);
-
-            if (LimitsStore.getWin(StopHeartService.this) > 0 &&
-                current - base >= LimitsStore.getWin(StopHeartService.this)) {
-
-                EngineState.blockFor12Hours(
-                        StopHeartService.this,
-                        EngineState.REASON_STOP_WIN
-                );
-                return;
-            }
-
-            if (LimitsStore.getLoss(StopHeartService.this) > 0 &&
-                base - current >= LimitsStore.getLoss(StopHeartService.this)) {
-
-                EngineState.blockFor12Hours(
-                        StopHeartService.this,
-                        EngineState.REASON_STOP_LOSS
-                );
-                return;
-            }
+            MotorStatusNotifier.update(
+                    StopHeartService.this,
+                    "🟢 Proteção ativa",
+                    "Monitorando apostas em tempo real"
+            );
 
             handler.postDelayed(this, 5000);
         }
