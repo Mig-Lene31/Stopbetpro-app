@@ -45,7 +45,7 @@ public class StopHeartService extends Service {
             float current = AppState.getCurrentBalance(StopHeartService.this);
 
             if (LimitsStore.getWin(StopHeartService.this) > 0 &&
-                (current - base) >= LimitsStore.getWin(StopHeartService.this)) {
+                current - base >= LimitsStore.getWin(StopHeartService.this)) {
 
                 EngineState.blockFor12Hours(
                         StopHeartService.this,
@@ -55,7 +55,7 @@ public class StopHeartService extends Service {
             }
 
             if (LimitsStore.getLoss(StopHeartService.this) > 0 &&
-                (base - current) >= LimitsStore.getLoss(StopHeartService.this)) {
+                base - current >= LimitsStore.getLoss(StopHeartService.this)) {
 
                 EngineState.blockFor12Hours(
                         StopHeartService.this,

@@ -8,7 +8,8 @@ public class TimeStore {
     private static final String KEY_LIMIT = "limit_ts";
 
     public static void setMinutes(Context ctx, int minutes) {
-        long limit = System.currentTimeMillis() + (minutes * 60L * 1000L);
+        long now = System.currentTimeMillis();
+        long limit = now + minutes * 60000L;
 
         ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
                 .edit()
