@@ -1,36 +1,24 @@
 package com.stopbet.app;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 
 public class BalanceConfirmState {
 
-    private static final String PREF = "balance_confirm_state";
-    private static final String CONFIRMED = "confirmed";
-    private static final String TRIES = "tries";
+    private static final String PREF = "balance_confirm";
+    private static final String KEY = "confirmed";
 
     public static boolean isConfirmed(Context ctx) {
-        return sp(ctx).getBoolean(CONFIRMED, false);
+        return ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
+                .getBoolean(KEY, false);
     }
 
     public static void confirm(Context ctx) {
-        sp(ctx).edit()
-            .putBoolean(CONFIRMED, true)
-            .putInt(TRIES, 0)
-            .apply();
-    }
-
-    public static int incTry(Context ctx) {
-        int t = sp(ctx).getInt(TRIES, 0) + 1;
-        sp(ctx).edit().putInt(TRIES, t).apply();
-        return t;
+        ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
+                .edit().putBoolean(KEY, true).apply();
     }
 
     public static void clear(Context ctx) {
-        sp(ctx).edit().clear().apply();
-    }
-
-    private static SharedPreferences sp(Context ctx) {
-        return ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE);
+        ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
+                .edit().remove(KEY).apply();
     }
 }

@@ -46,6 +46,13 @@ public class ConfigActivity extends Activity {
         );
 
         Button toggle = new Button(this);
+
+        Button perm = new Button(this);
+        perm.setText("ATIVAR PERMISSÕES DO MOTOR");
+        perm.setOnClickListener(v -> PermissionHelper.openAccessibility(this));
+
+        root.addView(perm);
+
         boolean enabled = MotorStateStore.isEnabled(this);
         toggle.setText(enabled ? "DESATIVAR PROTEÇÃO" : "ATIVAR PROTEÇÃO");
 
