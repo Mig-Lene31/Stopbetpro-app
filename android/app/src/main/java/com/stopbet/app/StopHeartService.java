@@ -21,7 +21,7 @@ public class StopHeartService extends Service {
             public void run() {
 
                 // Motor desligado = não vigia
-                if (!EngineToggleStore.isEnabled(StopHeartService.this)) {
+                if (!MotorStateStore.isEnabled(StopHeartService.this)) {
                     handler.postDelayed(this, 5000);
                     return;
                 }
@@ -36,7 +36,6 @@ public class StopHeartService extends Service {
                 float loss = LimitsStore.getLoss(StopHeartService.this);
                 float balance = AppState.getCurrentBalance(StopHeartService.this);
 
-                // STOP WIN
                 if (win > 0 && balance >= win) {
                     EngineState.blockFor12Hours(
                             StopHeartService.this,
@@ -45,7 +44,6 @@ public class StopHeartService extends Service {
                     return;
                 }
 
-                // STOP LOSS
                 if (loss > 0 && balance <= loss) {
                     EngineState.blockFor12Hours(
                             StopHeartService.this,
@@ -54,7 +52,6 @@ public class StopHeartService extends Service {
                     return;
                 }
 
-                // STOP POR TEMPO
                 int limitMinutes = TimeStore.getMinutes(StopHeartService.this);
                 int usedMinutes = TimeStore.getUsedMinutesToday(StopHeartService.this);
 
