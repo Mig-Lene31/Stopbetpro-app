@@ -1,5 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.stopbet.app">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
@@ -10,22 +9,24 @@
         android:label="Kairós"
         android:theme="@android:style/Theme.DeviceDefault.NoActionBar">
 
-        <activity android:name=".BootActivity">
+        <activity
+            android:name=".BootActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
-        <activity android:name=".InfoActivity"/>
-        <activity android:name=".GateActivity"/>
-        <activity android:name=".ConfigActivity"/>
-        <activity android:name=".DepositActivity"/>
-        <activity android:name=".LimitsActivity"/>
-        <activity android:name=".TimeActivity"/>
-        <activity android:name=".RulesActivity"/>
-        <activity android:name=".BlockedActivity"/>
-        <activity android:name=".AdminHiddenActivity"/>
+        <activity android:name=".InfoActivity" android:exported="false"/>
+        <activity android:name=".GateActivity" android:exported="false"/>
+        <activity android:name=".ConfigActivity" android:exported="false"/>
+        <activity android:name=".DepositActivity" android:exported="false"/>
+        <activity android:name=".LimitsActivity" android:exported="false"/>
+        <activity android:name=".TimeActivity" android:exported="false"/>
+        <activity android:name=".RulesActivity" android:exported="false"/>
+        <activity android:name=".BlockedActivity" android:exported="false"/>
+        <activity android:name=".AdminHiddenActivity" android:exported="false"/>
 
         <service
             android:name=".EngineService"
@@ -46,4 +47,5 @@
         </service>
 
     </application>
+
 </manifest>
