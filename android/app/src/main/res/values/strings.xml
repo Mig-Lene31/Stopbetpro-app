@@ -1,7 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">StopBet Pro</string>
-    <string name="accessibility_desc">
-        Serviço de acessibilidade usado para ajudar no bloqueio de sites de apostas
-    </string>
+    <string name="app_name">Kairós</string>
 </resources>
