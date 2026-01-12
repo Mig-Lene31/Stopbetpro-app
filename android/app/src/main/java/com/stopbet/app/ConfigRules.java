@@ -16,7 +16,7 @@ public class ConfigRules {
         if (!DepositStore.hasValue(ctx)) return false;
 
         boolean hasLimits = LimitsStore.hasLimits(ctx);
-        boolean hasTime = TimeStore.hasTime(ctx);
+        boolean hasTime = TimeStore.hasTimeLimit(ctx);
 
         return hasLimits ^ hasTime;
     }
