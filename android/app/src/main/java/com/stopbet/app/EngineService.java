@@ -14,31 +14,12 @@ public class EngineService extends Service {
             return START_NOT_STICKY;
         }
 
-        if (!EngineCooldownStore.canRun(this)) {
-            stopSelf();
-            return START_NOT_STICKY;
-        }
-
         float saldo = intent != null
-            ? intent.getFloatExtra("saldo", -1f)
-            : -1f;
+                ? intent.getFloatExtra("saldo", -1f)
+                : -1f;
 
         if (saldo >= 0) {
-
-            boolean stable = BalanceStabilityEngine.push(this, saldo);
-
-            if (stable && !BalanceConfirmState.isConfirmed(this)) {
-                startService(new Intent(this, BalanceConfirmOverlayService.class));
-                stopSelf();
-                return START_NOT_STICKY;
-            }
-
-            if (stable && BalanceConfirmState.isConfirmed(this)) {
-                EngineExecutor.process(this, saldo);
-                EngineCooldownStore.markRun(this);
-                BalanceConfirmState.clear(this);
-                BalanceStabilityEngine.clear(this);
-            }
+            EngineExecutor.process(this, saldo);
         }
 
         stopSelf();
