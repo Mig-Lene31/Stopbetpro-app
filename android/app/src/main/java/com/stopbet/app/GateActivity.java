@@ -7,6 +7,7 @@ import android.view.Gravity;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class GateActivity extends Activity {
 
@@ -14,36 +15,42 @@ public class GateActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        if (!AppProtectionState.canAppRun(this)) {
+            Toast.makeText(this,
+                    "Erro crítico detectado. Reconfigure o app.",
+                    Toast.LENGTH_LONG).show();
+            return;
+        }
+
         LinearLayout root = new LinearLayout(this);
         root.setOrientation(LinearLayout.VERTICAL);
         root.setGravity(Gravity.CENTER);
         root.setPadding(60, 60, 60, 60);
-        root.setBackgroundColor(0xFF0D1B2A);
 
         TextView title = new TextView(this);
         title.setText("Kairós");
-        title.setTextColor(0xFFFFFFFF);
-        title.setTextSize(26);
+        title.setTextSize(24);
         title.setGravity(Gravity.CENTER);
 
-        Button start = new Button(this);
-        start.setText("INICIAR PROTEÇÃO");
-        start.setOnClickListener(v -> {
-            AppState.resetBalance(this);
-            startService(new Intent(this, EngineService.class));
-            startService(new Intent(this, StopHeartService.class));
-        });
-
         Button config = new Button(this);
-        config.setText("CONFIGURAÇÕES");
+        config.setText("CONFIGURAR PROTEÇÃO");
         config.setOnClickListener(v ->
                 startActivity(new Intent(this, ConfigActivity.class))
         );
 
-        root.addView(title);
-        root.addView(start);
-        root.addView(config);
+        Button start = new Button(this);
+        start.setText("ATIVAR PROTEÇÃO");
+        start.setOnClickListener(v -> {
+            Toast.makeText(
+                    this,
+                    "Finalize a configuração antes de ativar",
+                    Toast.LENGTH_SHORT
+            ).show();
+        });
 
+        root.addView(title);
+        root.addView(config);
+        root.addView(start);
         setContentView(root);
     }
 }
