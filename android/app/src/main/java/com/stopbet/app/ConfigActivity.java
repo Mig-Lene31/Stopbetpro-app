@@ -7,6 +7,7 @@ import android.view.Gravity;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ConfigActivity extends Activity {
 
@@ -18,14 +19,11 @@ public class ConfigActivity extends Activity {
         root.setOrientation(LinearLayout.VERTICAL);
         root.setGravity(Gravity.CENTER);
         root.setPadding(60, 60, 60, 60);
-        root.setBackgroundColor(UiStyle.background());
 
         TextView title = new TextView(this);
-        title.setText("Configurações");
-        UiStyle.applyTitle(title);
+        title.setText("Configuração da Proteção");
+        title.setTextSize(20);
         title.setGravity(Gravity.CENTER);
-
-        TextView status = MotorStatusBanner.create(this);
 
         Button deposit = new Button(this);
         deposit.setText("VALOR DO DEPÓSITO");
@@ -34,45 +32,47 @@ public class ConfigActivity extends Activity {
         );
 
         Button limits = new Button(this);
-        limits.setText("LIMITES DE GANHO / PERDA");
+        limits.setText("STOP WIN / LOSS");
         limits.setOnClickListener(v ->
                 startActivity(new Intent(this, LimitsActivity.class))
         );
 
         Button time = new Button(this);
-        time.setText("TEMPO DE JOGO");
+        time.setText("STOP TEMPO");
         time.setOnClickListener(v ->
                 startActivity(new Intent(this, TimeActivity.class))
         );
 
-        Button toggle = new Button(this);
+        Button activate = new Button(this);
+        activate.setText("ATIVAR PROTEÇÃO");
+        activate.setOnClickListener(v -> {
 
-        Button perm = new Button(this);
-        perm.setText("ATIVAR PERMISSÕES DO MOTOR");
-        perm.setOnClickListener(v -> PermissionHelper.openAccessibility(this));
+            String error = ConfigValidator.validate(this);
 
-        root.addView(perm);
+            if (error != null) {
+                Toast.makeText(this, error, Toast.LENGTH_LONG).show();
+                return;
+            }
 
-        boolean enabled = MotorStateStore.isEnabled(this);
-        toggle.setText(enabled ? "DESATIVAR PROTEÇÃO" : "ATIVAR PROTEÇÃO");
+            AppProtectionState.setConfigReady(this, true);
+            AppProtectionState.setMotorEnabled(this, true);
 
-        toggle.setOnClickListener(v -> {
-            boolean current = MotorStateStore.isEnabled(this);
-            MotorStateStore.setEnabled(this, !current);
-            recreate();
+            startService(new Intent(this, StopHeartService.class));
+
+            Toast.makeText(
+                    this,
+                    "Proteção ativada com sucesso",
+                    Toast.LENGTH_SHORT
+            ).show();
+
+            finish();
         });
 
-        Button back = new Button(this);
-        back.setText("VOLTAR");
-        back.setOnClickListener(v -> finish());
-
         root.addView(title);
-        root.addView(status);
         root.addView(deposit);
         root.addView(limits);
         root.addView(time);
-        root.addView(toggle);
-        root.addView(back);
+        root.addView(activate);
 
         setContentView(root);
     }
