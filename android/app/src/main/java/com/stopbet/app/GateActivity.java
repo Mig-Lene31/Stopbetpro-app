@@ -14,6 +14,8 @@ public class GateActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        AppState.resetBalance(this);
+
         startService(new Intent(this, EngineService.class));
         startService(new Intent(this, StopHeartService.class));
 

@@ -9,7 +9,7 @@ import java.util.Locale;
 public class BalanceReadAccessibilityService extends AccessibilityService {
 
     private long lastReadAt = 0;
-    private static final long READ_INTERVAL_MS = 1000;
+    private static final long READ_INTERVAL_MS = 1500;
 
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
@@ -40,7 +40,10 @@ public class BalanceReadAccessibilityService extends AccessibilityService {
 
             Float value = AnchorRules.extractValueIfAnchored(t);
             if (value != null) {
+                AppState.resetBalance(this);
+                AppState.addBalance(this, value);
                 EngineRunner.run(this, value);
+                return;
             }
         }
 
@@ -50,7 +53,5 @@ public class BalanceReadAccessibilityService extends AccessibilityService {
     }
 
     @Override
-    public void onInterrupt() {
-        // sem ação
-    }
+    public void onInterrupt() {}
 }
