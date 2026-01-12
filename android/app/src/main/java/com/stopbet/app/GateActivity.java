@@ -14,11 +14,6 @@ public class GateActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        AppState.resetBalance(this);
-
-        startService(new Intent(this, EngineService.class));
-        startService(new Intent(this, StopHeartService.class));
-
         LinearLayout root = new LinearLayout(this);
         root.setOrientation(LinearLayout.VERTICAL);
         root.setGravity(Gravity.CENTER);
@@ -31,6 +26,17 @@ public class GateActivity extends Activity {
         title.setTextSize(26);
         title.setGravity(Gravity.CENTER);
 
+        Button start = new Button(this);
+        start.setText("INICIAR PROTEÇÃO");
+        start.setOnClickListener(v -> {
+            try {
+                startService(new Intent(this, EngineService.class));
+                startService(new Intent(this, StopHeartService.class));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
         Button config = new Button(this);
         config.setText("CONFIGURAÇÕES");
         config.setOnClickListener(v ->
@@ -38,6 +44,7 @@ public class GateActivity extends Activity {
         );
 
         root.addView(title);
+        root.addView(start);
         root.addView(config);
 
         setContentView(root);
