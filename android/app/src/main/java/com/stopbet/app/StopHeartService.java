@@ -7,7 +7,7 @@ import android.os.IBinder;
 
 public class StopHeartService extends Service {
 
-    private Handler h = new Handler();
+    private final Handler handler = new Handler();
 
     @Override
     public void onCreate() {
@@ -16,7 +16,7 @@ public class StopHeartService extends Service {
         ForegroundNotify.ensureChannel(this);
         startForeground(1, ForegroundNotify.build(this));
 
-        h.postDelayed(loop, 3000);
+        handler.postDelayed(loop, 3000);
     }
 
     private final Runnable loop = new Runnable() {
@@ -24,12 +24,12 @@ public class StopHeartService extends Service {
         public void run() {
 
             if (!MotorStateStore.isEnabled(StopHeartService.this)) {
-                h.postDelayed(this, 5000);
+                handler.postDelayed(this, 5000);
                 return;
             }
 
             if (EngineState.isBlocked(StopHeartService.this)) {
-                h.postDelayed(this, 5000);
+                handler.postDelayed(this, 5000);
                 return;
             }
 
@@ -44,10 +44,9 @@ public class StopHeartService extends Service {
             float base = DepositStore.get(StopHeartService.this);
             float current = AppState.getCurrentBalance(StopHeartService.this);
 
-            float win = LimitsStore.getWin(StopHeartService.this);
-            float loss = LimitsStore.getLoss(StopHeartService.this);
+            if (LimitsStore.getWin(StopHeartService.this) > 0 &&
+                (current - base) >= LimitsStore.getWin(StopHeartService.this)) {
 
-            if (win > 0 && (current - base) >= win) {
                 EngineState.blockFor12Hours(
                         StopHeartService.this,
                         EngineState.REASON_STOP_WIN
@@ -55,7 +54,9 @@ public class StopHeartService extends Service {
                 return;
             }
 
-            if (loss > 0 && (base - current) >= loss) {
+            if (LimitsStore.getLoss(StopHeartService.this) > 0 &&
+                (base - current) >= LimitsStore.getLoss(StopHeartService.this)) {
+
                 EngineState.blockFor12Hours(
                         StopHeartService.this,
                         EngineState.REASON_STOP_LOSS
@@ -63,7 +64,7 @@ public class StopHeartService extends Service {
                 return;
             }
 
-            h.postDelayed(this, 5000);
+            handler.postDelayed(this, 5000);
         }
     };
 
