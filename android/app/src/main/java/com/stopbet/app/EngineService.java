@@ -9,25 +9,24 @@ public class EngineService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-        if (!EngineGuard.canUseMotor(this)) {
-            stopSelf();
+        if (!MotorStateStore.isEnabled(this)) return START_NOT_STICKY;
+        if (EngineState.isBlocked(this)) return START_NOT_STICKY;
+
+        float saldo = intent != null ? intent.getFloatExtra("saldo", -1f) : -1f;
+        if (saldo < 0) return START_NOT_STICKY;
+
+        if (!BalanceConfirmState.isConfirmed(this)) {
+            Intent i = new Intent(this, BalanceConfirmOverlayService.class);
+            i.putExtra("saldo", saldo);
+            startService(i);
             return START_NOT_STICKY;
         }
 
-        float saldo = intent != null
-                ? intent.getFloatExtra("saldo", -1f)
-                : -1f;
+        EngineExecutor.process(this, saldo);
+        BalanceConfirmState.clear(this);
 
-        if (saldo >= 0) {
-            EngineExecutor.process(this, saldo);
-        }
-
-        stopSelf();
         return START_NOT_STICKY;
     }
 
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
+    @Override public IBinder onBind(Intent intent) { return null; }
 }
