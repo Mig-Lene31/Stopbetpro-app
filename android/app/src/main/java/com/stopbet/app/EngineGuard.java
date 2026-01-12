@@ -9,4 +9,9 @@ public class EngineGuard {
         if (EngineState.isBlocked(ctx)) return false;
         return true;
     }
+
+    // Compatibilidade com chamadas antigas
+    public static boolean canUseMotor(Context ctx) {
+        return canRun(ctx);
+    }
 }
