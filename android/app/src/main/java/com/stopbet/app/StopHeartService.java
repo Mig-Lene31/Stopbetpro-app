@@ -14,19 +14,20 @@ public class StopHeartService extends Service {
     public void onCreate() {
         super.onCreate();
 
+        ForegroundNotify.ensureChannel(this);
+        startForeground(1, ForegroundNotify.build(this));
+
         handler = new Handler();
 
         loop = new Runnable() {
             @Override
             public void run() {
 
-                // Motor desligado = não vigia
                 if (!MotorStateStore.isEnabled(StopHeartService.this)) {
                     handler.postDelayed(this, 5000);
                     return;
                 }
 
-                // Já bloqueado = não repete
                 if (EngineState.isBlocked(StopHeartService.this)) {
                     handler.postDelayed(this, 5000);
                     return;
