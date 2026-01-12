@@ -26,28 +26,31 @@ public class DepositActivity extends Activity {
         UiStyle.applyTitle(title);
         title.setGravity(Gravity.CENTER);
 
-        TextView info = new TextView(this);
-        info.setText(
-                "\nInforme o valor TOTAL que pretende jogar.\n\n" +
-                "⚠️ O app NÃO diferencia valor real de bônus.\n\n" +
-                "Exemplo:\nDepósito R$100 + bônus R$50 → informe R$150"
-        );
-        UiStyle.applyText(info);
-        info.setGravity(Gravity.CENTER);
-
         EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_NUMBER);
         input.setHint("Ex: 150");
         input.setGravity(Gravity.CENTER);
         UiStyle.applyInput(input);
 
+        input.setText(String.valueOf(DepositStore.get(this)));
+
         Button save = new Button(this);
         save.setText("SALVAR VALOR");
+        save.setOnClickListener(v -> {
+            float value = input.getText().toString().isEmpty() ? 0 : Float.parseFloat(input.getText().toString());
+            DepositStore.set(this, value);
+            AppState.resetBalance(this);
+            finish();
+        });
+
+        Button back = new Button(this);
+        back.setText("VOLTAR");
+        back.setOnClickListener(v -> finish());
 
         root.addView(title);
-        root.addView(info);
         root.addView(input);
         root.addView(save);
+        root.addView(back);
 
         setContentView(root);
     }

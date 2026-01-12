@@ -32,8 +32,15 @@ public class TimeActivity extends Activity {
         time.setGravity(Gravity.CENTER);
         UiStyle.applyInput(time);
 
+        time.setText(String.valueOf(TimeStore.getMinutes(this)));
+
         Button save = new Button(this);
         save.setText("SALVAR TEMPO");
+        save.setOnClickListener(v -> {
+            int minutes = time.getText().toString().isEmpty() ? 0 : Integer.parseInt(time.getText().toString());
+            TimeStore.setMinutes(this, minutes);
+            finish();
+        });
 
         Button back = new Button(this);
         back.setText("VOLTAR");

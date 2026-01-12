@@ -38,13 +38,28 @@ public class LimitsActivity extends Activity {
         stopLoss.setGravity(Gravity.CENTER);
         UiStyle.applyInput(stopLoss);
 
+        stopWin.setText(String.valueOf(LimitsStore.getWin(this)));
+        stopLoss.setText(String.valueOf(LimitsStore.getLoss(this)));
+
         Button save = new Button(this);
         save.setText("SALVAR LIMITES");
+        save.setOnClickListener(v -> {
+            float win = stopWin.getText().toString().isEmpty() ? 0 : Float.parseFloat(stopWin.getText().toString());
+            float loss = stopLoss.getText().toString().isEmpty() ? 0 : Float.parseFloat(stopLoss.getText().toString());
+            LimitsStore.setWin(this, win);
+            LimitsStore.setLoss(this, loss);
+            finish();
+        });
+
+        Button back = new Button(this);
+        back.setText("VOLTAR");
+        back.setOnClickListener(v -> finish());
 
         root.addView(title);
         root.addView(stopWin);
         root.addView(stopLoss);
         root.addView(save);
+        root.addView(back);
 
         setContentView(root);
     }
