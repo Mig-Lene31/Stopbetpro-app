@@ -29,12 +29,9 @@ public class GateActivity extends Activity {
         Button start = new Button(this);
         start.setText("INICIAR PROTEÇÃO");
         start.setOnClickListener(v -> {
-            try {
-                startService(new Intent(this, EngineService.class));
-                startService(new Intent(this, StopHeartService.class));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            AppState.resetBalance(this);
+            startService(new Intent(this, EngineService.class));
+            startService(new Intent(this, StopHeartService.class));
         });
 
         Button config = new Button(this);

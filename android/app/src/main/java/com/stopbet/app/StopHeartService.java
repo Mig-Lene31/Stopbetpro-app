@@ -7,8 +7,7 @@ import android.os.IBinder;
 
 public class StopHeartService extends Service {
 
-    private Handler handler;
-    private Runnable loop;
+    private Handler h = new Handler();
 
     @Override
     public void onCreate() {
@@ -17,69 +16,60 @@ public class StopHeartService extends Service {
         ForegroundNotify.ensureChannel(this);
         startForeground(1, ForegroundNotify.build(this));
 
-        handler = new Handler();
-
-        loop = new Runnable() {
-            @Override
-            public void run() {
-
-                if (!MotorStateStore.isEnabled(StopHeartService.this)) {
-                    handler.postDelayed(this, 5000);
-                    return;
-                }
-
-                if (EngineState.isBlocked(StopHeartService.this)) {
-                    handler.postDelayed(this, 5000);
-                    return;
-                }
-
-                float win = LimitsStore.getWin(StopHeartService.this);
-                float loss = LimitsStore.getLoss(StopHeartService.this);
-                float balance = AppState.getCurrentBalance(StopHeartService.this);
-
-                if (win > 0 && balance >= win) {
-                    EngineState.blockFor12Hours(
-                            StopHeartService.this,
-                            EngineState.REASON_STOP_WIN
-                    );
-                    return;
-                }
-
-                if (loss > 0 && balance <= loss) {
-                    EngineState.blockFor12Hours(
-                            StopHeartService.this,
-                            EngineState.REASON_STOP_LOSS
-                    );
-                    return;
-                }
-
-                int limitMinutes = TimeStore.getMinutes(StopHeartService.this);
-                int usedMinutes = TimeStore.getUsedMinutesToday(StopHeartService.this);
-
-                if (limitMinutes > 0 && usedMinutes >= limitMinutes) {
-                    EngineState.blockFor12Hours(
-                            StopHeartService.this,
-                            EngineState.REASON_STOP_TIME
-                    );
-                    return;
-                }
-
-                handler.postDelayed(this, 5000);
-            }
-        };
-
-        handler.post(loop);
+        h.postDelayed(loop, 3000);
     }
+
+    private final Runnable loop = new Runnable() {
+        @Override
+        public void run() {
+
+            if (!MotorStateStore.isEnabled(StopHeartService.this)) {
+                h.postDelayed(this, 5000);
+                return;
+            }
+
+            if (EngineState.isBlocked(StopHeartService.this)) {
+                h.postDelayed(this, 5000);
+                return;
+            }
+
+            if (TimeStore.isExpired(StopHeartService.this)) {
+                EngineState.blockFor12Hours(
+                        StopHeartService.this,
+                        EngineState.REASON_STOP_TIME
+                );
+                return;
+            }
+
+            float base = DepositStore.get(StopHeartService.this);
+            float current = AppState.getCurrentBalance(StopHeartService.this);
+
+            float win = LimitsStore.getWin(StopHeartService.this);
+            float loss = LimitsStore.getLoss(StopHeartService.this);
+
+            if (win > 0 && (current - base) >= win) {
+                EngineState.blockFor12Hours(
+                        StopHeartService.this,
+                        EngineState.REASON_STOP_WIN
+                );
+                return;
+            }
+
+            if (loss > 0 && (base - current) >= loss) {
+                EngineState.blockFor12Hours(
+                        StopHeartService.this,
+                        EngineState.REASON_STOP_LOSS
+                );
+                return;
+            }
+
+            h.postDelayed(this, 5000);
+        }
+    };
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         return START_STICKY;
-    }
-
-    @Override
-    public void onDestroy() {
-        handler.removeCallbacks(loop);
-        super.onDestroy();
     }
 
     @Override
