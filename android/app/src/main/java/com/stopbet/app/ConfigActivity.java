@@ -48,23 +48,19 @@ public class ConfigActivity extends Activity {
         activate.setOnClickListener(v -> {
 
             String error = ConfigValidator.validate(this);
-
             if (error != null) {
                 Toast.makeText(this, error, Toast.LENGTH_LONG).show();
                 return;
             }
 
-            AppProtectionState.setConfigReady(this, true);
-            AppProtectionState.setMotorEnabled(this, true);
-
+            MotorStateStore.activate(this);
             startService(new Intent(this, StopHeartService.class));
 
             Toast.makeText(
                     this,
-                    "Proteção ativada com sucesso",
+                    "Proteção ativa e monitorando",
                     Toast.LENGTH_SHORT
             ).show();
-
         });
 
         root.addView(title);
