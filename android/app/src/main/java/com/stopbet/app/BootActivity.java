@@ -10,13 +10,7 @@ public class BootActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (!InfoAcceptedStore.hasAccepted(this)) {
-            startActivity(new Intent(this, InfoActivity.class));
-            finish();
-            return;
-        }
-
-        startActivity(new Intent(this, GateActivity.class));
+        startActivity(new Intent(this, ConfigActivity.class));
         finish();
     }
 }
