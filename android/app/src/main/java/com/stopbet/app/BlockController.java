@@ -4,13 +4,11 @@ import android.content.Context;
 
 public class BlockController {
 
-    public static void block(Context ctx, int reason) {
-        EngineState.blockFor12Hours(ctx, reason);
-        VpnController.start(ctx);
+    public static void triggerBlock(Context ctx) {
+        EngineState.blockFor12Hours(ctx);
     }
 
-    public static void unblock(Context ctx) {
-        EngineState.clearBlock(ctx);
-        VpnController.stop(ctx);
+    public static boolean isBlocked(Context ctx) {
+        return EngineState.isBlocked(ctx);
     }
 }
