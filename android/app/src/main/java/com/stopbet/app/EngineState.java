@@ -1,76 +1,38 @@
 package com.stopbet.app;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 
 public class EngineState {
 
     private static final String PREF = "engine_state";
-    private static final String BLOCK_UNTIL = "block_until";
-    private static final String BLOCK_REASON = "block_reason";
-
-    public static final int REASON_STOP_WIN  = 1;
-    public static final int REASON_STOP_LOSS = 2;
-    public static final int REASON_STOP_TIME = 3;
-    public static final int REASON_MANUAL    = 4;
-
-    public static void blockFor12Hours(Context ctx, String reason) {
-        long until = System.currentTimeMillis() + (12 * 60 * 60 * 1000L);
-        SharedPreferences sp = ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE);
-        sp.edit()
-                .putLong(BLOCK_UNTIL, until)
-                .putString(BLOCK_REASON, reason)
-                .apply();
-    }
+    private static final String KEY_BLOCK_UNTIL = "block_until";
+    private static final long BLOCK_12H = 12L * 60L * 60L * 1000L;
 
     public static void blockFor12Hours(Context ctx) {
-        blockFor12Hours(ctx, "AUTO");
-    }
-
-    public static void blockFor12Hours(Context ctx, int reason) {
-        blockFor12Hours(ctx, mapReason(reason));
-    }
-
-    public static int getBlockReason(Context ctx) {
-        SharedPreferences sp = ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE);
-        String r = sp.getString(BLOCK_REASON, "MANUAL");
-
-        if ("STOP_WIN".equals(r)) return REASON_STOP_WIN;
-        if ("STOP_LOSS".equals(r)) return REASON_STOP_LOSS;
-        if ("STOP_TIME".equals(r)) return REASON_STOP_TIME;
-        return REASON_MANUAL;
-    }
-
-    public static void clearBlock(Context ctx) {
-        SharedPreferences sp = ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE);
-        sp.edit()
-                .remove(BLOCK_UNTIL)
-                .remove(BLOCK_REASON)
+        long until = System.currentTimeMillis() + BLOCK_12H;
+        ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
+                .edit()
+                .putLong(KEY_BLOCK_UNTIL, until)
                 .apply();
     }
 
     public static boolean isBlocked(Context ctx) {
-        SharedPreferences sp = ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE);
-        long until = sp.getLong(BLOCK_UNTIL, 0);
+        long until = ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
+                .getLong(KEY_BLOCK_UNTIL, 0);
         return System.currentTimeMillis() < until;
     }
 
-    public static long getRemainingTime(Context ctx) {
-        SharedPreferences sp = ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE);
-        long until = sp.getLong(BLOCK_UNTIL, 0);
+    public static long getRemainingMs(Context ctx) {
+        long until = ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
+                .getLong(KEY_BLOCK_UNTIL, 0);
         return Math.max(0, until - System.currentTimeMillis());
     }
 
-    public static void autoUnlock(Context ctx) {
-        clearBlock(ctx);
-    }
-
-    private static String mapReason(int r) {
-        switch (r) {
-            case REASON_STOP_WIN:  return "STOP_WIN";
-            case REASON_STOP_LOSS: return "STOP_LOSS";
-            case REASON_STOP_TIME: return "STOP_TIME";
-            default:               return "MANUAL";
-        }
+    // ADM ONLY
+    public static void forceUnlock(Context ctx) {
+        ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
+                .edit()
+                .remove(KEY_BLOCK_UNTIL)
+                .apply();
     }
 }
