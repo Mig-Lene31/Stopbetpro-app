@@ -29,7 +29,6 @@
         <activity android:name=".AdminHiddenActivity" android:exported="false"/>
 
         <service
-            android:name=".EngineService"
             android:exported="false"/>
 
         <service

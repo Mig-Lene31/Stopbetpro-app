@@ -21,11 +21,6 @@ public class ConfigValidator {
             return "Defina um Stop de tempo ou de valor";
         }
 
-        // Confirmação visual ainda não feita
-        if (!BalanceConfirmationStore.isConfirmed(ctx)) {
-            return "Confirme o saldo identificado pelo app";
-        }
-
-        return null; // tudo OK
+        return null;
     }
 }
