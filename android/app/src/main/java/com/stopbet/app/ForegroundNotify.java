@@ -8,18 +8,20 @@ import android.os.Build;
 
 public class ForegroundNotify {
 
-    private static final String CHANNEL_ID = "kairós_protection";
+    private static final String CHANNEL_ID = "kairos_protection";
 
     public static Notification create(Context ctx) {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
                     CHANNEL_ID,
-                    "Proteção Kairós",
+                    "Proteção Kairos",
                     NotificationManager.IMPORTANCE_LOW
             );
             NotificationManager nm = ctx.getSystemService(NotificationManager.class);
-            nm.createNotificationChannel(channel);
+            if (nm != null) {
+                nm.createNotificationChannel(channel);
+            }
         }
 
         return new Notification.Builder(ctx, CHANNEL_ID)
