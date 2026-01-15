@@ -7,7 +7,7 @@ import android.view.Gravity;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.Toast;
 
 public class LimitsActivity extends Activity {
 
@@ -19,47 +19,45 @@ public class LimitsActivity extends Activity {
         root.setOrientation(LinearLayout.VERTICAL);
         root.setGravity(Gravity.CENTER);
         root.setPadding(60, 60, 60, 60);
-        root.setBackgroundColor(UiStyle.background());
-
-        TextView title = new TextView(this);
-        title.setText("📉 LIMITES DE GANHO / PERDA");
-        UiStyle.applyTitle(title);
-        title.setGravity(Gravity.CENTER);
 
         EditText stopWin = new EditText(this);
-        stopWin.setHint("Stop Win (ex: 200)");
-        stopWin.setInputType(InputType.TYPE_CLASS_NUMBER);
-        stopWin.setGravity(Gravity.CENTER);
-        UiStyle.applyInput(stopWin);
+        stopWin.setHint("Stop Win");
+        stopWin.setInputType(
+                InputType.TYPE_CLASS_NUMBER |
+                InputType.TYPE_NUMBER_FLAG_DECIMAL
+        );
 
         EditText stopLoss = new EditText(this);
-        stopLoss.setHint("Stop Loss (ex: 50)");
-        stopLoss.setInputType(InputType.TYPE_CLASS_NUMBER);
-        stopLoss.setGravity(Gravity.CENTER);
-        UiStyle.applyInput(stopLoss);
-
-        stopWin.setText(String.valueOf(LimitsStore.getWin(this)));
-        stopLoss.setText(String.valueOf(LimitsStore.getLoss(this)));
+        stopLoss.setHint("Stop Loss");
+        stopLoss.setInputType(
+                InputType.TYPE_CLASS_NUMBER |
+                InputType.TYPE_NUMBER_FLAG_DECIMAL
+        );
 
         Button save = new Button(this);
-        save.setText("SALVAR LIMITES");
+        save.setText("SALVAR");
         save.setOnClickListener(v -> {
-            float win = stopWin.getText().toString().isEmpty() ? 0 : Float.parseFloat(stopWin.getText().toString());
-            float loss = stopLoss.getText().toString().isEmpty() ? 0 : Float.parseFloat(stopLoss.getText().toString());
-            LimitsStore.setWin(this, win);
-            LimitsStore.setLoss(this, loss);
-            finish();
+            try {
+                float win = Float.parseFloat(
+                        stopWin.getText().toString().replace(",", ".")
+                );
+                float loss = Float.parseFloat(
+                        stopLoss.getText().toString().replace(",", ".")
+                );
+
+                LimitsStore.setWin(this, win);
+                LimitsStore.setLoss(this, loss);
+
+                Toast.makeText(this, "Stops salvos", Toast.LENGTH_SHORT).show();
+                finish();
+            } catch (Exception e) {
+                Toast.makeText(this, "Valores inválidos", Toast.LENGTH_SHORT).show();
+            }
         });
 
-        Button back = new Button(this);
-        back.setText("VOLTAR");
-        back.setOnClickListener(v -> finish());
-
-        root.addView(title);
         root.addView(stopWin);
         root.addView(stopLoss);
         root.addView(save);
-        root.addView(back);
 
         setContentView(root);
     }

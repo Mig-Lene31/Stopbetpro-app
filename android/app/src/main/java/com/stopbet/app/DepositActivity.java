@@ -7,7 +7,7 @@ import android.view.Gravity;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.Toast;
 
 public class DepositActivity extends Activity {
 
@@ -19,38 +19,31 @@ public class DepositActivity extends Activity {
         root.setOrientation(LinearLayout.VERTICAL);
         root.setGravity(Gravity.CENTER);
         root.setPadding(60, 60, 60, 60);
-        root.setBackgroundColor(UiStyle.background());
 
-        TextView title = new TextView(this);
-        title.setText("💰 VALOR DO DEPÓSITO");
-        UiStyle.applyTitle(title);
-        title.setGravity(Gravity.CENTER);
-
-        EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_NUMBER);
-        input.setHint("Ex: 150");
-        input.setGravity(Gravity.CENTER);
-        UiStyle.applyInput(input);
-
-        input.setText(String.valueOf(DepositStore.get(this)));
+        EditText value = new EditText(this);
+        value.setHint("Valor do depósito");
+        value.setInputType(
+                InputType.TYPE_CLASS_NUMBER |
+                InputType.TYPE_NUMBER_FLAG_DECIMAL
+        );
 
         Button save = new Button(this);
-        save.setText("SALVAR VALOR");
+        save.setText("SALVAR");
         save.setOnClickListener(v -> {
-            float value = input.getText().toString().isEmpty() ? 0 : Float.parseFloat(input.getText().toString());
-            DepositStore.set(this, value);
-            AppState.resetBalance(this);
-            finish();
+            try {
+                float vlu = Float.parseFloat(
+                        value.getText().toString().replace(",", ".")
+                );
+                DepositStore.set(this, vlu);
+                Toast.makeText(this, "Depósito salvo", Toast.LENGTH_SHORT).show();
+                finish();
+            } catch (Exception e) {
+                Toast.makeText(this, "Valor inválido", Toast.LENGTH_SHORT).show();
+            }
         });
 
-        Button back = new Button(this);
-        back.setText("VOLTAR");
-        back.setOnClickListener(v -> finish());
-
-        root.addView(title);
-        root.addView(input);
+        root.addView(value);
         root.addView(save);
-        root.addView(back);
 
         setContentView(root);
     }
