@@ -65,7 +65,6 @@ public class ConfigActivity extends Activity {
                     Toast.LENGTH_SHORT
             ).show();
 
-            finish();
         });
 
         root.addView(title);
