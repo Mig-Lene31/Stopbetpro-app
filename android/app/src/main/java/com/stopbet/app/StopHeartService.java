@@ -12,44 +12,20 @@ public class StopHeartService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-
-        ForegroundNotify.ensureChannel(this);
-        startForeground(1, ForegroundNotify.build(this));
-
-        handler.postDelayed(loop, 3000);
+        handler.post(loop);
     }
 
     private final Runnable loop = new Runnable() {
         @Override
         public void run() {
 
-            if (!MotorStateStore.isEnabled(StopHeartService.this)) {
-                MotorStatusNotifier.update(
-                        StopHeartService.this,
-                        "🔴 Motor desativado",
-                        "Configure o app para ativar a proteção"
-                );
-                handler.postDelayed(this, 5000);
-                return;
-            }
-
             if (EngineState.isBlocked(StopHeartService.this)) {
-                MotorStatusNotifier.update(
-                        StopHeartService.this,
-                        "⛔ Acesso bloqueado",
-                        "Proteção ativa por segurança"
-                );
-                handler.postDelayed(this, 5000);
-                return;
+                startService(new Intent(StopHeartService.this, BetBlockVpnService.class));
+            } else {
+                stopService(new Intent(StopHeartService.this, BetBlockVpnService.class));
             }
 
-            MotorStatusNotifier.update(
-                    StopHeartService.this,
-                    "🟢 Proteção ativa",
-                    "Monitorando apostas em tempo real"
-            );
-
-            handler.postDelayed(this, 5000);
+            handler.postDelayed(this, 3000);
         }
     };
 
