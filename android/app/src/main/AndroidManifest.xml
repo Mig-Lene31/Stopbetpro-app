@@ -18,14 +18,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".InfoActivity" android:exported="false"/>
         <activity android:name=".GateActivity" android:exported="false"/>
         <activity android:name=".ConfigActivity" android:exported="false"/>
         <activity android:name=".DepositActivity" android:exported="false"/>
         <activity android:name=".LimitsActivity" android:exported="false"/>
         <activity android:name=".TimeActivity" android:exported="false"/>
-        <activity android:name=".RulesActivity" android:exported="false"/>
-        <activity android:name=".BlockedActivity" android:exported="false"/>
         <activity android:name=".AdminHiddenActivity" android:exported="false"/>
 
         <service
