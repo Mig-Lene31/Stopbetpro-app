@@ -42,7 +42,10 @@ public class BalanceReadAccessibilityService extends AccessibilityService {
             if (value != null) {
                 AppState.resetBalance(this);
                 AppState.addBalance(this, value);
-                EngineRunner.run(this, value);
+
+                // 🔒 STOP REAL (único ponto)
+                StopLimitChecker.check(this, value);
+
                 return;
             }
         }
