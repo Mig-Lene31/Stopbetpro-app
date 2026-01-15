@@ -32,4 +32,18 @@ public class MotorStateStore {
         return ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
                 .getLong(KEY_STARTED_AT, 0);
     }
+
+    // ===== COMPATIBILIDADE (NÃO REMOVER) =====
+
+    public static boolean isEnabled(Context ctx) {
+        return isActive(ctx);
+    }
+
+    public static void setEnabled(Context ctx, boolean enabled) {
+        if (enabled) {
+            activate(ctx);
+        } else {
+            deactivate(ctx);
+        }
+    }
 }
