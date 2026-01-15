@@ -12,12 +12,22 @@ public class StopHeartService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        startForeground(
+                1,
+                ForegroundNotify.create(this)
+        );
+
         handler.post(loop);
     }
 
     private final Runnable loop = new Runnable() {
         @Override
         public void run() {
+
+            if (TimeStore.isExpired(StopHeartService.this)) {
+                EngineState.blockFor12Hours(StopHeartService.this);
+            }
 
             if (EngineState.isBlocked(StopHeartService.this)) {
                 startService(new Intent(StopHeartService.this, BetBlockVpnService.class));
