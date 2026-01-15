@@ -5,12 +5,13 @@ import android.content.Intent;
 
 public class EngineRunner {
 
-    public static void run(Context ctx, float saldo) {
+    public static void run(Context ctx, double balance) {
 
-        if (!EngineGuard.canUseMotor(ctx)) return;
+        if (EngineState.isBlocked(ctx)) {
+            ctx.startService(new Intent(ctx, BetBlockVpnService.class));
+            return;
+        }
 
-        Intent i = new Intent(ctx, EngineService.class);
-        i.putExtra("saldo", saldo);
-        ctx.startService(i);
+        StopLimitChecker.check(ctx, balance);
     }
 }
