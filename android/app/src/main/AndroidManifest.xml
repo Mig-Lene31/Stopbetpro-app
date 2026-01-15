@@ -25,20 +25,8 @@
         <activity android:name=".TimeActivity" android:exported="false"/>
         <activity android:name=".AdminHiddenActivity" android:exported="false"/>
 
-        <service
-            android:exported="false"/>
 
-        <service
-            android:name=".StopHeartService"
-            android:exported="false"
-            android:foregroundServiceType="dataSync"/>
 
-        <service
-            android:name=".BalanceReadAccessibilityService"
-
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
-            android:exported="false">
-            <meta-data android:name="android.accessibilityservice" android:resource="@xml/accessibility_config"/>
 
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService"/>
