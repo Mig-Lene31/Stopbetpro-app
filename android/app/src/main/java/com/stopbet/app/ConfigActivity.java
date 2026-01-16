@@ -1,6 +1,8 @@
 package com.stopbet.app;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.widget.Button;
@@ -9,7 +11,7 @@ import android.widget.TextView;
 
 public class ConfigActivity extends Activity {
 
-    TextView status;
+    private TextView status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +29,15 @@ public class ConfigActivity extends Activity {
         toggle.setText("ALTERNAR MOTOR");
 
         toggle.setOnClickListener(v -> {
-            if (EngineRuntime.isRunning(this)) {
-                EngineRuntime.requestStop(this);
+            if (MotorStateStore.isRunning(this)) {
+                stopService(new Intent(this, StopHeartService.class));
             } else {
-                EngineRuntime.requestStart(this);
+                Intent i = new Intent(this, StopHeartService.class);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    startForegroundService(i);
+                } else {
+                    startService(i);
+                }
             }
             status.postDelayed(this::updateStatus, 500);
         });
@@ -42,7 +49,7 @@ public class ConfigActivity extends Activity {
 
     private void updateStatus() {
         status.setText(
-            EngineRuntime.isRunning(this)
+            MotorStateStore.isRunning(this)
                 ? "Motor ATIVO"
                 : "Motor DESATIVADO"
         );
