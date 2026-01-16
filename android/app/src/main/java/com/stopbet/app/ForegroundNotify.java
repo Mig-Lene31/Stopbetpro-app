@@ -10,7 +10,7 @@ public class ForegroundNotify {
 
     private static final String CHANNEL_ID = "kairos_protection";
 
-    public static Notification create(Context ctx) {
+    public static Notification create(Context ctx, String status) {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
@@ -25,8 +25,8 @@ public class ForegroundNotify {
         }
 
         return new Notification.Builder(ctx, CHANNEL_ID)
-                .setContentTitle("Proteção ativa")
-                .setContentText("Monitorando apostas em tempo real")
+                .setContentTitle("Kairós em execução")
+                .setContentText(status)
                 .setSmallIcon(android.R.drawable.ic_lock_lock)
                 .setOngoing(true)
                 .build();
