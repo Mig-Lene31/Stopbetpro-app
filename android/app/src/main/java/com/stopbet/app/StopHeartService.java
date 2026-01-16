@@ -14,6 +14,7 @@ public class StopHeartService extends Service {
     public void onCreate() {
         super.onCreate();
         startForeground(1, ForegroundNotify.create(this, "Motor ATIVO"));
+        RuntimeLog.log(this, "SERVICE STARTED");
         handler.post(loop);
     }
 
@@ -21,7 +22,10 @@ public class StopHeartService extends Service {
         @Override
         public void run() {
 
+            RuntimeLog.log(StopHeartService.this, "HEARTBEAT");
+
             if (!EngineRuntime.isRunning(StopHeartService.this)) {
+                RuntimeLog.log(StopHeartService.this, "ENGINE STOPPED");
                 stopSelf();
                 return;
             }
@@ -29,11 +33,13 @@ public class StopHeartService extends Service {
             String status = "Motor ATIVO";
 
             if (TimeStore.isExpired(StopHeartService.this)) {
+                RuntimeLog.log(StopHeartService.this, "TIME EXPIRED → BLOCK");
                 EngineRuntime.block(StopHeartService.this);
             }
 
             if (EngineRuntime.isBlocked(StopHeartService.this)) {
                 status = "BLOQUEIO ATIVO";
+                RuntimeLog.log(StopHeartService.this, "VPN START");
                 startService(new Intent(StopHeartService.this, BetBlockVpnService.class));
             } else {
                 stopService(new Intent(StopHeartService.this, BetBlockVpnService.class));
