@@ -6,9 +6,10 @@ import android.view.Gravity;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class ConfigActivity extends Activity {
+
+    TextView status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,29 +20,31 @@ public class ConfigActivity extends Activity {
         root.setGravity(Gravity.CENTER);
         root.setPadding(60,60,60,60);
 
-        TextView status = new TextView(this);
-        status.setText(
-            EngineRuntime.isRunning(this)
-                ? "Motor ATIVO"
-                : "Motor DESATIVADO"
-        );
+        status = new TextView(this);
+        updateStatus();
 
         Button toggle = new Button(this);
         toggle.setText("ALTERNAR MOTOR");
 
         toggle.setOnClickListener(v -> {
             if (EngineRuntime.isRunning(this)) {
-                EngineRuntime.stop(this);
-                status.setText("Motor DESATIVADO");
+                EngineRuntime.requestStop(this);
             } else {
-                EngineRuntime.start(this);
-                status.setText("Motor ATIVO");
+                EngineRuntime.requestStart(this);
             }
-            Toast.makeText(this, "Estado atualizado", Toast.LENGTH_SHORT).show();
+            status.postDelayed(this::updateStatus, 500);
         });
 
         root.addView(status);
         root.addView(toggle);
         setContentView(root);
+    }
+
+    private void updateStatus() {
+        status.setText(
+            EngineRuntime.isRunning(this)
+                ? "Motor ATIVO"
+                : "Motor DESATIVADO"
+        );
     }
 }

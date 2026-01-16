@@ -1,30 +1,25 @@
 package com.stopbet.app;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 
 public class EngineRuntime {
 
     public static boolean isRunning(Context ctx) {
-        return MotorStateStore.isActive(ctx);
+        return MotorStateStore.isRunning(ctx);
     }
 
-    public static void start(Context ctx) {
-        MotorStateStore.activate(ctx);
-        ctx.startService(new android.content.Intent(ctx, StopHeartService.class));
+    public static void requestStart(Context ctx) {
+        Intent i = new Intent(ctx, StopHeartService.class);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            ctx.startForegroundService(i);
+        } else {
+            ctx.startService(i);
+        }
     }
 
-    public static void stop(Context ctx) {
-        MotorStateStore.deactivate(ctx);
-        EngineState.clearBlock(ctx);
-        ctx.stopService(new android.content.Intent(ctx, StopHeartService.class));
-        ctx.stopService(new android.content.Intent(ctx, BetBlockVpnService.class));
-    }
-
-    public static boolean isBlocked(Context ctx) {
-        return EngineState.isBlocked(ctx);
-    }
-
-    public static void block(Context ctx) {
-        EngineState.blockFor12Hours(ctx);
+    public static void requestStop(Context ctx) {
+        ctx.stopService(new Intent(ctx, StopHeartService.class));
     }
 }

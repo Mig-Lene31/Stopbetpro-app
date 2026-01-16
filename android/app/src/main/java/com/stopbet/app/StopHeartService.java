@@ -13,8 +13,11 @@ public class StopHeartService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+
         startForeground(1, ForegroundNotify.create(this, "Motor ATIVO"));
-        RuntimeLog.log(this, "SERVICE STARTED");
+
+        MotorStateStore.setRunning(this, true);
+
         handler.post(loop);
     }
 
@@ -22,37 +25,20 @@ public class StopHeartService extends Service {
         @Override
         public void run() {
 
-            RuntimeLog.log(StopHeartService.this, "HEARTBEAT");
-
-            if (!EngineRuntime.isRunning(StopHeartService.this)) {
-                RuntimeLog.log(StopHeartService.this, "ENGINE STOPPED");
+            if (!MotorStateStore.isRunning(StopHeartService.this)) {
                 stopSelf();
                 return;
-            }
-
-            String status = "Motor ATIVO";
-
-            if (TimeStore.isExpired(StopHeartService.this)) {
-                RuntimeLog.log(StopHeartService.this, "TIME EXPIRED → BLOCK");
-                EngineRuntime.block(StopHeartService.this);
-            }
-
-            if (EngineRuntime.isBlocked(StopHeartService.this)) {
-                status = "BLOQUEIO ATIVO";
-                RuntimeLog.log(StopHeartService.this, "VPN START");
-                startService(new Intent(StopHeartService.this, BetBlockVpnService.class));
-            } else {
-                stopService(new Intent(StopHeartService.this, BetBlockVpnService.class));
-            }
-
-            NotificationManager nm = getSystemService(NotificationManager.class);
-            if (nm != null) {
-                nm.notify(1, ForegroundNotify.create(StopHeartService.this, status));
             }
 
             handler.postDelayed(this, 3000);
         }
     };
+
+    @Override
+    public void onDestroy() {
+        MotorStateStore.setRunning(this, false);
+        super.onDestroy();
+    }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {

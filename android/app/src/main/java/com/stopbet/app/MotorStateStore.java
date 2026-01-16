@@ -6,44 +6,16 @@ public class MotorStateStore {
 
     private static final String PREF = "motor_state";
     private static final String KEY_ACTIVE = "active";
-    private static final String KEY_STARTED_AT = "started_at";
 
-    public static void activate(Context ctx) {
+    public static void setRunning(Context ctx, boolean running) {
         ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
                 .edit()
-                .putBoolean(KEY_ACTIVE, true)
-                .putLong(KEY_STARTED_AT, System.currentTimeMillis())
+                .putBoolean(KEY_ACTIVE, running)
                 .apply();
     }
 
-    public static void deactivate(Context ctx) {
-        ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
-                .edit()
-                .putBoolean(KEY_ACTIVE, false)
-                .apply();
-    }
-
-    public static boolean isActive(Context ctx) {
+    public static boolean isRunning(Context ctx) {
         return ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
                 .getBoolean(KEY_ACTIVE, false);
-    }
-
-    public static long getStartedAt(Context ctx) {
-        return ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
-                .getLong(KEY_STARTED_AT, 0);
-    }
-
-    // ===== COMPATIBILIDADE (NÃO REMOVER) =====
-
-    public static boolean isEnabled(Context ctx) {
-        return isActive(ctx);
-    }
-
-    public static void setEnabled(Context ctx, boolean enabled) {
-        if (enabled) {
-            activate(ctx);
-        } else {
-            deactivate(ctx);
-        }
     }
 }
