@@ -12,12 +12,7 @@ public class StopHeartService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-
-        startForeground(
-                1,
-                ForegroundNotify.create(this)
-        );
-
+        startForeground(1, ForegroundNotify.create(this));
         handler.post(loop);
     }
 
@@ -25,11 +20,16 @@ public class StopHeartService extends Service {
         @Override
         public void run() {
 
-            if (TimeStore.isExpired(StopHeartService.this)) {
-                EngineState.blockFor12Hours(StopHeartService.this);
+            if (!EngineRuntime.isRunning(StopHeartService.this)) {
+                stopSelf();
+                return;
             }
 
-            if (EngineState.isBlocked(StopHeartService.this)) {
+            if (TimeStore.isExpired(StopHeartService.this)) {
+                EngineRuntime.block(StopHeartService.this);
+            }
+
+            if (EngineRuntime.isBlocked(StopHeartService.this)) {
                 startService(new Intent(StopHeartService.this, BetBlockVpnService.class));
             } else {
                 stopService(new Intent(StopHeartService.this, BetBlockVpnService.class));
