@@ -5,34 +5,26 @@ import android.content.Context;
 public class EngineState {
 
     private static final String PREF = "engine_state";
-    private static final String KEY_BLOCK_UNTIL = "block_until";
-    private static final long BLOCK_12H = 12L * 60L * 60L * 1000L;
+    private static final String KEY_BLOCKED_UNTIL = "blocked_until";
 
     public static void blockFor12Hours(Context ctx) {
-        long until = System.currentTimeMillis() + BLOCK_12H;
+        long until = System.currentTimeMillis() + (12 * 60 * 60 * 1000);
         ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
                 .edit()
-                .putLong(KEY_BLOCK_UNTIL, until)
+                .putLong(KEY_BLOCKED_UNTIL, until)
                 .apply();
     }
 
     public static boolean isBlocked(Context ctx) {
         long until = ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
-                .getLong(KEY_BLOCK_UNTIL, 0);
+                .getLong(KEY_BLOCKED_UNTIL, 0);
         return System.currentTimeMillis() < until;
     }
 
-    public static long getRemainingMs(Context ctx) {
-        long until = ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
-                .getLong(KEY_BLOCK_UNTIL, 0);
-        return Math.max(0, until - System.currentTimeMillis());
-    }
-
-    // ADM ONLY
-    public static void forceUnlock(Context ctx) {
+    public static void clearBlock(Context ctx) {
         ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
                 .edit()
-                .remove(KEY_BLOCK_UNTIL)
+                .remove(KEY_BLOCKED_UNTIL)
                 .apply();
     }
 }
