@@ -4,10 +4,27 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
+import com.stopbet.app.runtime.RuntimeHeartbeat;
 
 public class StopHeartService extends Service {
 
     private final Handler handler = new Handler();
+
+    private final Runnable loop = new Runnable() {
+        @Override
+        public void run() {
+
+            if (!MotorStateStore.isRunning(StopHeartService.this)) {
+                stopSelf();
+                return;
+            }
+
+            double balance = AppState.getBalance(StopHeartService.this);
+            RuntimeHeartbeat.tick(StopHeartService.this, balance);
+
+            handler.postDelayed(this, 3000);
+        }
+    };
 
     @Override
     public void onCreate() {
@@ -18,17 +35,11 @@ public class StopHeartService extends Service {
         handler.post(loop);
     }
 
-    private final Runnable loop = new Runnable() {
-        @Override
-        public void run() {
-            handler.postDelayed(this, 3000);
-        }
-    };
-
     @Override
     public void onDestroy() {
         MotorStateStore.setRunning(this, false);
         SessionStore.clear(this);
+        handler.removeCallbacks(loop);
         super.onDestroy();
     }
 
