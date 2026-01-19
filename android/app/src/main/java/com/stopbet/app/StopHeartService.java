@@ -14,6 +14,7 @@ public class StopHeartService extends Service {
         super.onCreate();
         startForeground(1, ForegroundNotify.create(this, "Motor ATIVO"));
         MotorStateStore.setRunning(this, true);
+        SessionStore.start(this);
         handler.post(loop);
     }
 
@@ -27,6 +28,7 @@ public class StopHeartService extends Service {
     @Override
     public void onDestroy() {
         MotorStateStore.setRunning(this, false);
+        SessionStore.clear(this);
         super.onDestroy();
     }
 
