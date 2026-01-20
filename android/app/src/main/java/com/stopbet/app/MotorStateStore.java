@@ -18,4 +18,14 @@ public class MotorStateStore {
         return ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
                 .getBoolean(KEY_ACTIVE, false);
     }
+
+    // ===== COMPATIBILIDADE LEGADA =====
+
+    public static boolean isEnabled(Context ctx) {
+        return isRunning(ctx);
+    }
+
+    public static void setEnabled(Context ctx, boolean enabled) {
+        setRunning(ctx, enabled);
+    }
 }
