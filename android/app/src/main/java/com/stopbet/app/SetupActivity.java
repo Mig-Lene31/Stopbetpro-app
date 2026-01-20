@@ -32,16 +32,27 @@ public class SetupActivity extends Activity {
         save.setText("CONFIRMAR PROTEÇÃO");
 
         save.setOnClickListener(v -> {
-            double d = Double.parseDouble(deposit.getText().toString());
-            double sl = Double.parseDouble(stopLoss.getText().toString());
-            double sw = Double.parseDouble(stopWin.getText().toString());
 
-            DepositStore.set(this, d);
-            LimitsStore.setLoss(this, (float) sl);
-            LimitsStore.setWin(this, (float) sw);
+            try {
+                double d = parse(deposit.getText().toString());
+                double sl = parse(stopLoss.getText().toString());
+                double sw = parse(stopWin.getText().toString());
 
-            Toast.makeText(this, "Proteção configurada", Toast.LENGTH_SHORT).show();
-            finish();
+                if (d <= 0) {
+                    Toast.makeText(this, "Depósito inválido", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                DepositStore.set(this, d);
+                LimitsStore.setLoss(this, (float) sl);
+                LimitsStore.setWin(this, (float) sw);
+
+                Toast.makeText(this, "Proteção configurada", Toast.LENGTH_SHORT).show();
+                finish();
+
+            } catch (Exception e) {
+                Toast.makeText(this, "Preencha apenas números", Toast.LENGTH_SHORT).show();
+            }
         });
 
         root.addView(deposit);
@@ -50,5 +61,10 @@ public class SetupActivity extends Activity {
         root.addView(save);
 
         setContentView(root);
+    }
+
+    private double parse(String v) {
+        if (v == null || v.trim().isEmpty()) return 0;
+        return Double.parseDouble(v.replace(",", "."));
     }
 }
