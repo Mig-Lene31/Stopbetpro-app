@@ -12,6 +12,9 @@ import android.widget.Toast;
 public class ConfigActivity extends Activity {
 
     TextView status;
+    EditText deposit;
+    EditText stopLoss;
+    EditText stopWin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,43 +25,42 @@ public class ConfigActivity extends Activity {
         root.setGravity(Gravity.CENTER);
         root.setPadding(60,60,60,60);
 
-        EditText deposit = new EditText(this);
+        deposit = new EditText(this);
         deposit.setHint("Depósito inicial");
 
-        EditText stopLoss = new EditText(this);
+        stopLoss = new EditText(this);
         stopLoss.setHint("Stop Loss");
 
-        EditText stopWin = new EditText(this);
+        stopWin = new EditText(this);
         stopWin.setHint("Stop Win");
 
         status = new TextView(this);
-        updateStatus();
 
         Button toggle = new Button(this);
         toggle.setText("ALTERNAR MOTOR");
 
         toggle.setOnClickListener(v -> {
             try {
-                double d = parse(deposit.getText().toString());
-                double sl = parse(stopLoss.getText().toString());
-                double sw = parse(stopWin.getText().toString());
+                if (!MotorStateStore.isRunning(this)) {
+                    double d = parse(deposit.getText().toString());
+                    double sl = parse(stopLoss.getText().toString());
+                    double sw = parse(stopWin.getText().toString());
 
-                if (d <= 0) {
-                    Toast.makeText(this, "Depósito inválido", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                    if (d <= 0) {
+                        Toast.makeText(this, "Depósito inválido", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
-                DepositStore.set(this, d);
-                LimitsStore.setLoss(this, (float) sl);
-                LimitsStore.setWin(this, (float) sw);
+                    DepositStore.set(this, d);
+                    LimitsStore.setLoss(this, (float) sl);
+                    LimitsStore.setWin(this, (float) sw);
 
-                if (MotorStateStore.isRunning(this)) {
-                    stopService(new android.content.Intent(this, StopHeartService.class));
-                } else {
                     startService(new android.content.Intent(this, StopHeartService.class));
+                } else {
+                    stopService(new android.content.Intent(this, StopHeartService.class));
                 }
 
-                status.postDelayed(this::updateStatus, 300);
+                updateUI();
 
             } catch (Exception e) {
                 Toast.makeText(this, "Use apenas números", Toast.LENGTH_SHORT).show();
@@ -72,14 +74,25 @@ public class ConfigActivity extends Activity {
         root.addView(toggle);
 
         setContentView(root);
+
+        loadValues();
+        updateUI();
     }
 
-    private void updateStatus() {
-        status.setText(
-                MotorStateStore.isRunning(this)
-                        ? "Motor ATIVO"
-                        : "Motor DESATIVADO"
-        );
+    private void loadValues() {
+        deposit.setText(String.valueOf(DepositStore.get(this)));
+        stopLoss.setText(String.valueOf(LimitsStore.getLoss(this)));
+        stopWin.setText(String.valueOf(LimitsStore.getWin(this)));
+    }
+
+    private void updateUI() {
+        boolean running = MotorStateStore.isRunning(this);
+
+        status.setText(running ? "Motor ATIVO" : "Motor DESATIVADO");
+
+        deposit.setEnabled(!running);
+        stopLoss.setEnabled(!running);
+        stopWin.setEnabled(!running);
     }
 
     private double parse(String v) {
