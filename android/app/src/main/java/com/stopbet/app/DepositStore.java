@@ -18,4 +18,8 @@ public class DepositStore {
         return ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
                 .getFloat(KEY_DEPOSIT, 0f);
     }
+
+    public static boolean hasValue(Context ctx) {
+        return get(ctx) > 0;
+    }
 }
