@@ -42,12 +42,13 @@ public class ConfigActivity extends Activity {
         toggle.setOnClickListener(v -> {
             try {
                 if (!MotorStateStore.isRunning(this)) {
+
                     double d = parse(deposit.getText().toString());
                     double sl = parse(stopLoss.getText().toString());
                     double sw = parse(stopWin.getText().toString());
 
-                    if (d <= 0) {
-                        Toast.makeText(this, "Depósito inválido", Toast.LENGTH_SHORT).show();
+                    if (d <= 0 || sl <= 0 || sw <= 0) {
+                        Toast.makeText(this, "Preencha todos os campos corretamente", Toast.LENGTH_SHORT).show();
                         return;
                     }
 
@@ -56,6 +57,7 @@ public class ConfigActivity extends Activity {
                     LimitsStore.setWin(this, (float) sw);
 
                     startService(new android.content.Intent(this, StopHeartService.class));
+
                 } else {
                     stopService(new android.content.Intent(this, StopHeartService.class));
                 }
@@ -80,9 +82,13 @@ public class ConfigActivity extends Activity {
     }
 
     private void loadValues() {
-        deposit.setText(String.valueOf(DepositStore.get(this)));
-        stopLoss.setText(String.valueOf(LimitsStore.getLoss(this)));
-        stopWin.setText(String.valueOf(LimitsStore.getWin(this)));
+        double d = DepositStore.get(this);
+        float sl = LimitsStore.getLoss(this);
+        float sw = LimitsStore.getWin(this);
+
+        if (d > 0) deposit.setText(String.valueOf(d));
+        if (sl > 0) stopLoss.setText(String.valueOf(sl));
+        if (sw > 0) stopWin.setText(String.valueOf(sw));
     }
 
     private void updateUI() {
