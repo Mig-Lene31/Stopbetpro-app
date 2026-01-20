@@ -6,11 +6,13 @@ public class MotorStateStore {
 
     private static final String PREF = "motor_state";
     private static final String KEY_ACTIVE = "active";
+    private static final String KEY_STARTED_AT = "started_at";
 
     public static void setRunning(Context ctx, boolean running) {
         ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
                 .edit()
                 .putBoolean(KEY_ACTIVE, running)
+                .putLong(KEY_STARTED_AT, running ? System.currentTimeMillis() : 0)
                 .apply();
     }
 
@@ -20,6 +22,15 @@ public class MotorStateStore {
     }
 
     // ===== COMPATIBILIDADE LEGADA =====
+
+    public static boolean isActive(Context ctx) {
+        return isRunning(ctx);
+    }
+
+    public static long getStartedAt(Context ctx) {
+        return ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
+                .getLong(KEY_STARTED_AT, 0);
+    }
 
     public static boolean isEnabled(Context ctx) {
         return isRunning(ctx);

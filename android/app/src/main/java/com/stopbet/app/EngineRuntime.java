@@ -10,6 +10,10 @@ public class EngineRuntime {
         return MotorStateStore.isRunning(ctx);
     }
 
+    public static boolean isBlocked(Context ctx) {
+        return EngineState.isBlocked(ctx);
+    }
+
     public static void requestStart(Context ctx) {
         Intent i = new Intent(ctx, StopHeartService.class);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
