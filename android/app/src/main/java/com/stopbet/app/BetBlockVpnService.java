@@ -3,6 +3,7 @@ package com.stopbet.app;
 import android.net.VpnService;
 import android.content.Intent;
 import android.os.ParcelFileDescriptor;
+import android.util.Log;
 
 import java.io.FileInputStream;
 import java.nio.ByteBuffer;
@@ -10,12 +11,16 @@ import java.nio.charset.StandardCharsets;
 
 public class BetBlockVpnService extends VpnService implements Runnable {
 
+    private static final String TAG = "KAIROS_VPN";
+
     private Thread thread;
     private ParcelFileDescriptor tun;
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (thread != null) return START_STICKY;
+
+        Log.d(TAG, "VPN STARTED");
 
         BetDomains.init(this);
 
@@ -35,6 +40,7 @@ public class BetBlockVpnService extends VpnService implements Runnable {
 
     @Override
     public void onDestroy() {
+        Log.d(TAG, "VPN STOPPED");
         try {
             if (tun != null) tun.close();
         } catch (Exception ignored) {}
@@ -53,19 +59,22 @@ public class BetBlockVpnService extends VpnService implements Runnable {
                 if (len <= 0) continue;
 
                 String payload = new String(
-                    packet.array(),
-                    0,
-                    len,
-                    StandardCharsets.ISO_8859_1
+                        packet.array(),
+                        0,
+                        len,
+                        StandardCharsets.ISO_8859_1
                 );
 
                 for (String d : BetDomains.get()) {
                     if (payload.contains(d)) {
+                        Log.d(TAG, "BLOQUEADO: " + d);
                         packet.clear();
                         break;
                     }
                 }
             }
-        } catch (Exception ignored) {}
+        } catch (Exception e) {
+            Log.e(TAG, "VPN ERROR", e);
+        }
     }
 }
