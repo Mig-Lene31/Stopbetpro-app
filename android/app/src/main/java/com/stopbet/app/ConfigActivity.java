@@ -57,7 +57,7 @@ public class ConfigActivity extends Activity {
                     LimitsStore.setLoss(this, (float) sl);
                     LimitsStore.setWin(this, (float) sw);
 
-                    startService(new Intent(this, StopHeartService.class));
+                    startActivity(new Intent(this, VpnPermissionActivity.class));
 
                 } else {
                     stopService(new Intent(this, StopHeartService.class));
