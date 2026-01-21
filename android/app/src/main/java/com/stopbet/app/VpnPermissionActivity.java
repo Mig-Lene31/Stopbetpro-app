@@ -25,9 +25,16 @@ public class VpnPermissionActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQ_VPN && resultCode == RESULT_OK) {
+
+            // 🔥 AQUI É O CORAÇÃO DO SISTEMA 🔥
+            MotorStateStore.setRunning(this, true);
+            EngineState.blockFor12Hours(this);
+
             startService(new Intent(this, BetBlockVpnService.class));
-            Toast.makeText(this, "VPN ATIVADA", Toast.LENGTH_SHORT).show();
+
+            Toast.makeText(this, "Proteção ATIVADA", Toast.LENGTH_SHORT).show();
         }
+
         finish();
     }
 }
