@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Intent;
 
 public class ConfigActivity extends Activity {
 
@@ -56,10 +57,10 @@ public class ConfigActivity extends Activity {
                     LimitsStore.setLoss(this, (float) sl);
                     LimitsStore.setWin(this, (float) sw);
 
-                    startService(new android.content.Intent(this, StopHeartService.class));
+                    startService(new Intent(this, StopHeartService.class));
 
                 } else {
-                    stopService(new android.content.Intent(this, StopHeartService.class));
+                    stopService(new Intent(this, StopHeartService.class));
                 }
 
                 updateUI();
