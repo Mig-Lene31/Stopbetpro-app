@@ -23,5 +23,6 @@
             android:foregroundServiceType="dataSync"/>
 
         <activity android:name=".SimulateActivity" android:exported="true"/>
+        <activity android:name=".VpnPermissionActivity" android:exported="false"/>
     </application>
 </manifest>
