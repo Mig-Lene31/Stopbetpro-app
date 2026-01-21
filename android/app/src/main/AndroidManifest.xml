@@ -35,5 +35,6 @@
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibility_config" />
         </service>
+        <activity android:name=".BlockScreenActivity" android:exported="false"/>
     </application>
 </manifest>
