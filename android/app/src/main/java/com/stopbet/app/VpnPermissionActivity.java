@@ -4,11 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.VpnService;
 import android.os.Bundle;
-import android.widget.Toast;
 
 public class VpnPermissionActivity extends Activity {
-
-    private static final int REQ_VPN = 1001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,25 +13,21 @@ public class VpnPermissionActivity extends Activity {
 
         Intent intent = VpnService.prepare(this);
         if (intent != null) {
-            startActivityForResult(intent, REQ_VPN);
+            startActivityForResult(intent, 100);
         } else {
-            onActivityResult(REQ_VPN, RESULT_OK, null);
+            startVpn();
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQ_VPN && resultCode == RESULT_OK) {
-
-            // 🔥 AQUI É O CORAÇÃO DO SISTEMA 🔥
-            MotorStateStore.setRunning(this, true);
-            EngineState.blockFor12Hours(this);
-
-            startService(new Intent(this, BetBlockVpnService.class));
-
-            Toast.makeText(this, "Proteção ATIVADA", Toast.LENGTH_SHORT).show();
+        if (resultCode == RESULT_OK) {
+            startVpn();
         }
-
         finish();
+    }
+
+    private void startVpn() {
+        startService(new Intent(this, KairosVpnService.class));
     }
 }
