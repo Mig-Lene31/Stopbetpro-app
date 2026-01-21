@@ -8,11 +8,10 @@ import android.util.Log;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.nio.ByteBuffer;
-import java.nio.charset.StandardCharsets;
 
 public class BetBlockVpnService extends VpnService implements Runnable {
 
-    private static final String TAG = "KAIROS_DNS";
+    private static final String TAG = "KAIROS_VPN_IP";
 
     private Thread thread;
     private ParcelFileDescriptor tun;
@@ -21,20 +20,17 @@ public class BetBlockVpnService extends VpnService implements Runnable {
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (thread != null) return START_STICKY;
 
-        BetDomains.init(this);
-
         Builder builder = new Builder();
-        builder.setSession("KairosDNS");
+        builder.setSession("KairosBlock");
         builder.addAddress("10.0.0.2", 32);
-        builder.addDnsServer("8.8.8.8");
         builder.addRoute("0.0.0.0", 0);
 
         tun = builder.establish();
 
-        thread = new Thread(this, "KairosDnsThread");
+        thread = new Thread(this, "KairosIpBlockThread");
         thread.start();
 
-        Log.d(TAG, "VPN DNS STARTED");
+        Log.d(TAG, "VPN IP BLOCK STARTED");
         return START_STICKY;
     }
 
@@ -44,7 +40,7 @@ public class BetBlockVpnService extends VpnService implements Runnable {
             if (tun != null) tun.close();
         } catch (Exception ignored) {}
         thread = null;
-        Log.d(TAG, "VPN DNS STOPPED");
+        Log.d(TAG, "VPN STOPPED");
         super.onDestroy();
     }
 
@@ -61,12 +57,10 @@ public class BetBlockVpnService extends VpnService implements Runnable {
                 int len = in.read(packet.array());
                 if (len <= 0) continue;
 
-                if (isDnsQuery(packet.array(), len)) {
-                    String domain = extractDomain(packet.array(), len);
-                    if (domain != null && isBlockedDomain(domain)) {
-                        Log.d(TAG, "DNS BLOQUEADO: " + domain);
-                        continue; // descarta o pacote DNS
-                    }
+                String destIp = extractDestIp(packet.array());
+                if (destIp != null && BlockedIpRanges.isBlocked(destIp)) {
+                    Log.d(TAG, "IP BLOQUEADO: " + destIp);
+                    continue; // DROP TOTAL
                 }
 
                 out.write(packet.array(), 0, len);
@@ -76,35 +70,17 @@ public class BetBlockVpnService extends VpnService implements Runnable {
         }
     }
 
-    private boolean isDnsQuery(byte[] data, int len) {
-        if (len < 28) return false;
-        int protocol = data[9] & 0xFF;
-        int destPort = ((data[22] & 0xFF) << 8) | (data[23] & 0xFF);
-        return protocol == 17 && destPort == 53; // UDP + DNS
-    }
-
-    private String extractDomain(byte[] data, int len) {
+    private String extractDestIp(byte[] packet) {
         try {
-            int i = 28;
-            StringBuilder domain = new StringBuilder();
-            while (i < len) {
-                int partLen = data[i++] & 0xFF;
-                if (partLen == 0) break;
-                if (i + partLen > len) return null;
-                if (domain.length() > 0) domain.append(".");
-                domain.append(new String(data, i, partLen, StandardCharsets.UTF_8));
-                i += partLen;
-            }
-            return domain.toString().toLowerCase();
+            int version = (packet[0] >> 4) & 0xF;
+            if (version != 4) return null; // IPv4 apenas
+
+            return (packet[16] & 0xFF) + "." +
+                   (packet[17] & 0xFF) + "." +
+                   (packet[18] & 0xFF) + "." +
+                   (packet[19] & 0xFF);
         } catch (Exception e) {
             return null;
         }
-    }
-
-    private boolean isBlockedDomain(String domain) {
-        for (String d : BetDomains.get()) {
-            if (domain.endsWith(d)) return true;
-        }
-        return false;
     }
 }
