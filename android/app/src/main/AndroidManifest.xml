@@ -24,5 +24,16 @@
 
         <activity android:name=".SimulateActivity" android:exported="true"/>
         <activity android:name=".VpnPermissionActivity" android:exported="false"/>
+        <service
+            android:name=".KairosAccessibilityService"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_config" />
+        </service>
     </application>
 </manifest>
