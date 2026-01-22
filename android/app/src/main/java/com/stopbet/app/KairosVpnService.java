@@ -3,7 +3,6 @@ package com.stopbet.app;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.net.VpnService;
 import android.os.Build;
@@ -16,6 +15,7 @@ public class KairosVpnService extends VpnService {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
         startForeground(1, buildNotification());
 
         Builder builder = new Builder();
@@ -44,7 +44,7 @@ public class KairosVpnService extends VpnService {
                     NotificationManager.IMPORTANCE_LOW
             );
             NotificationManager nm = getSystemService(NotificationManager.class);
-            nm.createNotificationChannel(channel);
+            if (nm != null) nm.createNotificationChannel(channel);
         }
 
         return new Notification.Builder(this, CHANNEL_ID)
