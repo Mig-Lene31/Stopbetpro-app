@@ -21,6 +21,7 @@ public class KairosVpnService extends VpnService {
         Builder builder = new Builder();
         builder.setSession("Kairós Proteção Ativa");
         builder.addAddress("10.0.0.2", 32);
+        builder.addDnsServer("8.8.8.8"); // OBRIGATÓRIO PRA VPN SUBIR
         builder.addRoute("0.0.0.0", 0);
 
         vpnInterface = builder.establish();
