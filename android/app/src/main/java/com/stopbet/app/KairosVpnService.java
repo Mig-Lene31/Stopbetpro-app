@@ -34,6 +34,7 @@ public class KairosVpnService extends VpnService {
             }
 
             MotorStateStore.setRunning(this, true);
+            AccessibilityFlowStore.clear(this);
             return START_STICKY;
 
         } catch (Exception e) {

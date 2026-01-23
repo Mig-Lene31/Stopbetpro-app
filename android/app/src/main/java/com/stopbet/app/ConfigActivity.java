@@ -61,10 +61,18 @@ public class ConfigActivity extends Activity {
                 LimitsStore.setWin(this, (float) sw);
 
                 // CHECAGEM OBRIGATÓRIA DE ACCESSIBILITY
+                // CHECAGEM DE ACCESSIBILITY COM TOLERÂNCIA DE SISTEMA
                 if (!AccessibilityGuard.isEnabled(this)) {
-                    Toast.makeText(this, "Ative a Acessibilidade do Kairós", Toast.LENGTH_LONG).show();
-                    PermissionHelper.openAccessibility(this);
-                    return;
+
+                    if (!AccessibilityFlowStore.hasStarted(this)) {
+                        AccessibilityFlowStore.markStarted(this);
+                        Toast.makeText(this, "Ative a Acessibilidade do Kairós", Toast.LENGTH_LONG).show();
+                        PermissionHelper.openAccessibility(this);
+                        return;
+                    }
+
+                    // Já passou pela tela uma vez, permite seguir
+                }
                 }
 
                 // SE PASSOU AQUI → PODE PEDIR VPN
