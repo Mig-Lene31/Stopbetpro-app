@@ -60,7 +60,14 @@ public class ConfigActivity extends Activity {
                 LimitsStore.setLoss(this, (float) sl);
                 LimitsStore.setWin(this, (float) sw);
 
-                // >>> AQUI COMEÇA O FLUXO CORRETO <<<
+                // CHECAGEM OBRIGATÓRIA DE ACCESSIBILITY
+                if (!AccessibilityGuard.isEnabled(this)) {
+                    Toast.makeText(this, "Ative a Acessibilidade do Kairós", Toast.LENGTH_LONG).show();
+                    PermissionHelper.openAccessibility(this);
+                    return;
+                }
+
+                // SE PASSOU AQUI → PODE PEDIR VPN
                 startActivity(new Intent(this, VpnPermissionActivity.class));
 
             } catch (Exception e) {
