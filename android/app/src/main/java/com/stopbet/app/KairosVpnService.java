@@ -18,15 +18,29 @@ public class KairosVpnService extends VpnService {
 
         startForeground(1, buildNotification());
 
-        Builder builder = new Builder();
-        builder.setSession("Kairós Proteção Ativa");
-        builder.addAddress("10.0.0.2", 32);
-        builder.addDnsServer("8.8.8.8"); // ESSENCIAL
-        builder.addRoute("0.0.0.0", 0);
+        try {
+            Builder builder = new Builder();
+            builder.setSession("Kairós Proteção Ativa");
+            builder.addAddress("10.0.0.2", 32);
+            builder.addDnsServer("8.8.8.8");
+            builder.addRoute("0.0.0.0", 0);
 
-        vpnInterface = builder.establish();
+            vpnInterface = builder.establish();
 
-        return START_STICKY;
+            if (vpnInterface == null) {
+                MotorStateStore.setRunning(this, false);
+                stopSelf();
+                return START_NOT_STICKY;
+            }
+
+            MotorStateStore.setRunning(this, true);
+            return START_STICKY;
+
+        } catch (Exception e) {
+            MotorStateStore.setRunning(this, false);
+            stopSelf();
+            return START_NOT_STICKY;
+        }
     }
 
     @Override
@@ -34,6 +48,7 @@ public class KairosVpnService extends VpnService {
         try {
             if (vpnInterface != null) vpnInterface.close();
         } catch (Exception ignored) {}
+        MotorStateStore.setRunning(this, false);
         super.onDestroy();
     }
 
