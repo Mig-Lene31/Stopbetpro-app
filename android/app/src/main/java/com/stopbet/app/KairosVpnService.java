@@ -12,6 +12,7 @@ public class KairosVpnService extends VpnService {
 
     private static final String CHANNEL_ID = "KAIROS_VPN_CHANNEL";
     private ParcelFileDescriptor vpnInterface;
+    private Thread keepAlive;
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -35,6 +36,16 @@ public class KairosVpnService extends VpnService {
 
             MotorStateStore.setRunning(this, true);
             AccessibilityFlowStore.clear(this);
+
+            keepAlive = new Thread(() -> {
+                try {
+                    while (!Thread.currentThread().isInterrupted()) {
+                        Thread.sleep(10000);
+                    }
+                } catch (InterruptedException ignored) {}
+            });
+            keepAlive.start();
+
             return START_STICKY;
 
         } catch (Exception e) {
@@ -49,6 +60,9 @@ public class KairosVpnService extends VpnService {
         try {
             if (vpnInterface != null) vpnInterface.close();
         } catch (Exception ignored) {}
+
+        if (keepAlive != null) keepAlive.interrupt();
+
         MotorStateStore.setRunning(this, false);
         super.onDestroy();
     }
