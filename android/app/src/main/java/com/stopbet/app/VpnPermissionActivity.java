@@ -25,7 +25,8 @@ public class VpnPermissionActivity extends Activity {
         if (resultCode == RESULT_OK) {
             startVpn();
         } else {
-            Toast.makeText(this, "Permissão de VPN negada", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "VPN obrigatória para ativar o motor", Toast.LENGTH_LONG).show();
+            MotorStateStore.setRunning(this, false);
         }
         finish();
     }
