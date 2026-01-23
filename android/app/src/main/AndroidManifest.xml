@@ -17,34 +17,25 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name=".StopHeartService"
-            android:exported="false"
-            android:foregroundServiceType="dataSync"/>
-
-        <activity android:name=".SimulateActivity" android:exported="true"/>
         <activity android:name=".VpnPermissionActivity" android:exported="false"/>
+        <activity android:name=".BlockScreenActivity" android:exported="false"/>
+
+        <service
+            android:name=".KairosVpnService"
+            android:permission="android.permission.BIND_VPN_SERVICE"
+            android:exported="false" />
+
         <service
             android:name=".KairosAccessibilityService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
             android:exported="false">
             <intent-filter>
-                <action android:name="android.accessibilityservice.AccessibilityService" />
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
             </intent-filter>
             <meta-data
                 android:name="android.accessibilityservice"
-                android:resource="@xml/accessibility_config" />
+                android:resource="@xml/accessibility_config"/>
         </service>
-        <activity android:name=".BlockScreenActivity" android:exported="false"/>
-        <service
-            android:name=".KairosVpnService"
-            android:permission="android.permission.BIND_VPN_SERVICE"
-            android:exported="false" />
-        <activity android:name=".VpnPermissionActivity" android:exported="false"/>
-        <service
-            android:name=".KairosVpnService"
-            android:permission="android.permission.BIND_VPN_SERVICE"
-            android:exported="false" />
-        <activity android:name=".VpnPermissionActivity" android:exported="false"/>
+
     </application>
 </manifest>
