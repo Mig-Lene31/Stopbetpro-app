@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.VpnService;
 import android.os.Bundle;
+import android.widget.Toast;
 
 public class VpnPermissionActivity extends Activity {
 
@@ -15,19 +16,29 @@ public class VpnPermissionActivity extends Activity {
         if (intent != null) {
             startActivityForResult(intent, 100);
         } else {
-            startVpn();
+            startVpnSafely();
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
-            startVpn();
+            startVpnSafely();
+        } else {
+            Toast.makeText(this, "Permissão de VPN negada", Toast.LENGTH_LONG).show();
+            MotorStateStore.setRunning(this, false);
+            finish();
         }
-        finish();
     }
 
-    private void startVpn() {
-        startService(new Intent(this, KairosVpnService.class));
+    private void startVpnSafely() {
+        try {
+            startService(new Intent(this, KairosVpnService.class));
+            MotorStateStore.setRunning(this, true);
+        } catch (Exception e) {
+            MotorStateStore.setRunning(this, false);
+            Toast.makeText(this, "Falha ao iniciar VPN", Toast.LENGTH_LONG).show();
+        }
+        finish();
     }
 }
