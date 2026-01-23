@@ -38,32 +38,30 @@ public class ConfigActivity extends Activity {
         status = new TextView(this);
 
         Button toggle = new Button(this);
-        toggle.setText("ALTERNAR MOTOR");
+        toggle.setText("ATIVAR PROTEÇÃO");
 
         toggle.setOnClickListener(v -> {
             try {
-                if (!MotorStateStore.isRunning(this)) {
-
-                    double d = parse(deposit.getText().toString());
-                    double sl = parse(stopLoss.getText().toString());
-                    double sw = parse(stopWin.getText().toString());
-
-                    if (d <= 0 || sl <= 0 || sw <= 0) {
-                        Toast.makeText(this, "Preencha todos os campos corretamente", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-
-                    DepositStore.set(this, d);
-                    LimitsStore.setLoss(this, (float) sl);
-                    LimitsStore.setWin(this, (float) sw);
-
-                    startActivity(new Intent(this, VpnPermissionActivity.class));
-
-                } else {
-                    stopService(new Intent(this, StopHeartService.class));
+                if (MotorStateStore.isRunning(this)) {
+                    Toast.makeText(this, "Proteção já está ativa", Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
-                updateUI();
+                double d = parse(deposit.getText().toString());
+                double sl = parse(stopLoss.getText().toString());
+                double sw = parse(stopWin.getText().toString());
+
+                if (d <= 0 || sl <= 0 || sw <= 0) {
+                    Toast.makeText(this, "Preencha todos os campos corretamente", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                DepositStore.set(this, d);
+                LimitsStore.setLoss(this, (float) sl);
+                LimitsStore.setWin(this, (float) sw);
+
+                // >>> AQUI COMEÇA O FLUXO CORRETO <<<
+                startActivity(new Intent(this, VpnPermissionActivity.class));
 
             } catch (Exception e) {
                 Toast.makeText(this, "Use apenas números", Toast.LENGTH_SHORT).show();
@@ -82,6 +80,12 @@ public class ConfigActivity extends Activity {
         updateUI();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateUI();
+    }
+
     private void loadValues() {
         double d = DepositStore.get(this);
         float sl = LimitsStore.getLoss(this);
@@ -94,8 +98,7 @@ public class ConfigActivity extends Activity {
 
     private void updateUI() {
         boolean running = MotorStateStore.isRunning(this);
-
-        status.setText(running ? "Motor ATIVO" : "Motor DESATIVADO");
+        status.setText(running ? "Proteção ATIVA" : "Proteção DESATIVADA");
 
         deposit.setEnabled(!running);
         stopLoss.setEnabled(!running);
