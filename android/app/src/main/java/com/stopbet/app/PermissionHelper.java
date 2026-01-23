@@ -11,10 +11,4 @@ public class PermissionHelper {
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         ctx.startActivity(i);
     }
-
-    public static void openOverlay(Context ctx) {
-        Intent i = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
-        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        ctx.startActivity(i);
-    }
 }
