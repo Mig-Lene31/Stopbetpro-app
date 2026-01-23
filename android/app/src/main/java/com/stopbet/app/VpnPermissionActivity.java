@@ -8,30 +8,33 @@ import android.widget.Toast;
 
 public class VpnPermissionActivity extends Activity {
 
+    private static final int VPN_REQ = 100;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         Intent intent = VpnService.prepare(this);
         if (intent != null) {
-            startActivityForResult(intent, 100);
+            startActivityForResult(intent, VPN_REQ);
         } else {
-            startVpn();
+            onVpnGranted();
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            startVpn();
+        if (requestCode == VPN_REQ && resultCode == RESULT_OK) {
+            onVpnGranted();
         } else {
-            Toast.makeText(this, "VPN obrigatória para ativar o motor", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Permissão de VPN negada", Toast.LENGTH_LONG).show();
             MotorStateStore.setRunning(this, false);
+            finish();
         }
-        finish();
     }
 
-    private void startVpn() {
-        startService(new Intent(this, KairosVpnService.class));
+    private void onVpnGranted() {
+        startForegroundService(new Intent(this, KairosVpnService.class));
+        finish();
     }
 }
