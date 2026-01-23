@@ -1,16 +1,14 @@
 package com.stopbet.app;
 
 import android.content.Context;
-import android.content.Intent;
 
 public class BlockController {
 
-    public static void triggerBlock(Context ctx) {
-        EngineState.blockFor12Hours(ctx);
-        ctx.startService(new Intent(ctx, BetBlockVpnService.class));
-    }
-
-    public static boolean isBlocked(Context ctx) {
-        return EngineState.isBlocked(ctx);
+    public static void block(Context ctx) {
+        // BLOQUEIO AGORA É FEITO VIA:
+        // - Accessibility
+        // - KairosVpnService
+        // Este método fica como ponto lógico central
+        MotorStateStore.setRunning(ctx, false);
     }
 }
