@@ -34,7 +34,9 @@ public class VpnPermissionActivity extends Activity {
     }
 
     private void onVpnGranted() {
-        startForegroundService(new Intent(this, KairosVpnService.class));
+        
+startForegroundService(new Intent(this, KairosVpnService.class));
+new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(this::finish, 300);
         finish();
     }
 }
