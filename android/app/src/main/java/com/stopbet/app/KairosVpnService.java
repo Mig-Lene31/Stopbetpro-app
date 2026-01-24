@@ -33,6 +33,9 @@ public class KairosVpnService extends VpnService {
                 return START_NOT_STICKY;
             }
 
+            // SIMULA observação de domínio (fase 3.2.4)
+            VpnTrafficObserver.onHostObserved("www.bet365.com");
+
             return START_STICKY;
 
         } catch (Exception e) {
