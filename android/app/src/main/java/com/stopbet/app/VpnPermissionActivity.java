@@ -29,7 +29,6 @@ public class VpnPermissionActivity extends Activity {
         } else {
             Toast.makeText(this, "Permissão de VPN negada", Toast.LENGTH_LONG).show();
             MotorStateStore.setRunning(this, false);
-            finish();
         }
     }
 
@@ -37,6 +36,5 @@ public class VpnPermissionActivity extends Activity {
         
 startForegroundService(new Intent(this, KairosVpnService.class));
 new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(this::finish, 300);
-        finish();
     }
 }
