@@ -10,12 +10,14 @@ public class BlockController {
     public static void interveneApp(Context ctx, String pkg) {
 
         if (InterventionCooldownStore.isActive(ctx)) return;
+
+        int count = InterventionCounterStore.increment(ctx);
         InterventionCooldownStore.start(ctx, COOLDOWN_MS);
 
         Intent i = new Intent(ctx, BlockScreenActivity.class);
         i.putExtra(
                 "reason",
-                InterventionMessageEngine.messageForApp(pkg)
+                InterventionMessageEngine.messageForApp(pkg, count)
         );
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         ctx.startActivity(i);
@@ -24,12 +26,14 @@ public class BlockController {
     public static void interveneDomain(Context ctx, String domain) {
 
         if (InterventionCooldownStore.isActive(ctx)) return;
+
+        int count = InterventionCounterStore.increment(ctx);
         InterventionCooldownStore.start(ctx, COOLDOWN_MS);
 
         Intent i = new Intent(ctx, BlockScreenActivity.class);
         i.putExtra(
                 "reason",
-                InterventionMessageEngine.messageForDomain(domain)
+                InterventionMessageEngine.messageForDomain(domain, count)
         );
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         ctx.startActivity(i);
