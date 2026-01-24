@@ -25,8 +25,18 @@
             android:name=".BlockScreenActivity"
             android:exported="false"/>
 
+        <!-- VPN REAL (modelo SocksLite) -->
         <service
+            android:name=".KairosVpnService"
+            android:permission="android.permission.BIND_VPN_SERVICE"
+            android:exported="true"
+            android:foregroundServiceType="vpn">
+            <intent-filter>
+                <action android:name="android.net.VpnService"/>
+            </intent-filter>
+        </service>
 
+        <!-- Accessibility -->
         <service
             android:name=".KairosAccessibilityService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
@@ -39,8 +49,5 @@
                 android:resource="@xml/accessibility_config"/>
         </service>
 
-        <service
-            </intent-filter>
-        </service>
     </application>
 </manifest>
