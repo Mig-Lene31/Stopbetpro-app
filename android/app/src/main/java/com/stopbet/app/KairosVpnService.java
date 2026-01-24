@@ -18,15 +18,15 @@ public class KairosVpnService extends VpnService {
 
         startForeground(1, buildNotification());
 
-        if (vpnInterface != null) {
-            return START_STICKY;
-        }
+        if (vpnInterface != null) return START_STICKY;
 
         try {
             Builder builder = new Builder();
             builder.setSession("Kairós Proteção Ativa");
 
             builder.addAddress("10.0.0.2", 32);
+            builder.addDnsServer("8.8.8.8");
+            builder.addDnsServer("1.1.1.1");
 
             vpnInterface = builder.establish();
 
