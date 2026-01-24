@@ -8,16 +8,23 @@ import android.net.VpnService;
 import android.os.Build;
 import android.os.ParcelFileDescriptor;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
 public class KairosVpnService extends VpnService {
 
     private static final String CHANNEL_ID = "KAIROS_VPN_CHANNEL";
+
     private ParcelFileDescriptor vpnInterface;
-    private Thread keepAlive;
+    private Thread vpnThread;
+    private boolean running = false;
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
         startForeground(1, buildNotification());
+
+        if (running) return START_STICKY;
 
         try {
             Builder builder = new Builder();
@@ -27,29 +34,33 @@ public class KairosVpnService extends VpnService {
             builder.addRoute("0.0.0.0", 0);
 
             vpnInterface = builder.establish();
-
             if (vpnInterface == null) {
-                MotorStateStore.setRunning(this, false);
                 stopSelf();
                 return START_NOT_STICKY;
             }
 
+            running = true;
             MotorStateStore.setRunning(this, true);
-            AccessibilityFlowStore.clear(this);
 
-            keepAlive = new Thread(() -> {
+            FileInputStream in = new FileInputStream(vpnInterface.getFileDescriptor());
+            FileOutputStream out = new FileOutputStream(vpnInterface.getFileDescriptor());
+
+            vpnThread = new Thread(() -> {
+                byte[] buffer = new byte[32767];
                 try {
-                    while (!Thread.currentThread().isInterrupted()) {
-                        Thread.sleep(10000);
+                    while (running) {
+                        int len = in.read(buffer);
+                        if (len > 0) {
+                            out.write(buffer, 0, len);
+                        }
                     }
-                } catch (InterruptedException ignored) {}
+                } catch (Exception ignored) {}
             });
-            keepAlive.start();
+            vpnThread.start();
 
             return START_STICKY;
 
         } catch (Exception e) {
-            MotorStateStore.setRunning(this, false);
             stopSelf();
             return START_NOT_STICKY;
         }
@@ -57,13 +68,14 @@ public class KairosVpnService extends VpnService {
 
     @Override
     public void onDestroy() {
+        running = false;
+        MotorStateStore.setRunning(this, false);
+
         try {
+            if (vpnThread != null) vpnThread.interrupt();
             if (vpnInterface != null) vpnInterface.close();
         } catch (Exception ignored) {}
 
-        if (keepAlive != null) keepAlive.interrupt();
-
-        MotorStateStore.setRunning(this, false);
         super.onDestroy();
     }
 
@@ -80,7 +92,7 @@ public class KairosVpnService extends VpnService {
 
         return new Notification.Builder(this, CHANNEL_ID)
                 .setContentTitle("Kairós ativo")
-                .setContentText("Proteção contra apostas em funcionamento")
+                .setContentText("VPN ativa (modo proteção)")
                 .setSmallIcon(android.R.drawable.ic_lock_lock)
                 .build();
     }
