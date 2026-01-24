@@ -23,7 +23,6 @@ public class KairosVpnService extends VpnService {
         try {
             Builder builder = new Builder();
             builder.setSession("Kairós Proteção Ativa");
-
             builder.addAddress("10.0.0.2", 32);
             builder.addRoute("0.0.0.0", 0);
 
@@ -34,7 +33,6 @@ public class KairosVpnService extends VpnService {
                 return START_NOT_STICKY;
             }
 
-            MotorStateStore.setRunning(this, true);
             return START_STICKY;
 
         } catch (Exception e) {
@@ -45,7 +43,6 @@ public class KairosVpnService extends VpnService {
 
     @Override
     public void onDestroy() {
-        MotorStateStore.setRunning(this, false);
         try {
             if (vpnInterface != null) vpnInterface.close();
         } catch (Exception ignored) {}
@@ -65,7 +62,7 @@ public class KairosVpnService extends VpnService {
 
         return new Notification.Builder(this, CHANNEL_ID)
                 .setContentTitle("Kairós ativo")
-                .setContentText("Proteção em funcionamento")
+                .setContentText("Infraestrutura VPN ativa")
                 .setSmallIcon(android.R.drawable.ic_lock_lock)
                 .build();
     }
