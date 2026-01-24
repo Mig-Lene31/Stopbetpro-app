@@ -2,7 +2,6 @@ package com.stopbet.app;
 
 import android.content.Context;
 import android.provider.Settings;
-import android.text.TextUtils;
 
 public class AccessibilityGuard {
 
@@ -14,8 +13,10 @@ public class AccessibilityGuard {
             );
             if (enabled == null) return false;
 
-            String expected = ctx.getPackageName() + "/.KairosAccessibilityService";
-            return enabled.contains(expected);
+            String service = ctx.getPackageName() + "/" +
+                    KairosAccessibilityService.class.getName();
+
+            return enabled.contains(service);
 
         } catch (Exception e) {
             return false;
