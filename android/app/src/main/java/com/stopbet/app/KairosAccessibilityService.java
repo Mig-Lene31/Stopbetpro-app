@@ -2,10 +2,12 @@ package com.stopbet.app;
 
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityServiceInfo;
+import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
-import android.content.Intent;
 
 public class KairosAccessibilityService extends AccessibilityService {
+
+    private static final String TAG = "KAIROS_ACCESS";
 
     @Override
     protected void onServiceConnected() {
@@ -19,17 +21,12 @@ public class KairosAccessibilityService extends AccessibilityService {
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
         if (event == null || event.getPackageName() == null) return;
-
         if (!MotorStateStore.isRunning(this)) return;
 
         String pkg = event.getPackageName().toString();
 
-        if (BlockedApps.list().contains(pkg)) {
-            performGlobalAction(GLOBAL_ACTION_HOME);
-
-            Intent i = new Intent(this, BlockScreenActivity.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(i);
+        if (BetDetectionEngine.isBetPackage(pkg)) {
+            Log.w(TAG, "App de aposta detectado: " + pkg);
         }
     }
 
