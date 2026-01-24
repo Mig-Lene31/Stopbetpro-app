@@ -28,7 +28,6 @@ public class VpnPermissionActivity extends Activity {
             onVpnGranted();
         } else {
             Toast.makeText(this, "Permissão de VPN negada", Toast.LENGTH_LONG).show();
-            MotorStateStore.setRunning(this, false);
         }
     }
 
