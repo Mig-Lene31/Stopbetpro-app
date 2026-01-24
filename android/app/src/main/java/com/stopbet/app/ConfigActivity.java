@@ -41,39 +41,32 @@ public class ConfigActivity extends Activity {
         toggle.setText("ATIVAR PROTEÇÃO");
 
         toggle.setOnClickListener(v -> {
-            try {
-                if (MotorStateStore.isRunning(this)) {
-                    Toast.makeText(this, "Proteção já está ativa", Toast.LENGTH_SHORT).show();
-                    return;
-                }
 
-                double d = parse(deposit.getText().toString());
-                double sl = parse(stopLoss.getText().toString());
-                double sw = parse(stopWin.getText().toString());
-
-                if (d <= 0 || sl <= 0 || sw <= 0) {
-                    Toast.makeText(this, "Preencha todos os campos corretamente", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                DepositStore.set(this, d);
-                LimitsStore.setLoss(this, (float) sl);
-                LimitsStore.setWin(this, (float) sw);
-
-                if (!AccessibilityGuard.isEnabled(this)) {
-                    if (!AccessibilityFlowStore.hasStarted(this)) {
-                        AccessibilityFlowStore.markStarted(this);
-                        Toast.makeText(this, "Ative a Acessibilidade do Kairós", Toast.LENGTH_LONG).show();
-                        PermissionHelper.openAccessibility(this);
-                        return;
-                    }
-                }
-
-                startActivity(new Intent(this, VpnPermissionActivity.class));
-
-            } catch (Exception e) {
-                Toast.makeText(this, "Use apenas números", Toast.LENGTH_SHORT).show();
+            if (MotorStateStore.isRunning(this)) {
+                Toast.makeText(this, "Proteção já ativa", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            double d = parse(deposit.getText().toString());
+            double sl = parse(stopLoss.getText().toString());
+            double sw = parse(stopWin.getText().toString());
+
+            if (d <= 0 || sl <= 0 || sw <= 0) {
+                Toast.makeText(this, "Preencha todos os campos corretamente", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            DepositStore.set(this, d);
+            LimitsStore.setLoss(this, (float) sl);
+            LimitsStore.setWin(this, (float) sw);
+
+            if (!AccessibilityGuard.isEnabled(this)) {
+                Toast.makeText(this, "Ative a Acessibilidade do Kairós", Toast.LENGTH_LONG).show();
+                PermissionHelper.openAccessibility(this);
+                return;
+            }
+
+            startActivity(new Intent(this, VpnPermissionActivity.class));
         });
 
         root.addView(deposit);
@@ -83,8 +76,6 @@ public class ConfigActivity extends Activity {
         root.addView(toggle);
 
         setContentView(root);
-
-        loadValues();
         updateUI();
     }
 
@@ -92,16 +83,6 @@ public class ConfigActivity extends Activity {
     protected void onResume() {
         super.onResume();
         updateUI();
-    }
-
-    private void loadValues() {
-        double d = DepositStore.get(this);
-        float sl = LimitsStore.getLoss(this);
-        float sw = LimitsStore.getWin(this);
-
-        if (d > 0) deposit.setText(String.valueOf(d));
-        if (sl > 0) stopLoss.setText(String.valueOf(sl));
-        if (sw > 0) stopWin.setText(String.valueOf(sw));
     }
 
     private void updateUI() {
