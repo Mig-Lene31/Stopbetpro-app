@@ -21,12 +21,13 @@ public class KairosAccessibilityService extends AccessibilityService {
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
         if (event == null || event.getPackageName() == null) return;
-        if (!MotorStateStore.isRunning(this)) return;
+
+        if (!BetInterventionPolicy.shouldIntervene(this)) return;
 
         String pkg = event.getPackageName().toString();
 
         if (BetDetectionEngine.isBetPackage(pkg)) {
-            Log.w(TAG, "App de aposta detectado: " + pkg);
+            Log.w(TAG, "INTERVENÇÃO AUTORIZADA (app): " + pkg);
         }
     }
 

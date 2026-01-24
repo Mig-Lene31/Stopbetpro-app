@@ -1,5 +1,6 @@
 package com.stopbet.app;
 
+import android.content.Context;
 import android.os.ParcelFileDescriptor;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -7,8 +8,10 @@ import java.io.IOException;
 public class VpnPacketLoop implements Runnable {
 
     private final ParcelFileDescriptor vpnInterface;
+    private final Context ctx;
 
-    public VpnPacketLoop(ParcelFileDescriptor vpnInterface) {
+    public VpnPacketLoop(Context ctx, ParcelFileDescriptor vpnInterface) {
+        this.ctx = ctx;
         this.vpnInterface = vpnInterface;
     }
 
@@ -23,7 +26,7 @@ public class VpnPacketLoop implements Runnable {
                 if (length > 0) {
                     String host = DnsPacketParser.extractHostname(buffer);
                     if (host != null) {
-                        VpnTrafficObserver.onHostObserved(host);
+                        VpnTrafficObserver.onHostObserved(ctx, host);
                     }
                 }
             } catch (IOException e) {
