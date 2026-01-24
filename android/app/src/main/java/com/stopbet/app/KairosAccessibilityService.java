@@ -2,12 +2,9 @@ package com.stopbet.app;
 
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityServiceInfo;
-import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 
 public class KairosAccessibilityService extends AccessibilityService {
-
-    private static final String TAG = "KAIROS_ACCESS";
 
     @Override
     protected void onServiceConnected() {
@@ -27,7 +24,10 @@ public class KairosAccessibilityService extends AccessibilityService {
         String pkg = event.getPackageName().toString();
 
         if (BetDetectionEngine.isBetPackage(pkg)) {
-            Log.w(TAG, "INTERVENÇÃO AUTORIZADA (app): " + pkg);
+            BlockController.intervene(
+                    this,
+                    "Aplicativo de apostas detectado:\n" + pkg
+            );
         }
     }
 
