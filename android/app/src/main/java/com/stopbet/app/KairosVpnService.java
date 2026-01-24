@@ -25,8 +25,8 @@ public class KairosVpnService extends VpnService {
         try {
             Builder builder = new Builder();
             builder.setSession("Kairós Proteção Ativa");
+
             builder.addAddress("10.0.0.2", 32);
-            builder.addRoute("0.0.0.0", 0);
 
             vpnInterface = builder.establish();
 
