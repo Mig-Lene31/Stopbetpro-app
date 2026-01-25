@@ -1,6 +1,7 @@
 package com.stopbet.app.runtime;
 
 import android.content.Context;
+import android.content.Intent;
 import com.stopbet.app.domain.*;
 import com.stopbet.app.*;
 
@@ -8,9 +9,13 @@ public class DomainBridge {
 
     public static void evaluate(Context ctx, double balance) {
 
-        // Se já houve Stop hoje, mantém bloqueado
+        // Se já houve Stop hoje, garante bloqueio e tela
         if (DailyStopStore.isStoppedToday(ctx)) {
             EngineState.blockFor12Hours(ctx);
+
+            Intent i = new Intent(ctx, DailyStopActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            ctx.startActivity(i);
             return;
         }
 
@@ -33,6 +38,10 @@ public class DomainBridge {
             case BLOCK_12H:
                 DailyStopStore.mark(ctx, "STOP");
                 EngineState.blockFor12Hours(ctx);
+
+                Intent i = new Intent(ctx, DailyStopActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                ctx.startActivity(i);
                 break;
 
             case RELEASE:
