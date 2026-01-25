@@ -8,6 +8,12 @@ public class DomainBridge {
 
     public static void evaluate(Context ctx, double balance) {
 
+        // Se já houve Stop hoje, mantém bloqueado
+        if (DailyStopStore.isStoppedToday(ctx)) {
+            EngineState.blockFor12Hours(ctx);
+            return;
+        }
+
         ProtectionInput in = new ProtectionInput();
 
         in.deposit = DepositStore.get(ctx);
@@ -23,7 +29,9 @@ public class DomainBridge {
                 EngineRuntimeCore.check(ctx, in);
 
         switch (decision) {
+
             case BLOCK_12H:
+                DailyStopStore.mark(ctx, "STOP");
                 EngineState.blockFor12Hours(ctx);
                 break;
 
