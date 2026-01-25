@@ -31,6 +31,11 @@ public class BalanceReadAccessibilityService extends AccessibilityService {
             Double value = MoneyTextParser.extract(node.getText().toString());
             if (value != null && value > 0) {
                 BalanceSnapshotStore.save(this, value);
+
+                if (BalanceStabilityEngine.isStable(this, value)) {
+                    BalanceEngineBridge.onStableBalance(this, value);
+                }
+
             }
         }
 
