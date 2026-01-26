@@ -39,4 +39,11 @@ public class LimitsStore {
     public static boolean isConfigured(Context ctx) {
         return hasLimits(ctx);
     }
+
+    public static void clear(Context ctx) {
+        ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
+                .edit()
+                .clear()
+                .apply();
+    }
 }
