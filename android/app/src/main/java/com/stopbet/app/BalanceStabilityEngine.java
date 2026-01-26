@@ -1,6 +1,7 @@
 package com.stopbet.app;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
 public class BalanceStabilityEngine {
 
@@ -13,7 +14,8 @@ public class BalanceStabilityEngine {
 
     public static boolean isStable(Context ctx, double value) {
 
-        var prefs = ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE);
+        SharedPreferences prefs =
+                ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE);
 
         double last = prefs.getFloat(KEY_LAST, -1f);
         int count = prefs.getInt(KEY_COUNT, 0);
