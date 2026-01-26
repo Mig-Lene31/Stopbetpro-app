@@ -37,7 +37,7 @@ public class KairosVpnService extends VpnService {
             }
 
             // SIMULA observação de domínio (fase 3.2.4)
-            VpnTrafficObserver.onHostObserved("www.bet365.com");
+            VpnTrafficObserver.onHostObserved(this, "www.bet365.com");
 
             return START_STICKY;
 
