@@ -43,3 +43,7 @@ public class LimitsStore {
                 .apply();
     }
 }
+
+    public static boolean isConfigured(Context ctx) {
+        return getWin(ctx) > 0 && getLoss(ctx) > 0;
+    }

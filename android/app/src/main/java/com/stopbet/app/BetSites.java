@@ -20,3 +20,7 @@ public class BetSites {
         "cassino"
     };
 }
+
+    public static final String[] KEYWORDS = {
+        "bet", "casino", "blaze", "pixbet", "sporting"
+    };

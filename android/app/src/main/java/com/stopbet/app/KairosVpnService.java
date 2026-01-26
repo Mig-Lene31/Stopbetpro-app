@@ -28,7 +28,7 @@ public class KairosVpnService extends VpnService {
 
             vpnInterface = builder.establish();
 
-            new Thread(new VpnPacketLoop(vpnInterface)).start();
+            new Thread(new VpnPacketLoop(this, vpnInterface)).start();
 
 
             if (vpnInterface == null) {

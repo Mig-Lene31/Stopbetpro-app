@@ -33,3 +33,7 @@ public class BetDomains {
         return DOMAINS;
     }
 }
+
+    public static String[] list() {
+        return DOMAINS;
+    }

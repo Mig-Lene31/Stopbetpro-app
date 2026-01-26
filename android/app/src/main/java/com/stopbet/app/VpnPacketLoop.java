@@ -7,8 +7,8 @@ import java.io.IOException;
 
 public class VpnPacketLoop implements Runnable {
 
-    private final ParcelFileDescriptor vpnInterface;
     private final Context ctx;
+    private final ParcelFileDescriptor vpnInterface;
 
     public VpnPacketLoop(Context ctx, ParcelFileDescriptor vpnInterface) {
         this.ctx = ctx;
