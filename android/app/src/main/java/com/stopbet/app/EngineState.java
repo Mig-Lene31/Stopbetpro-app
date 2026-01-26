@@ -28,6 +28,12 @@ public class EngineState {
                 .apply();
     }
 
+    public static boolean isBlocked(Context ctx) {
+        long until = ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
+                .getLong(KEY_BLOCK_UNTIL, 0L);
+        return until > System.currentTimeMillis();
+    }
+
     public static long getBlockUntil(Context ctx) {
         return ctx.getSharedPreferences(PREF, Context.MODE_PRIVATE)
                 .getLong(KEY_BLOCK_UNTIL, 0L);
