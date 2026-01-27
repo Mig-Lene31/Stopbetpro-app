@@ -1,60 +1,34 @@
 package com.stopbet.app;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 
 public class AppPrefs {
 
-    private static final String PREFS = "stopbet_prefs";
-
-    private static final String KEY_WIN  = "stop_win";
-    private static final String KEY_LOSS = "stop_loss";
-    private static final String KEY_TIME = "limit_time";
-
-    private static SharedPreferences sp(Context ctx) {
-        return ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
-    }
-
-    // ===== WIN / LOSS (STRING) =====
     public static void setWin(Context ctx, String value) {
-        sp(ctx).edit().putString(KEY_WIN, value).apply();
+        try {
+            LimitsStore.setWin(ctx, Float.parseFloat(value));
+        } catch (Exception ignored) {}
     }
 
     public static void setLoss(Context ctx, String value) {
-        sp(ctx).edit().putString(KEY_LOSS, value).apply();
+        try {
+            LimitsStore.setLoss(ctx, Float.parseFloat(value));
+        } catch (Exception ignored) {}
     }
 
     public static String getWin(Context ctx) {
-        return sp(ctx).getString(KEY_WIN, "0");
+        return String.valueOf(LimitsStore.getWin(ctx));
+    }
+
+    public static float getWinValue(Context ctx) {
+        return LimitsStore.getWin(ctx);
     }
 
     public static String getLoss(Context ctx) {
-        return sp(ctx).getString(KEY_LOSS, "0");
-    }
-
-    // ===== WIN / LOSS (FLOAT) =====
-    public static float getWinValue(Context ctx) {
-        try {
-            return Float.parseFloat(getWin(ctx));
-        } catch (Exception e) {
-            return 0f;
-        }
+        return String.valueOf(LimitsStore.getLoss(ctx));
     }
 
     public static float getLossValue(Context ctx) {
-        try {
-            return Float.parseFloat(getLoss(ctx));
-        } catch (Exception e) {
-            return 0f;
-        }
-    }
-
-    // ===== TEMPO =====
-    public static void setTime(Context ctx, String value) {
-        sp(ctx).edit().putString(KEY_TIME, value).apply();
-    }
-
-    public static String getTime(Context ctx) {
-        return sp(ctx).getString(KEY_TIME, "0");
+        return LimitsStore.getLoss(ctx);
     }
 }
